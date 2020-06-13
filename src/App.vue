@@ -5,5 +5,7 @@
 </template>
 
 <style lang="scss">
-
+#app {
+  padding: 0.5rem;
+}
 </style> 

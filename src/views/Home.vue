@@ -2,6 +2,7 @@
   <section id="home">
     <Header />
     <Word />
+    <Addword />
   </section>
 </template>
 
@@ -9,21 +10,18 @@
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import Word from "@/components/Word.vue";
+import Addword from "@/components/Addword.vue";
 
 export default {
   name: "Home",
+  //Home is the same as Hotlist
   components: {
     Header,
-    Word
+    Word,
+    Addword
   }
 };
 </script>
-
-<style lang="scss" scoped>
-#home {
-  padding: 0.5rem;
-}
-</style>
 
 <!-- the components:
 - navigation
