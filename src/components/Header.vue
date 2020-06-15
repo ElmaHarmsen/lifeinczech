@@ -28,7 +28,7 @@ section {
   gap: 1rem;
 
   .header_page-title {
-    
+    height: 50px;
   }
 }
 </style>

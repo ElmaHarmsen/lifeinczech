@@ -76,11 +76,11 @@ section {
     }
   }
   .navigation_items-wrapper {
-    width: 50%;
+    width: 65%;
     height: 100%;
     position: fixed;
     top: 0rem;
-    left: -50%;
+    left: -65%;
     z-index: 1;
     transition: left 0.2s ease-in;
     background-color: blue;
