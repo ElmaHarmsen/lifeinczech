@@ -1,7 +1,16 @@
 <template>
   <section id="home">
     <Header />
-    <Word />
+    <div class="hotlist_content">
+      <h1>This is the Hotlist CZ - EN!</h1>
+      <div class="word_hotlist-wrapper">
+        <Word 
+          v-for="wordData in hotlistWord"
+          v-bind:key="wordData.id"
+          v-bind:wordData="wordData"
+        />
+      </div>
+    </div>
     <Addword />
   </section>
 </template>
@@ -14,14 +23,42 @@ import Addword from "@/components/Addword.vue";
 
 export default {
   name: "Home",
-  //Home is the same as Hotlist
+  data: function() {
+    return {
+      hotlistJson: []
+    }
+  },
   components: {
     Header,
     Word,
     Addword
+  },
+  created: async function() {
+    await this.fetchData();
+  },
+  computed: {
+    hotlistWord: function() {
+      return this.hotlistJson.filter(word => word.hotlist === true);
+    }
+  },
+  methods: {
+    async fetchData() {
+      const hotlist = await fetch(
+        "https://dictionary--api.herokuapp.com/api/dictionarycz"
+      );
+      this.hotlistJson = await hotlist.json();
+    }
   }
 };
 </script>
+
+<style lang="scss" scoped>
+section {
+  .hotlist_content {
+    margin: 50px 0rem;
+  }
+}
+</style>
 
 <!-- the components:
 - navigation

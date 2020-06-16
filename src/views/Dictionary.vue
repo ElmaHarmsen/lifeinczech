@@ -2,7 +2,14 @@
   <section>
     <Header />
     <div class="dictionary_content">
-      <h1>This is the Dictionary CZ - EN</h1>
+      <h1>This is the Dictionary CZ - EN!</h1>
+      <div class="word_hotlist-wrapper">
+        <Word 
+          v-for="wordData in dictionaryWord"
+          v-bind:key="wordData.id"
+          v-bind:wordData="wordData"
+        />
+      </div>
     </div>
     <Addword />
   </section>
@@ -10,13 +17,36 @@
 
 <script>
 import Header from "@/components/Header.vue";
+import Word from "@/components/Word.vue";
 import Addword from "@/components/Addword.vue";
 
 export default {
   name: "Dictionary",
+  data: function() {
+    return {
+      dictionaryJson: []
+    }
+  },
   components: {
     Header,
+    Word,
     Addword
+  },
+  created: async function() {
+    await this.fetchData();
+  },
+  computed: {
+    dictionaryWord: function() {
+      return this.dictionaryJson.filter(word => word.dictionary === true);
+    }
+  },
+  methods: {
+    async fetchData() {
+      const dictionary = await fetch(
+        "https://dictionary--api.herokuapp.com/api/dictionarycz"
+      );
+      this.dictionaryJson = await dictionary.json();
+    }
   }
 }
 </script>
