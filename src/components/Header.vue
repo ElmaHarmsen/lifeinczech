@@ -2,8 +2,8 @@
   <section>
     <Navigation />
     <div class="header_page-title"> <!--will dynamically change depending on the page-->
-      <h1>Dictionary</h1>
-      <h1>CZ - EN</h1>
+      <!-- <h1>Hotlist</h1>
+      <h1>CZ - EN</h1> -->
     </div>
   </section>
 </template>

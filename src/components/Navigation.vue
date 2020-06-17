@@ -14,7 +14,7 @@
           v-bind:key="navitem.id"
         >
           <h1>
-            {{ navitem.item}}
+            {{ navitem.item }}
           </h1>
         </router-link>
       </div>
@@ -74,6 +74,9 @@ section {
       margin: 0.3rem 0rem;
       background-color: blue;
     }
+  }
+  .header_page-title {
+    height: 50px;
   }
   .navigation_items-wrapper {
     width: 65%;

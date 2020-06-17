@@ -1,8 +1,11 @@
 <template>
   <section>
-    <Header />
+    <div class="navigation_wrapper">
+      <Navigation />
+      <h1>Dictionary <br> CZ - EN</h1>
+    </div>
     <div class="dictionary_content">
-      <h1>This is the Dictionary CZ - EN!</h1>
+      <Language />
       <div class="word_hotlist-wrapper">
         <Word 
           v-for="wordData in dictionaryWord"
@@ -16,7 +19,8 @@
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
+import Navigation from "@/components/Header.vue";
+import Language from "@/components/Language.vue";
 import Word from "@/components/Word.vue";
 import Addword from "@/components/Addword.vue";
 
@@ -28,7 +32,8 @@ export default {
     }
   },
   components: {
-    Header,
+    Navigation,
+    Language,
     Word,
     Addword
   },

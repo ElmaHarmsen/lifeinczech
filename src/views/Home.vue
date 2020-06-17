@@ -1,8 +1,11 @@
 <template>
   <section id="home">
-    <Header />
+    <div class="navigation_wrapper">
+      <Navigation />
+      <h1>Hotlist <br> @ Home</h1>
+    </div>
     <div class="hotlist_content">
-      <h1>This is the Hotlist CZ - EN!</h1>
+      <Language />
       <div class="word_hotlist-wrapper">
         <Word 
           v-for="wordData in hotlistWord"
@@ -17,7 +20,8 @@
 
 <script>
 // @ is an alias to /src
-import Header from "@/components/Header.vue";
+import Navigation from "@/components/Navigation.vue";
+import Language from "@/components/Language.vue";
 import Word from "@/components/Word.vue";
 import Addword from "@/components/Addword.vue";
 
@@ -29,7 +33,8 @@ export default {
     }
   },
   components: {
-    Header,
+    Navigation,
+    Language,
     Word,
     Addword
   },

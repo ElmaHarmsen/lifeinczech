@@ -22,3 +22,13 @@ a {
 //blue & black & white, tomato?
 
 //Other reusabble stuff
+.navigation_wrapper {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: 100%;
+  gap: 1rem;
+
+  h1 {
+    line-height: 1.2;
+  }
+}
