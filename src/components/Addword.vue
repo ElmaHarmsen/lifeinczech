@@ -8,14 +8,14 @@
       <div class="addword_form">
         <h1>This is the form to add a word</h1>
         <div class="addword_inputs">
-          <input class="inputs_field" placeholder="Czech">
-          <input class="inputs_field" placeholder="English">
-          <input class="inputs_field" placeholder="Pronunciation">
+          <input class="inputs_field" placeholder="Czech" type="text" name="input_word">
+          <input class="inputs_field" placeholder="English" type="text" name="input_translation">
+          <input class="inputs_field" placeholder="Pronunciation" type="text" name="input_pronunciation">
           <div>
             <input class="inputs_radio" type="radio" id="hotlist" value="0">
             <label for="hotlist">@ Hotlist</label>
           </div>
-          <div>
+          <div class="dictionary">
             <input class="inputs_radio" type="radio" id="dictionary" value="1">
             <label for="dictionary">@ Dictionary</label>
           </div>
@@ -31,13 +31,31 @@ export default {
   name: "Addword",
   data: function() {
     return {
-      wordformopen: false
+      wordformopen: false,
+      formDataJson: []
     }
   },
   methods: {
     openWordForm() {
       this.wordformopen = !this.wordformopen;
-    }
+    },
+    // async fetchData() {
+    //   const addword = await fetch(
+    //     "https://dictionary--api.herokuapp.com/api/dictionarycz",
+    //     {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json" //Just how it is ;)
+    //       },
+    //       body: JSON.stringify({
+    //         input_word,
+    //         input_translation,
+    //         input_pronunciation
+    //       })
+    //     }
+    //   );
+    //   this.formDataJson = await addword.json();
+    // }
   }
 }
 </script>
@@ -81,7 +99,7 @@ section {
         transition: transform 0.2s;
       }
       span:last-of-type {
-        transform: rotate(45deg) translate(-2.5px, -5px);
+        transform: rotate(45deg) translate(-2.5px, -4px);
         transition: transform 0.2s;
       }
     }
@@ -121,6 +139,9 @@ section {
 
         input {
           grid-column: 1/3;
+        }
+        .dictionary {
+          justify-self: end;
         }
         .inputs_field {
           width: calc(100% - 1.2rem);

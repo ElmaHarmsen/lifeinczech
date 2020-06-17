@@ -20,7 +20,7 @@ section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 100%;
-    gap: 1rem;
+    gap: 0.5rem;
   }
   .language_wrapper > * {
     padding: 0rem 0.5rem;

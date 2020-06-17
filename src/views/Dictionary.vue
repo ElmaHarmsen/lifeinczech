@@ -2,7 +2,7 @@
   <section>
     <div class="navigation_wrapper">
       <Navigation />
-      <h1>Dictionary <br> CZ - EN</h1>
+      <h1>Dictionary <br># CZ - EN</h1>
     </div>
     <div class="dictionary_content">
       <Language />

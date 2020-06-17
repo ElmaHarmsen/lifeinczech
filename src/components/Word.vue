@@ -19,14 +19,15 @@ export default {
 section {
   .word_wrapper {
     display: grid;
-    grid-template-columns: repeat(3, calc(100% / 3 - 0.75rem));
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 100%;
-    gap: 1rem;
+    gap: 0.5rem;
     margin: 1.5rem 0rem;
     width: 100%;
 
     h2, h3 {
       border: 1px solid blue;
+      height: auto;
     }
   }
   .word_wrapper > * {
