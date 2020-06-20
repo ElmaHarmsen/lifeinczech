@@ -68,11 +68,18 @@ section {
     border: 1px solid blue;
     
     .navigation_span {
-      display: block;
-      height: 1px;
-      width: 40px;
-      margin: 0.3rem 0rem;
       background-color: blue;
+    }
+    &.close {
+      span:first-of-type {
+        transform: rotate(-45deg) translate(-8px, 6px);
+      }
+      span:nth-of-type(2) {
+        opacity: 0;
+      }
+      span:last-of-type {
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
     }
   }
   .header_page-title {

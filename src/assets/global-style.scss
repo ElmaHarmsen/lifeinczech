@@ -32,3 +32,16 @@ a {
     line-height: 1.2;
   }
 }
+
+.navigation_menu, .addword_btn {
+  .navigation_span, .addword_span {
+    display: block;
+    height: 1px;
+    width: 40px;
+    margin: 0.3rem 0rem;
+    background-color: white;
+  }
+  span {
+    transition: transform 0.2s;
+  }
+}

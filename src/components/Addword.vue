@@ -142,29 +142,20 @@ section {
     border: 1px solid blue;
 
     .addword_span {
-      display: block;
-      height: 1px;
-      width: 40px;
-      margin: 0.3rem 0rem;
       background-color: white;
     }
     span:first-of-type {
       transform: rotate(90deg) translate(5px);
-      transition: transform 0.2s;
     }
     span:last-of-type {
       transform: translate(0px, -5px);
-      transition: transform 0.2s;
     }
-
     &.close {
       span:first-of-type {
         transform: rotate(135deg) translate(5px, -5px);
-        transition: transform 0.2s;
       }
       span:last-of-type {
         transform: rotate(45deg) translate(-2.5px, -4px);
-        transition: transform 0.2s;
       }
     }
   }
