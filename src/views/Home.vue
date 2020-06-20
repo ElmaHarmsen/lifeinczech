@@ -59,9 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  .hotlist_content {
-    margin: 50px 0rem;
-  }
+
 }
 </style>
 

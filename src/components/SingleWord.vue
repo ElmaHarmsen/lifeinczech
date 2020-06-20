@@ -3,7 +3,7 @@
       <div class="word_wrapper">
         <h3>{{ singleWordData.word }}</h3>
         <h2>{{ singleWordData.translation}}</h2>
-        <h3>{{ singleWordData.pronunciation}}</h3>
+        <h3>{{ singleWordData.nederlands}}</h3>
       </div>
   </section>
 </template>

@@ -3,7 +3,7 @@
     <div v-on:click="fetchData()" class="word_wrapper" name="word_delete">
       <h3>{{ wordData.word }}</h3>
       <h2>{{ wordData.translation}}</h2>
-      <h3>{{ wordData.pronunciation}}</h3>
+      <h3>{{ wordData.nederlands}}</h3>
     </div>
   </section>
 </template>
@@ -30,7 +30,7 @@ export default {
           body: JSON.stringify({
             word: this.input_word,
             translation: this.input_translation,
-            pronunciation: this.input_pronunciation,
+            nederlands: this.input_nederlands,
             // hotlist: this.inHotlist,
             // dictionary: this.inDictionary,
             category: "test"

@@ -22,6 +22,12 @@ a {
 //blue & black & white, tomato?
 
 //Other reusabble stuff
+section {
+  .hotlist_content, .dictionary_content {
+    margin: 50px 0rem;
+  }
+}
+
 .navigation_wrapper {
   display: grid;
   grid-template-columns: 50px 1fr;

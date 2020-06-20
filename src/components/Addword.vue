@@ -23,11 +23,11 @@
             name="input_translation"
           />
           <input
-            v-model="input_pronunciation"
+            v-model="input_nederlands"
             class="inputs_field"
-            placeholder="Pronunciation"
+            placeholder="Nederlands"
             type="text"
-            name="input_pronunciation"
+            name="input_nederlands"
           />
           <div>
             <input 
@@ -60,7 +60,7 @@
       <div class="addword_pre-inputs">
         <h3>{{ input_word }}</h3>
         <h2>{{ input_translation }}</h2>
-        <h3>{{ input_pronunciation }}</h3>
+        <h3>{{ input_nederlands }}</h3>
       </div>
       <div class="addword_error">{{ error }}</div>
     </div>
@@ -75,7 +75,7 @@ export default {
       wordformopen: false,
       input_word: "",
       input_translation: "",
-      input_pronunciation: "",
+      input_nederlands: "",
       form_submit: "",
       addTo: "",
       error: "",
@@ -104,7 +104,7 @@ export default {
           body: JSON.stringify({
             word: this.input_word,
             translation: this.input_translation,
-            pronunciation: this.input_pronunciation,
+            nederlands: this.input_nederlands,
             hotlist: this.inHotlist,
             dictionary: this.inDictionary,
             category: "test"

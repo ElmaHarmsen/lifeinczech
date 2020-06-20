@@ -2,7 +2,7 @@
   <section>
     <div class="navigation_wrapper">
       <Navigation />
-      <h1>Dictionary <br># CZ - EN</h1>
+      <h1>Dictionary <br># CZ - EN - NL</h1>
     </div>
     <div class="dictionary_content">
       <Language />
@@ -58,8 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  .dictionary_content {
-    margin: 50px 0rem;
-  }
+  
 }
 </style>

@@ -37,7 +37,7 @@ export default {
         },
         {
           id: 1,
-          item: "Dictionary CZ-EN",
+          item: "Dictionary CZ-EN-NL",
           path: "/dictionary"
         }
       ]
