@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     hotlistWord: function() {
-      return this.hotlistJson.filter(word => word.hotlist === true);
+      return this.hotlistJson.filter(word => word.hotlist === true).slice().reverse();
     }
   },
   methods: {

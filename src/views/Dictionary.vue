@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     dictionaryWord: function() {
-      return this.dictionaryJson.filter(word => word.dictionary === true);
+      return this.dictionaryJson.filter(word => word.dictionary === true).slice().reverse();
     }
   },
   methods: {

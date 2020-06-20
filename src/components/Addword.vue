@@ -62,7 +62,7 @@
         <h2>{{ input_translation }}</h2>
         <h3>{{ input_pronunciation }}</h3>
       </div>
-      <div>{{ error }}</div>
+      <div class="addword_error">{{ error }}</div>
     </div>
   </section>
 </template>
@@ -242,6 +242,10 @@ section {
       }
     }
     .addword_pre-inputs > * {
+      padding: 0.8rem 0.5rem;
+    }
+    .addword_error {
+      color: red;
       padding: 0.8rem 0.5rem;
     }
   }
