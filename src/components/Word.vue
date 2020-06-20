@@ -1,9 +1,26 @@
 <template>
   <section>
-    <div v-on:click="fetchData()" class="word_wrapper" name="word_delete">
+    <div v-on:click="openDetails()" class="word_wrapper" v-bind:class="{ close: worddetailsopen }">
       <h3>{{ wordData.word }}</h3>
-      <h2>{{ wordData.translation}}</h2>
-      <h3>{{ wordData.nederlands}}</h3>
+      <h2>{{ wordData.translation }}</h2>
+      <h3>{{ wordData.nederlands }}</h3>
+    </div>
+    <div class="word_details-wrapper" v-bind:class="{ open: worddetailsopen }">
+      <div class="word_details-around">
+        <div class="word_details-words">
+          <h3>{{ wordData.word }}</h3>
+          <h2>{{ wordData.translation }}</h2>
+          <h3>{{ wordData.nederlands }}</h3>
+        </div>
+        <div class="word_details-other">
+          <h1 class="category">Category: {{ wordData.category }}</h1>
+          <h1 class="delete" v-on:click="fetchData()" >Delete word</h1>
+        </div>
+      </div>
+      <div v-on:click="openDetails()" class="word_details-close">
+        <span class="word_details-close-span"></span>
+        <span class="word_details-close-span"></span>
+      </div>
     </div>
   </section>
 </template>
@@ -14,38 +31,49 @@ export default {
   props: ["wordData"],
   data: function() {
     return {
+      worddetailsopen: false,
       word_delete: "",
       error: ""
     }
   },
   methods: {
-    async fetchData() {
-      const deleteWord = await fetch(
-        "https://dictionary--api.herokuapp.com/api/dictionarycz",  
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            word: this.input_word,
-            translation: this.input_translation,
-            nederlands: this.input_nederlands,
-            // hotlist: this.inHotlist,
-            // dictionary: this.inDictionary,
-            category: "test"
-          })
-        }     
-      );
-      const response = await deleteWord.json();
-      if (response) { //If the place exists in the response and it's true
-        this.$router.push("Success!"); //Takes you to the correct page
-      }
-      else {
-        this.error = "Fail!";
-        return;
-      }
-    }
+    openDetails() {
+      this.worddetailsopen = !this.worddetailsopen;
+    },
+    // async fetchData() {
+    //   const deleteWord = await fetch(
+    //     "https://dictionary--api.herokuapp.com/api/dictionarycz",  
+    //     {
+    //       method: "DELETE",
+    //       // headers: {
+    //       //   "Content-Type": "application/json"
+    //       // },
+    //       // body: JSON.stringify({
+    //       //   word: this.input_word,
+    //       //   translation: this.input_translation,
+    //       //   nederlands: this.input_nederlands,
+    //       //   // hotlist: this.inHotlist,
+    //       //   // dictionary: this.inDictionary,
+    //       //   category: "test"
+    //       // })
+    //     }     
+    //   )
+    //   .then(response => response.json())
+    //   .then(data => console.log(data))
+    //   console.log(deleteWord)
+
+
+    //   // const response = await deleteWord.json();
+    //   // console.log(response);
+
+    //   // if (response) { //If the place exists in the response and it's true
+    //   //   this.$router.push("Success!"); //Takes you to the correct page
+    //   // }
+    //   // else {
+    //   //   this.error = "Fail!";
+    //   //   return;
+    //   // }
+    // }
   }
 }
 </script>
@@ -67,6 +95,65 @@ section {
   }
   .word_wrapper > * {
     padding: 0.8rem 0.5rem;
+  }
+  .word_details-wrapper {
+    width: calc(100% - 3rem);
+    height: 20%;
+    position: fixed;
+    top: -21%;
+    left: 1.5rem;
+    z-index: 2;
+    transition: top 0.2s ease-in;
+    background-color: white;
+    border: 1px solid blue;
+
+    &.open {
+      top: -0.1%;
+    }
+    .word_details-around {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-between;
+      height: 80%;
+      padding: 0.5rem;
+
+      .word_details-words {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+      }
+      .word_details-other {
+        height: 50px;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 0.5rem;
+
+        .delete {
+          color: red;
+        }
+      }
+    }
+
+    .word_details-close {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      z-index: 2;
+      background-color: white;
+      border: 1px solid blue;
+
+      .word_details-close-span {
+        background-color: blue;
+      }
+      span:first-of-type {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+      span:last-of-type {
+        transform: rotate(45deg) translate(-2.5px, -5px);
+      }
+    }
   }
 }
 </style>

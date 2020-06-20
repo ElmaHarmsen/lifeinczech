@@ -4,7 +4,10 @@
       <Navigation />
       <h1>Dictionary <br># CZ - EN - NL</h1>
     </div>
-    <div class="dictionary_content">
+    <div v-if="loading" class="loading">
+      <h1>Loading ...</h1>
+    </div>
+    <div v-else class="dictionary_content">
       <Language />
       <div class="word_hotlist-wrapper">
         <Word 
@@ -28,6 +31,7 @@ export default {
   name: "Dictionary",
   data: function() {
     return {
+      loading: true,
       dictionaryJson: []
     }
   },
@@ -39,6 +43,7 @@ export default {
   },
   created: async function() {
     await this.fetchData();
+    this.loading = false;
   },
   computed: {
     dictionaryWord: function() {

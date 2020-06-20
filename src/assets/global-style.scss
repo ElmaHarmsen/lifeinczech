@@ -22,9 +22,15 @@ a {
 //blue & black & white, tomato?
 
 //Other reusabble stuff
-section {
-  .hotlist_content, .dictionary_content {
-    margin: 50px 0rem;
+.hotlist_content, .dictionary_content {
+  margin: 50px 0rem;
+}
+
+.loading {
+  width: auto;
+  margin: 50px auto;
+  h1 {
+    padding: 0rem 0.5rem;
   }
 }
 
@@ -39,13 +45,21 @@ section {
   }
 }
 
-.navigation_menu, .addword_btn {
-  .navigation_span, .addword_span {
+.navigation_menu, .addword_btn, .word_details-close {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  transition: transform 0.2s;
+
+  .navigation_span, .addword_span, .word_details-close-span {
     display: block;
     height: 1px;
     width: 40px;
     margin: 0.3rem 0rem;
-    background-color: white;
   }
   span {
     transition: transform 0.2s;

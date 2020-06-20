@@ -43,6 +43,17 @@ export default {
       ]
     }
   },
+  computed: {
+    navigationItemLimit: function() {
+      let item = this.navItem.item;
+      let length = 10;
+      let limitedItem = item.substring(0, length);
+      if (item.length > 10) {
+        limitedItem += <br></br>;
+      }
+      return limitedItem;
+    }
+  },
   methods: {
     openNav() {
       this.navopen = !this.navopen;
@@ -54,13 +65,6 @@ export default {
 <style lang="scss" scoped>
 section {
   .navigation_menu {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: center;
-    width: 50px;
-    height: 50px;
-    position: fixed;
     top: 0.5rem;
     left: 0.5rem;
     z-index: 2;

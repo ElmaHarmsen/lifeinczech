@@ -11,7 +11,7 @@
           <input
             v-model="input_word"
             class="inputs_field"
-            placeholder="Czech"
+            placeholder="Čeština"
             type="text"
             name="input_word"
           />
@@ -29,7 +29,7 @@
             type="text"
             name="input_nederlands"
           />
-          <div>
+          <div class="radio">
             <input 
               class="inputs_radio" 
               type="radio" 
@@ -38,7 +38,7 @@
               value="Hotlist" />
             <label for="hotlist">@ Hotlist</label>
           </div>
-          <div class="dictionary">
+          <div class="radio dictionary">
             <input
               class="inputs_radio"
               type="radio"
@@ -127,17 +127,9 @@ export default {
 <style lang="scss" scoped>
 section {
   .addword_btn {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: center;
-    width: 50px;
-    height: 50px;
-    position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
     z-index: 5;
-    transition: transform 0.2s;
     background-color: blue;
     border: 1px solid blue;
 
@@ -195,6 +187,11 @@ section {
         input {
           grid-column: 1/3;
         }
+        .radio {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+        }
         .dictionary {
           justify-self: end;
         }
@@ -205,7 +202,8 @@ section {
         }
         .inputs_radio {
           -webkit-appearance: none;
-          padding: 10px;
+          height: 25px;
+          width: 25px;
           border: 1px solid blue;
         }
         .inputs_radio:checked {
@@ -214,9 +212,6 @@ section {
         label {
           padding: 0rem 0.5rem;
           color: gray;
-        }
-        label:checked {
-          color: blue;
         }
         .inputs_button {
           padding: 0.8rem 0.5rem;

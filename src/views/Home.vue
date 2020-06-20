@@ -4,7 +4,10 @@
       <Navigation />
       <h1>Hotlist <br> @ Home</h1>
     </div>
-    <div class="hotlist_content">
+    <div v-if="loading" class="loading">
+      <h1>Loading ...</h1>
+    </div>
+    <div v-else class="hotlist_content">
       <Language />
       <div class="word_hotlist-wrapper">
         <Word 
@@ -29,6 +32,7 @@ export default {
   name: "Home",
   data: function() {
     return {
+      loading: true,
       hotlistJson: []
     }
   },
@@ -40,6 +44,7 @@ export default {
   },
   created: async function() {
     await this.fetchData();
+    this.loading = false;
   },
   computed: {
     hotlistWord: function() {
