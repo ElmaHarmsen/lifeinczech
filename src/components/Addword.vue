@@ -8,18 +8,53 @@
       <div class="addword_form">
         <h1>This is the form to add a word</h1>
         <div class="addword_inputs">
-          <input v-model="input_word" class="inputs_field" placeholder="Czech" type="text" name="input_word">
-          <input v-model="input_translation" class="inputs_field" placeholder="English" type="text" name="input_translation">
-          <input v-model="input_pronunciation" class="inputs_field" placeholder="Pronunciation" type="text" name="input_pronunciation">
+          <input
+            v-model="input_word"
+            class="inputs_field"
+            placeholder="Czech"
+            type="text"
+            name="input_word"
+          />
+          <input
+            v-model="input_translation"
+            class="inputs_field"
+            placeholder="English"
+            type="text"
+            name="input_translation"
+          />
+          <input
+            v-model="input_pronunciation"
+            class="inputs_field"
+            placeholder="Pronunciation"
+            type="text"
+            name="input_pronunciation"
+          />
           <div>
-            <input class="inputs_radio" type="radio" id="hotlist" v-model="addTo" value="Hotlist">
+            <input 
+              class="inputs_radio" 
+              type="radio" 
+              id="hotlist" 
+              v-model="addTo" 
+              value="Hotlist" />
             <label for="hotlist">@ Hotlist</label>
           </div>
           <div class="dictionary">
-            <input class="inputs_radio" type="radio" id="dictionary" v-model="addTo" value="Dictionary">
+            <input
+              class="inputs_radio"
+              type="radio"
+              id="dictionary"
+              v-model="addTo"
+              value="Dictionary"
+            />
             <label for="dictionary">@ Dictionary</label>
           </div>
-          <input v-on:click="submit()" class="inputs_button" type="submit" name="form_submit" value="Add this word to`${addTo}`">
+          <input
+            v-on:click="fetchData()"
+            class="inputs_button"
+            type="submit"
+            name="form_submit"
+            v-bind:value="`Add this word to ${addTo}`"
+          />
         </div>
       </div>
       <div class="addword_pre-inputs">
@@ -27,6 +62,7 @@
         <h2>{{ input_translation }}</h2>
         <h3>{{ input_pronunciation }}</h3>
       </div>
+      <div>{{ error }}</div>
     </div>
   </section>
 </template>
@@ -37,20 +73,25 @@ export default {
   data: function() {
     return {
       wordformopen: false,
-      formDataJson: [],
       input_word: "",
       input_translation: "",
       input_pronunciation: "",
       form_submit: "",
-      addTo: ""
+      addTo: "",
+      error: "",
+    };
+  },
+  computed: {
+    inHotlist: function() {
+      return this.addTo === "Hotlist"
+    },
+    inDictionary: function() {
+      return this.addTo === "Dictionary"
     }
   },
   methods: {
     openWordForm() {
       this.wordformopen = !this.wordformopen;
-    },
-    submit() {
-      this.$refs.form.submit()
     },
     async fetchData() {
       const addword = await fetch(
@@ -61,16 +102,26 @@ export default {
             "Content-Type": "application/json" //Just how it is ;)
           },
           body: JSON.stringify({
-            // input_word,
-            // input_translation,
-            // input_pronunciation
+            word: this.input_word,
+            translation: this.input_translation,
+            pronunciation: this.input_pronunciation,
+            hotlist: this.inHotlist,
+            dictionary: this.inDictionary,
+            category: "test"
           })
         }
       );
-      this.formDataJson = await addword.json();
+      const response = await addword.json();
+      if (response.place) { //If the place exists in the response and it's true
+        this.$router.push(response.place); //Takes you to the correct page
+      }
+      else {
+        this.error = "Fail!";
+        return;
+      }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -117,7 +168,7 @@ section {
       }
     }
   }
-  
+
   .addword_btn:active {
     transform: scale(1.7);
   }
@@ -192,7 +243,8 @@ section {
       gap: 0.5rem;
       padding: 0.5rem;
 
-      h2, h3 {
+      h2,
+      h3 {
         border: 1px solid blue;
         height: auto;
         min-height: calc(50px - 1.6rem);
