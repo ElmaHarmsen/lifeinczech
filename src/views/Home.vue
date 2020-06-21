@@ -2,7 +2,10 @@
   <section id="home">
     <div class="navigation_wrapper">
       <Navigation />
-      <h1>Hotlist <br> @ Home</h1>
+      <h1>
+        Hotlist <br />
+        @ Home
+      </h1>
     </div>
     <div v-if="loading" class="loading">
       <h1>Loading ...</h1>
@@ -10,7 +13,7 @@
     <div v-else class="hotlist_content">
       <Language />
       <div class="word_hotlist-wrapper">
-        <Word 
+        <Word
           v-for="wordData in hotlistWord"
           v-bind:key="wordData.id"
           v-bind:wordData="wordData"
@@ -34,7 +37,7 @@ export default {
     return {
       loading: true,
       hotlistJson: []
-    }
+    };
   },
   components: {
     Navigation,
@@ -48,7 +51,10 @@ export default {
   },
   computed: {
     hotlistWord: function() {
-      return this.hotlistJson.filter(word => word.hotlist === true).slice().reverse();
+      return this.hotlistJson
+        .filter(word => word.hotlist === true)
+        .slice()
+        .reverse();
     }
   },
   methods: {
@@ -64,7 +70,6 @@ export default {
 
 <style lang="scss" scoped>
 section {
-
 }
 </style>
 

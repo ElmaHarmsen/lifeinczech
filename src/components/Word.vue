@@ -1,6 +1,10 @@
 <template>
   <section>
-    <div v-on:click="openDetails()" class="word_wrapper" v-bind:class="{ close: worddetailsopen }">
+    <div
+      v-on:click="openDetails()"
+      class="word_wrapper"
+      v-bind:class="{ close: worddetailsopen }"
+    >
       <h3>{{ wordData.word }}</h3>
       <h2>{{ wordData.translation }}</h2>
       <h3>{{ wordData.nederlands }}</h3>
@@ -14,7 +18,7 @@
         </div>
         <div class="word_details-other">
           <h1 class="category">Category: {{ wordData.category }}</h1>
-          <h1 class="delete" v-on:click="fetchData()" >Delete word</h1>
+          <h1 class="delete" v-on:click="fetchData()">Delete word</h1>
         </div>
       </div>
       <div v-on:click="openDetails()" class="word_details-close">
@@ -32,50 +36,50 @@ export default {
   data: function() {
     return {
       worddetailsopen: false,
+      input_word: "",
+      input_translation: "",
+      input_nederlands: "",
       word_delete: "",
       error: ""
-    }
+    };
   },
   methods: {
     openDetails() {
       this.worddetailsopen = !this.worddetailsopen;
     },
-    // async fetchData() {
-    //   const deleteWord = await fetch(
-    //     "https://dictionary--api.herokuapp.com/api/dictionarycz",  
-    //     {
-    //       method: "DELETE",
-    //       // headers: {
-    //       //   "Content-Type": "application/json"
-    //       // },
-    //       // body: JSON.stringify({
-    //       //   word: this.input_word,
-    //       //   translation: this.input_translation,
-    //       //   nederlands: this.input_nederlands,
-    //       //   // hotlist: this.inHotlist,
-    //       //   // dictionary: this.inDictionary,
-    //       //   category: "test"
-    //       // })
-    //     }     
-    //   )
-    //   .then(response => response.json())
-    //   .then(data => console.log(data))
-    //   console.log(deleteWord)
+    async fetchData() {
+      const deleteWord = await fetch(
+        "https://dictionary--api.herokuapp.com/api/dictionarycz",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            word: this.input_word,
+            translation: this.input_translation,
+            nederlands: this.input_nederlands,
+            // hotlist: this.inHotlist,
+            // dictionary: this.inDictionary,
+            category: "test"
+          })
+        }
+      ).then(response =>
+        response.json().then(json => {
+          return json;
+        })
+      );
+      console.log(deleteWord);
 
+      // .then(response => response.json())
+      // .then(data => console.log(data))
+      // console.log(deleteWord)
 
-    //   // const response = await deleteWord.json();
-    //   // console.log(response);
-
-    //   // if (response) { //If the place exists in the response and it's true
-    //   //   this.$router.push("Success!"); //Takes you to the correct page
-    //   // }
-    //   // else {
-    //   //   this.error = "Fail!";
-    //   //   return;
-    //   // }
-    // }
+      // const response = await deleteWord.json();
+      // console.log(response);
+    }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -88,7 +92,8 @@ section {
     margin: 1.5rem 0rem;
     width: 100%;
 
-    h2, h3 {
+    h2,
+    h3 {
       border: 1px solid blue;
       height: auto;
     }
@@ -100,7 +105,7 @@ section {
     width: calc(100% - 3rem);
     height: 20%;
     position: fixed;
-    top: -21%;
+    top: -22%;
     left: 1.5rem;
     z-index: 2;
     transition: top 0.2s ease-in;

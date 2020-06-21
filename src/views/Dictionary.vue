@@ -2,7 +2,7 @@
   <section>
     <div class="navigation_wrapper">
       <Navigation />
-      <h1>Dictionary <br># CZ - EN - NL</h1>
+      <h1>Dictionary <br /># CZ - EN - NL</h1>
     </div>
     <div v-if="loading" class="loading">
       <h1>Loading ...</h1>
@@ -10,7 +10,7 @@
     <div v-else class="dictionary_content">
       <Language />
       <div class="word_hotlist-wrapper">
-        <Word 
+        <Word
           v-for="wordData in dictionaryWord"
           v-bind:key="wordData.id"
           v-bind:wordData="wordData"
@@ -33,7 +33,7 @@ export default {
     return {
       loading: true,
       dictionaryJson: []
-    }
+    };
   },
   components: {
     Navigation,
@@ -47,7 +47,10 @@ export default {
   },
   computed: {
     dictionaryWord: function() {
-      return this.dictionaryJson.filter(word => word.dictionary === true).slice().reverse();
+      return this.dictionaryJson
+        .filter(word => word.dictionary === true)
+        .slice()
+        .reverse();
     }
   },
   methods: {
@@ -58,11 +61,10 @@ export default {
       this.dictionaryJson = await dictionary.json();
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 section {
-  
 }
 </style>

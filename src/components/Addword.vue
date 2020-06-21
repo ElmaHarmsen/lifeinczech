@@ -1,6 +1,10 @@
 <template>
   <section>
-    <div v-on:click="openWordForm()" class="addword_btn" v-bind:class="{ close: wordformopen}">
+    <div
+      v-on:click="openWordForm()"
+      class="addword_btn"
+      v-bind:class="{ close: wordformopen }"
+    >
       <span class="addword_span"></span>
       <span class="addword_span"></span>
     </div>
@@ -30,12 +34,13 @@
             name="input_nederlands"
           />
           <div class="radio">
-            <input 
-              class="inputs_radio" 
-              type="radio" 
-              id="hotlist" 
-              v-model="addTo" 
-              value="Hotlist" />
+            <input
+              class="inputs_radio"
+              type="radio"
+              id="hotlist"
+              v-model="addTo"
+              value="Hotlist"
+            />
             <label for="hotlist">@ Hotlist</label>
           </div>
           <div class="radio dictionary">
@@ -78,15 +83,15 @@ export default {
       input_nederlands: "",
       form_submit: "",
       addTo: "",
-      error: "",
+      error: ""
     };
   },
   computed: {
     inHotlist: function() {
-      return this.addTo === "Hotlist"
+      return this.addTo === "Hotlist";
     },
     inDictionary: function() {
-      return this.addTo === "Dictionary"
+      return this.addTo === "Dictionary";
     }
   },
   methods: {
@@ -112,10 +117,10 @@ export default {
         }
       );
       const response = await addword.json();
-      if (response.place) { //If the place exists in the response and it's true
+      if (response.place) {
+        //If the place exists in the response and it's true
         this.$router.push(response.place); //Takes you to the correct page
-      }
-      else {
+      } else {
         this.error = "Fail!";
         return;
       }

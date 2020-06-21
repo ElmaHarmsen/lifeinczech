@@ -1,10 +1,10 @@
 <template>
   <section>
-      <div class="word_wrapper">
-        <h3>{{ singleWordData.word }}</h3>
-        <h2>{{ singleWordData.translation}}</h2>
-        <h3>{{ singleWordData.nederlands}}</h3>
-      </div>
+    <div class="word_wrapper">
+      <h3>{{ singleWordData.word }}</h3>
+      <h2>{{ singleWordData.translation }}</h2>
+      <h3>{{ singleWordData.nederlands }}</h3>
+    </div>
   </section>
 </template>
 
@@ -12,5 +12,5 @@
 export default {
   name: "SingleWord",
   props: ["singleWordData"]
-}
+};
 </script>

@@ -11,7 +11,7 @@
 <script>
 export default {
   name: "Language"
-}
+};
 </script>
 
 <style lang="scss" scoped>

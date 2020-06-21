@@ -1,6 +1,10 @@
 <template>
   <section>
-    <div v-on:click="openNav()" class="navigation_menu" v-bind:class="{ close: navopen }">
+    <div
+      v-on:click="openNav()"
+      class="navigation_menu"
+      v-bind:class="{ close: navopen }"
+    >
       <span class="navigation_span"></span>
       <span class="navigation_span"></span>
       <span class="navigation_span"></span>
@@ -41,7 +45,7 @@ export default {
           path: "/dictionary"
         }
       ]
-    }
+    };
   },
   computed: {
     navigationItemLimit: function() {
@@ -59,7 +63,7 @@ export default {
       this.navopen = !this.navopen;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -70,7 +74,7 @@ section {
     z-index: 2;
     background-color: white;
     border: 1px solid blue;
-    
+
     .navigation_span {
       background-color: blue;
     }
@@ -90,11 +94,11 @@ section {
     height: 50px;
   }
   .navigation_items-wrapper {
-    width: 65%;
+    width: 70%;
     height: 100%;
     position: fixed;
     top: 0rem;
-    left: -65%;
+    left: -70%;
     z-index: 1;
     transition: left 0.2s ease-in;
     background-color: blue;

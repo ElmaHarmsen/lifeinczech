@@ -1,7 +1,8 @@
 <template>
   <section>
     <Navigation />
-    <div class="header_page-title"> <!--will dynamically change depending on the page-->
+    <div class="header_page-title">
+      <!--will dynamically change depending on the page-->
       <!-- <h1>Hotlist</h1>
       <h1>CZ - EN</h1> -->
     </div>
@@ -14,7 +15,7 @@ import Navigation from "@/components/Navigation.vue";
 export default {
   name: "Header",
   components: {
-    Navigation,
+    Navigation
   }
 };
 </script>

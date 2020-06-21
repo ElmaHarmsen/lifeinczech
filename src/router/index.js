@@ -8,13 +8,12 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: Home
   },
   {
     path: "/dictionary",
     name: "Dictionary",
-    component: () =>
-      import("../views/Dictionary.vue")
+    component: () => import("../views/Dictionary.vue")
   }
 ];
 
