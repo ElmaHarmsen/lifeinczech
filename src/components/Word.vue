@@ -18,7 +18,7 @@
         </div>
         <div class="word_details-other">
           <h1 class="category">Category: {{ wordData.category }}</h1>
-          <h1 class="delete" v-on:click="fetchData()">Delete word</h1>
+          <h1 class="delete" v-on:click="deleteWord(wordData._id)">Delete word</h1>
         </div>
       </div>
       <div v-on:click="openDetails()" class="word_details-close">
@@ -47,7 +47,8 @@ export default {
     openDetails() {
       this.worddetailsopen = !this.worddetailsopen;
     },
-    async fetchData() {
+    async deleteWord(id) {
+      this.openDetails(); //This closes the popup
       const deleteWord = await fetch(
         "https://dictionary--api.herokuapp.com/api/dictionarycz",
         {
@@ -56,27 +57,13 @@ export default {
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            word: this.input_word,
-            translation: this.input_translation,
-            nederlands: this.input_nederlands,
-            // hotlist: this.inHotlist,
-            // dictionary: this.inDictionary,
-            category: "test"
+            id
           })
         }
-      ).then(response =>
-        response.json().then(json => {
-          return json;
-        })
       );
-      console.log(deleteWord);
-
-      // .then(response => response.json())
-      // .then(data => console.log(data))
-      // console.log(deleteWord)
-
-      // const response = await deleteWord.json();
-      // console.log(response);
+      const response = await deleteWord.text();
+      console.log(response);//Either SYSTEM FAIL or YOU MANAGED
+      this.$emit("fetchWordsAgain");
     }
   }
 };

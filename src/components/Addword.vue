@@ -117,13 +117,17 @@ export default {
         }
       );
       const response = await addword.json();
-      if (response.place) {
-        //If the place exists in the response and it's true
-        this.$router.push(response.place); //Takes you to the correct page
-      } else {
+      if (!response) {//If there is no responce there then we set an error and stop the method.
         this.error = "Fail!";
         return;
       }
+      if (this.$router.currentRoute.path === response.place) {//If there is no error, but the path from the API is the same as the one 
+        //the user is currently on, we just close the drawer and stop the method.
+        this.openWordForm();
+        this.$emit("fetchWordsAgain");
+        return;
+      }
+      this.$router.push(response.place);//Otherwise this takes you to the correct page.
     }
   }
 };

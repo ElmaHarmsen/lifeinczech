@@ -17,10 +17,13 @@
           v-for="wordData in hotlistWord"
           v-bind:key="wordData.id"
           v-bind:wordData="wordData"
+          v-on:fetchWordsAgain="fetchData()"
         />
+        <!--"fetchData()" means that there is a parameter being used within the (). Otherwise it's just "fetchData" or "fetchData()".-->
+        <!--What it does is fetching the data again, so it 'refreshes' the list.-->
       </div>
     </div>
-    <Addword />
+    <Addword v-on:fetchWordsAgain="fetchData()" /> <!--Here the addWord form asks the Hotlist to fetch the list with words again.-->
   </section>
 </template>
 
