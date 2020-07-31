@@ -18,7 +18,11 @@
         </div>
         <div class="word_details-other">
           <h1 class="category">Category: {{ wordData.category }}</h1>
-          <h1 class="delete" v-on:click="deleteWord(wordData._id)">Delete word</h1>
+          <div class="requests">
+            <h1 class="delete" v-on:click="deleteWord(wordData._id)">Delete</h1>
+            <h1 class="edit">Edit</h1>
+            <Moveword v-bind:movingWord="wordData" v-on:closeDetails="openDetails()" />
+          </div>
         </div>
       </div>
       <div v-on:click="openDetails()" class="word_details-close">
@@ -30,6 +34,8 @@
 </template>
 
 <script>
+import Moveword from "@/components/Moveword.vue";
+
 export default {
   name: "Word",
   props: ["wordData"],
@@ -42,6 +48,9 @@ export default {
       word_delete: "",
       error: ""
     };
+  },
+  components: {
+     Moveword
   },
   methods: {
     openDetails() {
@@ -115,15 +124,27 @@ section {
         justify-content: space-between;
       }
       .word_details-other {
+        width: calc(80% - 0.5rem);
         height: 50px;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: space-between;
         position: absolute;
         bottom: 0.5rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+
+        .requests {
+          width: 100%;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          cursor: pointer;
+        }
 
         .delete {
           color: red;
+        }
+        .edit {
+          color: purple;
         }
       }
     }

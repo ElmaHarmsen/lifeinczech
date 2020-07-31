@@ -54,14 +54,20 @@ a {
   height: 50px;
   position: fixed;
   transition: transform 0.2s;
+}
+.navigation_span, .addword_span, .moveword_close-span, .word_details-close-span {
+  display: block;
+  height: 1px;
+  width: 40px;
+  margin: 0.3rem 0rem;
+}
+span {
+  transition: transform 0.2s;
+}
 
-  .navigation_span, .addword_span, .word_details-close-span {
-    display: block;
-    height: 1px;
-    width: 40px;
-    margin: 0.3rem 0rem;
-  }
-  span {
-    transition: transform 0.2s;
-  }
+.addword_btn:active {
+  transform: scale(1.7);
+}
+.moveword_close:active {
+  transform: scale(1.7);
 }

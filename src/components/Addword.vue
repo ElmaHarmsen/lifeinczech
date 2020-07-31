@@ -138,7 +138,7 @@ section {
   .addword_btn {
     bottom: 1.5rem;
     right: 1.5rem;
-    z-index: 5;
+    z-index: 4;
     background-color: blue;
     border: 1px solid blue;
 
@@ -161,17 +161,13 @@ section {
     }
   }
 
-  .addword_btn:active {
-    transform: scale(1.7);
-  }
-
   .addword_form-wrapper {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0rem;
     left: -100%;
-    z-index: 4;
+    z-index: 3;
     transition: left 0.2s ease-in;
     background-color: white;
 
