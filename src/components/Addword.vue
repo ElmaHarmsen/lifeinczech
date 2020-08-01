@@ -117,10 +117,12 @@ export default {
         }
       );
       const response = await addword.json();
+      console.log(response);
       if (!response) {//If there is no responce there then we set an error and stop the method.
         this.error = "Fail!";
         return;
       }
+      this.$store.dispatch("triggerMessage", response.message);
       if (this.$router.currentRoute.path === response.place) {//If there is no error, but the path from the API is the same as the one 
         //the user is currently on, we just close the drawer and stop the method.
         this.openWordForm();
@@ -138,6 +140,7 @@ section {
   .addword_btn {
     bottom: 1.5rem;
     right: 1.5rem;
+    position: fixed;
     z-index: 4;
     background-color: blue;
     border: 1px solid blue;

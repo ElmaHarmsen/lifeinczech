@@ -86,6 +86,8 @@ export default {
       const response = await moveWord.text();
       console.log(response);
       this.$emit("closeDetails");
+      this.$emit("fetchWordsAgain");
+      this.$store.dispatch("triggerMessage", response);
     }
   }
 }
@@ -105,7 +107,7 @@ section {
     position: fixed;
     top: 0rem;
     left: -100%;
-    z-index: 6;
+    z-index: 5;
     transition: left 0.2s ease-in;
     background-color: white;
 

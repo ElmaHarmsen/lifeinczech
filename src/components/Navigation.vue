@@ -71,6 +71,7 @@ section {
   .navigation_menu {
     top: 0.5rem;
     left: 0.5rem;
+    position: fixed;
     z-index: 2;
     background-color: white;
     border: 1px solid blue;

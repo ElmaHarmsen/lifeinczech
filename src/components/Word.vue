@@ -21,7 +21,9 @@
           <div class="requests">
             <h1 class="delete" v-on:click="deleteWord(wordData._id)">Delete</h1>
             <h1 class="edit">Edit</h1>
-            <Moveword v-bind:movingWord="wordData" v-on:closeDetails="openDetails()" />
+            <Moveword v-bind:movingWord="wordData" v-on:closeDetails="openDetails()" 
+            v-on:fetchWordsAgain="$emit('fetchWordsAgain')"/>
+            <!--Here fetchData() doesn't exist so we emit the event again (2 times in total). From Moveword to Word to Home/Dictionary.-->
           </div>
         </div>
       </div>
@@ -73,6 +75,7 @@ export default {
       const response = await deleteWord.text();
       console.log(response);//Either SYSTEM FAIL or YOU MANAGED
       this.$emit("fetchWordsAgain");
+      this.$store.dispatch("triggerMessage", response);
     }
   }
 };
@@ -101,9 +104,9 @@ section {
     width: calc(100% - 3rem);
     height: 20%;
     position: fixed;
+    z-index: 10;
     top: -22%;
     left: 1.5rem;
-    z-index: 2;
     transition: top 0.2s ease-in;
     background-color: white;
     border: 1px solid blue;
@@ -154,6 +157,7 @@ section {
       bottom: 0.5rem;
       right: 0.5rem;
       z-index: 2;
+      position: absolute;
       background-color: white;
       border: 1px solid blue;
 
