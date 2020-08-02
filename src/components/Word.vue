@@ -94,6 +94,7 @@ section {
     h2,
     h3 {
       border: 1px solid blue;
+      border-radius: 2px;
       height: auto;
     }
   }
@@ -110,6 +111,8 @@ section {
     transition: top 0.2s ease-in;
     background-color: white;
     border: 1px solid blue;
+    border-radius: 2px;
+    box-shadow: 0 0 5px $shadow;
 
     &.open {
       top: -0.1%;
@@ -144,10 +147,10 @@ section {
         }
 
         .delete {
-          color: red;
+          color: $red;
         }
         .edit {
-          color: purple;
+          color: $orange;
         }
       }
     }

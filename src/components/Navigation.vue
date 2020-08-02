@@ -75,19 +75,27 @@ section {
     z-index: 2;
     background-color: white;
     border: 1px solid blue;
+    border-radius: 2px;
+    box-shadow: 0 0 5px $shadow;
 
     .navigation_span {
       background-color: blue;
     }
     &.close {
+      background-color: blue;
+      border: 1px solid blue;
+      transition: background-color .2s ease-out;
+
       span:first-of-type {
         transform: rotate(-45deg) translate(-8px, 6px);
+        background-color: white;
       }
       span:nth-of-type(2) {
         opacity: 0;
       }
       span:last-of-type {
         transform: rotate(45deg) translate(-8px, -8px);
+        background-color: white;
       }
     }
   }
@@ -99,10 +107,11 @@ section {
     height: 100%;
     position: fixed;
     top: 0rem;
-    left: -70%;
+    left: -75%;
     z-index: 1;
     transition: left 0.2s ease-in;
-    background-color: blue;
+    background-color: $light-blue;
+    box-shadow: 10px 0 5px -5px $shadow;
 
     &.open {
       left: 0;

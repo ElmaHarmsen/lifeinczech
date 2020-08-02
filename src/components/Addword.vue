@@ -142,8 +142,10 @@ section {
     right: 1.5rem;
     position: fixed;
     z-index: 4;
-    background-color: blue;
-    border: 1px solid blue;
+    background-color: $purple;
+    border: 1px solid $purple;
+    border-radius: 2px;
+    box-shadow: 0 0 5px $shadow;
 
     .addword_span {
       background-color: white;
@@ -155,6 +157,10 @@ section {
       transform: translate(0px, -5px);
     }
     &.close {
+      background-color: blue;
+      border: 1px solid blue;
+      transition: background-color .2s ease-out;
+
       span:first-of-type {
         transform: rotate(135deg) translate(5px, -5px);
       }
@@ -207,6 +213,7 @@ section {
           width: calc(100% - 1.2rem);
           padding: 0.8rem 0.5rem;
           border: 1px solid blue;
+          border-radius: 2px;
         }
         .inputs_radio {
           -webkit-appearance: none;
@@ -225,8 +232,9 @@ section {
           padding: 0.8rem 0.5rem;
           font-weight: bold;
           color: white;
-          border: 1px solid blue;
-          background-color: blue;
+          border: 1px solid $purple;
+          border-radius: 2px;
+          background-color: $purple;
         }
       }
     }
@@ -240,6 +248,7 @@ section {
       h2,
       h3 {
         border: 1px solid blue;
+        border-radius: 2px;
         height: auto;
         min-height: calc(50px - 1.6rem);
       }

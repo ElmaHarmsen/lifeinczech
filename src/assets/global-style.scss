@@ -19,7 +19,11 @@ a {
 }
 
 //Colors
-//blue & black & white, tomato?
+$light-blue: #0D8CFF;
+$purple: #910DFF;
+$red: #FF3226;
+$orange: #FF7126;
+$shadow: #888;
 
 //Other reusabble stuff
 .hotlist_content, .dictionary_content {
@@ -65,9 +69,9 @@ span {
   transition: transform 0.2s;
 }
 
-.addword_btn:active {
-  transform: scale(1.7);
-}
-.moveword_close:active {
-  transform: scale(1.7);
-}
+// .addword_btn:active {
+//   transform: scale(1.7);
+// }
+// .moveword_close:active {
+//   transform: scale(1.7);
+// }

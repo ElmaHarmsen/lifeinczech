@@ -97,7 +97,7 @@ export default {
 section {
   .moveword_btn {
     .moveword_move {
-      color: orange;
+      color: $orange;
     }
   }
 
@@ -130,6 +130,7 @@ section {
         h2,
         h3 {
           border: 1px solid blue;
+          border-radius: 2px;
           height: auto;
           min-height: calc(50px - 1.6rem);
         }
@@ -154,6 +155,7 @@ section {
           height: 25px;
           width: 25px;
           border: 1px solid blue;
+          border-radius: 2px;
         }
         .inputs_radio:checked {
           background-color: blue;
@@ -168,16 +170,19 @@ section {
         padding: 0.8rem 0.5rem;
         font-weight: bold;
         color: white;
-        border: 1px solid blue;
-        background-color: blue;
+        border: 1px solid $orange;
+        border-radius: 2px;
+        background-color: $orange;
       }
     }
     .moveword_close {
       bottom: 1.5rem;
       right: 1.5rem;
       position: absolute;
-      background-color: orange;
-      border: 1px solid orange;
+      background-color: blue;
+      border: 1px solid blue;
+      border-radius: 2px;
+      box-shadow: 0 0 5px $shadow;
 
       display: flex;
       flex-flow: row wrap;
@@ -185,7 +190,6 @@ section {
       align-content: center;
       width: 50px;
       height: 50px;
-      transition: transform 0.2s;
 
       .moveword_close-span {
         background-color: white;

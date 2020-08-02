@@ -21,7 +21,7 @@ section {
   right: 1.5rem;
   position: absolute;
   h1 {
-    color: green;
+    color: $light-blue;
   }
 }
 </style>
