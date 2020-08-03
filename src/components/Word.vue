@@ -11,6 +11,13 @@
     </div>
     <div class="word_details-wrapper" v-bind:class="{ open: worddetailsopen }">
       <div class="word_details-around">
+        <div class="requests">
+          <h1 class="delete" v-on:click="deleteWord(wordData._id)">Delete</h1>
+          <h1 class="edit">Edit</h1>
+          <Moveword v-bind:movingWord="wordData" v-on:closeDetails="openDetails()" 
+          v-on:fetchWordsAgain="$emit('fetchWordsAgain')"/>
+          <!--Here fetchData() doesn't exist so we emit the event again (2 times in total). From Moveword to Word to Home/Dictionary.-->
+        </div>
         <div class="word_details-words">
           <h3>{{ wordData.word }}</h3>
           <h2>{{ wordData.translation }}</h2>
@@ -18,13 +25,6 @@
         </div>
         <div class="word_details-other">
           <h1 class="category">Category: {{ wordData.category }}</h1>
-          <div class="requests">
-            <h1 class="delete" v-on:click="deleteWord(wordData._id)">Delete</h1>
-            <h1 class="edit">Edit</h1>
-            <Moveword v-bind:movingWord="wordData" v-on:closeDetails="openDetails()" 
-            v-on:fetchWordsAgain="$emit('fetchWordsAgain')"/>
-            <!--Here fetchData() doesn't exist so we emit the event again (2 times in total). From Moveword to Word to Home/Dictionary.-->
-          </div>
         </div>
       </div>
       <div v-on:click="openDetails()" class="word_details-close">
@@ -102,17 +102,18 @@ section {
     padding: 0.8rem 0.5rem;
   }
   .word_details-wrapper {
-    width: calc(100% - 3rem);
-    height: 20%;
+    width: 100vw;
+    height: 30%;
     position: fixed;
     z-index: 10;
-    top: -22%;
-    left: 1.5rem;
+    top: -32%;
+    left: -0.25rem;
     transition: top 0.2s ease-in;
     background-color: white;
-    border: 1px solid blue;
+    border-bottom: 1px solid blue;
     border-radius: 2px;
-    box-shadow: 0 0 5px $shadow;
+    //box-shadow: 0 0 5px $shadow;
+    box-shadow: 0px 10px 5px -5px $shadow;
 
     &.open {
       top: -0.1%;
@@ -124,45 +125,48 @@ section {
       height: 80%;
       padding: 0.5rem;
 
+      .requests {
+        width: 80%;
+        height: 50px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        cursor: pointer;
+      }
+
+      .delete {
+        color: $red;
+      }
+      .edit {
+        color: $orange;
+      }
+
       .word_details-words {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
+        padding: 1.5rem 0rem;
       }
       .word_details-other {
-        width: calc(80% - 0.5rem);
-        height: 50px;
+        width: 100%;
         position: absolute;
         bottom: 0.5rem;
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-between;
-
-        .requests {
-          width: 100%;
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: space-between;
-          cursor: pointer;
-        }
-
-        .delete {
-          color: $red;
-        }
-        .edit {
-          color: $orange;
-        }
       }
     }
 
     .word_details-close {
       position: absolute;
-      bottom: 0.5rem;
+      top: 0.5rem;
       right: 0.5rem;
       z-index: 2;
       position: absolute;
       background-color: white;
       border: 1px solid blue;
+      box-shadow: 0 0 5px $shadow;
 
       .word_details-close-span {
         background-color: blue;
