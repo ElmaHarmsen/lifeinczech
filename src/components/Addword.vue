@@ -194,7 +194,6 @@ section {
       .addword_inputs {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(5, 100%);
         gap: 1.5rem;
         margin-top: 1.5rem;
 

@@ -73,13 +73,13 @@ section {
     left: 0.5rem;
     position: fixed;
     z-index: 2;
-    background-color: white;
-    border: 1px solid blue;
+    background-color: $light-blue;
+    border: 1px solid $light-blue;
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
 
     .navigation_span {
-      background-color: blue;
+      background-color: white;
     }
     &.close {
       background-color: blue;

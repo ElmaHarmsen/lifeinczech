@@ -19,9 +19,9 @@
           <!--Here fetchData() doesn't exist so we emit the event again (2 times in total). From Moveword to Word to Home/Dictionary.-->
         </div>
         <div class="word_details-words">
-          <h3>{{ wordData.word }}</h3>
-          <h2>{{ wordData.translation }}</h2>
-          <h3>{{ wordData.nederlands }}</h3>
+          <div><h1>CZ: </h1><h3>{{ wordData.word }}</h3></div>
+          <div><h1>EN: </h1><h3>{{ wordData.translation }}</h3></div>
+          <div><h1>NL: </h1><h3>{{ wordData.nederlands }}</h3></div>
         </div>
         <div class="word_details-other">
           <h1 class="category">Category: {{ wordData.category }}</h1>
@@ -102,37 +102,36 @@ section {
     padding: 0.8rem 0.5rem;
   }
   .word_details-wrapper {
-    width: 100vw;
-    height: 30%;
+    width: 70%;
+    height: 100%;
     position: fixed;
     z-index: 10;
-    top: -32%;
-    left: -0.25rem;
-    transition: top 0.2s ease-in;
+    top: 0rem;
+    left: -75%;
+    transition: left 0.2s ease-in;
     background-color: white;
-    border-bottom: 1px solid blue;
-    border-radius: 2px;
-    //box-shadow: 0 0 5px $shadow;
-    box-shadow: 0px 10px 5px -5px $shadow;
+    box-shadow: 10px 0 5px -5px $shadow;
 
     &.open {
-      top: -0.1%;
+      left: 0;
     }
     .word_details-around {
       display: flex;
       flex-flow: column wrap;
-      justify-content: space-between;
-      height: 80%;
+      height: 100%;
       padding: 0.5rem;
 
       .requests {
-        width: 80%;
-        height: 50px;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: flex-end;
+        margin-top: 100px;
+        padding-bottom: 1.5rem;
+        // display: flex;
+        // flex-flow: row nowrap;
+        // justify-content: space-between;
+        // align-items: flex-end;
         cursor: pointer;
+      }
+      .requests > * {
+        padding: 0rem 0rem 1.5rem 0rem;
       }
 
       .delete {
@@ -144,32 +143,35 @@ section {
 
       .word_details-words {
         display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        padding: 1.5rem 0rem;
+        flex-flow: column nowrap;
+        padding-bottom: 1.5rem;
       }
+      .word_details-words > * {
+        padding: 0rem 0rem 1.5rem 0rem;
+        display: flex;
+        flex-flow: row nowrap;
+      }
+
       .word_details-other {
         width: 100%;
-        position: absolute;
-        bottom: 0.5rem;
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-between;
+        padding-bottom: 1.5rem;
       }
     }
 
     .word_details-close {
       position: absolute;
       top: 0.5rem;
-      right: 0.5rem;
+      left: 0.5rem;
       z-index: 2;
       position: absolute;
-      background-color: white;
-      border: 1px solid blue;
-      box-shadow: 0 0 5px $shadow;
+      background-color: $light-blue;
+      border: 1px solid $light-blue;
 
       .word_details-close-span {
-        background-color: blue;
+        background-color: white;
       }
       span:first-of-type {
         transform: rotate(-45deg) translate(-5px, 5px);
