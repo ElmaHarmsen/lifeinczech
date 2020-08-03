@@ -17,8 +17,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 section {
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 0.5rem;
+  right: 0.5rem;
   position: absolute;
   h1 {
     color: $light-blue;

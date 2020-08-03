@@ -19,9 +19,9 @@
           <!--Here fetchData() doesn't exist so we emit the event again (2 times in total). From Moveword to Word to Home/Dictionary.-->
         </div>
         <div class="word_details-words">
-          <div><h1>CZ: </h1><h3>{{ wordData.word }}</h3></div>
-          <div><h1>EN: </h1><h3>{{ wordData.translation }}</h3></div>
-          <div><h1>NL: </h1><h3>{{ wordData.nederlands }}</h3></div>
+          <h1>CZ: {{ wordData.word }}</h1>
+          <h1>EN: {{ wordData.translation }}</h1>
+          <h1>NL: {{ wordData.nederlands }}</h1>
         </div>
         <div class="word_details-other">
           <h1 class="category">Category: {{ wordData.category }}</h1>

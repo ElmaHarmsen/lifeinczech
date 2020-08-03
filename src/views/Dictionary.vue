@@ -1,8 +1,9 @@
 <template>
   <section>
-    <div class="navigation_wrapper">
+    <div class="page_header">
       <Navigation />
       <h1>Dictionary <br /># CZ - EN - NL</h1>
+      <Search />
     </div>
     <div v-if="loading" class="loading">
       <h1>Loading ...</h1>
@@ -23,7 +24,8 @@
 </template>
 
 <script>
-import Navigation from "@/components/Header.vue";
+import Navigation from "@/components/Navigation.vue";
+import Search from "@/components/Search.vue";
 import Language from "@/components/Language.vue";
 import Word from "@/components/Word.vue";
 import Addword from "@/components/Addword.vue";
@@ -38,6 +40,7 @@ export default {
   },
   components: {
     Navigation,
+    Search,
     Language,
     Word,
     Addword
