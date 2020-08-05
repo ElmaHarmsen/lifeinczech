@@ -12,7 +12,7 @@
         <h1>This is the form to move a word</h1>
         <div class="moveword_pre-inputs">
           <h3>{{ movingWord.word }}</h3>
-          <h2>{{ movingWord.translation }}</h2>
+          <h3>{{ movingWord.translation }}</h3>
           <h3>{{ movingWord.nederlands }}</h3>
         </div>
         <div class="moveword_inputs">
@@ -127,7 +127,6 @@ section {
         grid-template-rows: 100%;
         gap: 0.5rem;
 
-        h2,
         h3 {
           border: 1px solid blue;
           border-radius: 2px;
@@ -164,15 +163,6 @@ section {
           padding: 0rem 0.5rem;
           color: gray;
         }
-      }
-      .inputs_button {
-        width: 100%;
-        padding: 0.8rem 0.5rem;
-        font-weight: bold;
-        color: white;
-        border: 1px solid $orange;
-        border-radius: 2px;
-        background-color: $orange;
       }
     }
     .moveword_close {

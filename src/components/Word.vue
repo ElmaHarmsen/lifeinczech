@@ -13,7 +13,8 @@
       <div class="word_details-around">
         <div class="requests">
           <h1 class="delete" v-on:click="deleteWord(wordData._id)">Delete</h1>
-          <h1 class="edit">Edit</h1>
+          <Editword v-bind:editingWord="wordData" v-on:closeDetails="openDetails()"
+          v-on:fetchWordsAgain="$emit('fetchWordsAgain')"/>
           <Moveword v-bind:movingWord="wordData" v-on:closeDetails="openDetails()" 
           v-on:fetchWordsAgain="$emit('fetchWordsAgain')"/>
           <!--Here fetchData() doesn't exist so we emit the event again (2 times in total). From Moveword to Word to Home/Dictionary.-->
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+import Editword from "@/components/Editword.vue";
 import Moveword from "@/components/Moveword.vue";
 
 export default {
@@ -52,7 +54,8 @@ export default {
     };
   },
   components: {
-     Moveword
+    Editword,
+    Moveword
   },
   methods: {
     openDetails() {
@@ -137,9 +140,6 @@ section {
       .delete {
         color: $red;
       }
-      .edit {
-        color: $orange;
-      }
 
       .word_details-words {
         display: flex;
@@ -169,6 +169,7 @@ section {
       position: absolute;
       background-color: $light-blue;
       border: 1px solid $light-blue;
+      box-shadow: 0 0 5px $shadow;
 
       .word_details-close-span {
         background-color: white;

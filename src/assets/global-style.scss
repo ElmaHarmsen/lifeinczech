@@ -74,3 +74,13 @@ span {
 // .moveword_close:active {
 //   transform: scale(1.7);
 // }
+
+.inputs_button {
+  width: 100%;
+  padding: 0.8rem 0.5rem;
+  font-weight: bold;
+  color: white;
+  border: 1px solid $orange;
+  border-radius: 2px;
+  background-color: $orange;
+}

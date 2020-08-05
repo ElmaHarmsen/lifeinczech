@@ -85,6 +85,7 @@ section {
       background-color: blue;
       border: 1px solid blue;
       transition: background-color .2s ease-out;
+      box-shadow: 0 0 5px $shadow;
 
       span:first-of-type {
         transform: rotate(-45deg) translate(-8px, 6px);
