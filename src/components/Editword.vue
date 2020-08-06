@@ -17,25 +17,31 @@
         </div>
         <div class="editword_inputs">
           <input
-            v-model="input_word"
             class="inputs_field"
             placeholder="Čeština"
+            id="word"
+            v-model="editWordTo"
             type="text"
             name="input_word"
+            value="Word"
           />
           <input
-            v-model="input_translation"
             class="inputs_field"
             placeholder="English"
+            id="translation"
+            v-model="editTranslationTo"
             type="text"
             name="input_translation"
+            value="Translation"
           />
           <input
-            v-model="input_nederlands"
             class="inputs_field"
             placeholder="Nederlands"
+            id="nederlands"
+            v-model="editNederlandsTo"
             type="text"
             name="input_nederlands"
+            value="Nederlands"
           />          
         </div>
         <input
@@ -65,11 +71,40 @@ export default {
       input_translation: "",
       input_nederlands: "",
       form_submit: "",
+      editWordTo: "",
+      editTranslationTo: "",
+      editNederlandsTo: ""
     }
   },
   methods: {
     openEditWordForm() {
       this.editwordformopen = !this.editwordformopen;
+    },
+    async editWord(id) {
+      const editWord = await fetch(
+        "https://dictionary--api.herokuapp.com/api/dictionarycz",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id,
+            editedWord: {
+              word: this.editWordTo,
+              translation: this.editTranslationTo,
+              nederlands: this.editNederlandsTo,
+              hotlist: this.editingWord.hotlist,
+              dictionary: this.editingWord.dictionary
+            },
+          })
+        }
+      );
+      const response = await editWord.text();
+      console.log(response);
+      this.$emit("closeDetails");
+      this.$emit("fetchWordsAgain");
+      this.$store.dispatch("triggerMessage", response);
     }
   }
 }
