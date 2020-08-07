@@ -42,7 +42,19 @@
             type="text"
             name="input_nederlands"
             value="Nederlands"
-          />          
+          />
+          <label for="category_select" class="category_select-label">Category</label>
+          <select
+            v-model="editCategoryTo"
+            class="category_select"
+            name="select_category"
+          >
+            <option value="" disabled>Choose</option>
+            <option>Animals</option> 
+            <option>Meals</option>
+            <option>Objects</option>
+            <option>Politeness</option>                                    
+          </select>          
         </div>
         <input
           v-on:click="editWord(editingWord._id), openEditWordForm()"
@@ -70,10 +82,12 @@ export default {
       input_word: "",
       input_translation: "",
       input_nederlands: "",
+      select_category: "",
       form_submit: "",
       editWordTo: "",
       editTranslationTo: "",
-      editNederlandsTo: ""
+      editNederlandsTo: "",
+      editCategoryTo: ""
     }
   },
   methods: {
@@ -96,7 +110,7 @@ export default {
               nederlands: this.editNederlandsTo,
               hotlist: this.editingWord.hotlist,
               dictionary: this.editingWord.dictionary,
-              category: this.editingWord.category
+              category: this.editCategoryTo
             },
           })
         }
@@ -169,6 +183,18 @@ section {
         .inputs_field {
           width: calc(100% - 1.2rem);
           padding: 0.8rem 0.5rem;
+          border: 1px solid blue;
+          border-radius: 2px;
+        }
+        .category_select-label {
+          padding: 0.8rem 0.5rem;
+          font-size: 18px;
+        }
+        .category_select {
+          -webkit-appearance: none;
+          width: 100%;
+          padding: 0.8rem 0.25rem;
+          background-color: white;
           border: 1px solid blue;
           border-radius: 2px;
         }      

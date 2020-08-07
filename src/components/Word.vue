@@ -49,6 +49,7 @@ export default {
       input_word: "",
       input_translation: "",
       input_nederlands: "",
+      select_category: "",
       word_delete: "",
       error: ""
     };
