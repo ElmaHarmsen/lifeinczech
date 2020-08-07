@@ -17,11 +17,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 section {
-  top: 0.5rem;
-  right: 0.5rem;
+  width: 100%;
+  height: calc(50px + 1rem);
+  top: 0rem;
+  right: 0rem;
   position: absolute;
+  z-index: 3;
+  background-color: white;
+  box-shadow: 0px 10px 5px -5px $shadow;
+
   h1 {
-    color: $light-blue;
+    color: blue;
+    padding: 0.5rem;
   }
 }
 </style>

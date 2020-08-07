@@ -195,7 +195,6 @@ section {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
-        margin-top: 1.5rem;
 
         input {
           grid-column: 1/3;

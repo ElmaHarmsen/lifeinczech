@@ -95,7 +95,8 @@ export default {
               translation: this.editTranslationTo,
               nederlands: this.editNederlandsTo,
               hotlist: this.editingWord.hotlist,
-              dictionary: this.editingWord.dictionary
+              dictionary: this.editingWord.dictionary,
+              category: this.editingWord.category
             },
           })
         }
