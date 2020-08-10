@@ -24,7 +24,8 @@
         <!--What it does is fetching the data again, so it 'refreshes' the list.-->
       </div>
     </div>
-    <Addword v-on:fetchWordsAgain="fetchData()" /> <!--Here the addWord form asks the Hotlist to fetch the list with words again.-->
+    <Apps />
+    <!-- <Addword v-on:fetchWordsAgain="fetchData()" /> Here the addWord form asks the Hotlist to fetch the list with words again. -->
   </section>
 </template>
 
@@ -34,7 +35,8 @@ import Navigation from "@/components/Navigation.vue";
 import Search from "@/components/Search.vue";
 import Language from "@/components/Language.vue";
 import Word from "@/components/Word.vue";
-import Addword from "@/components/Addword.vue";
+// import Addword from "@/components/Addword.vue";
+import Apps from "@/components/Apps.vue";
 
 export default {
   name: "Home",
@@ -49,7 +51,8 @@ export default {
     Search,
     Language,
     Word,
-    Addword
+    // Addword,
+    Apps
   },
   created: async function() {
     await this.fetchData();
