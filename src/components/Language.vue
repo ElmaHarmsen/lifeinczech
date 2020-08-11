@@ -1,9 +1,16 @@
 <template>
   <section>
     <div class="language_wrapper">
-      <h1>CZ</h1>
-      <h1>EN</h1>
-      <h1>NL</h1>
+      <h1>
+        <img class="language_images" src="../assets/czech-flag.svg" alt="" /> :
+      </h1>
+      <h1>
+        <img class="language_images" src="../assets/english-flag.svg" alt="" />
+        :
+      </h1>
+      <h1>
+        <img class="language_images" src="../assets/dutch-flag.svg" alt="" /> :
+      </h1>
     </div>
   </section>
 </template>
@@ -17,10 +24,15 @@ export default {
 <style lang="scss" scoped>
 section {
   .language_wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 100%;
-    gap: 0.5rem;
+    display: flex;
+    flex-flow: column wrap;
+
+    .language_images {
+      width: 40px;
+      height: 24px;
+      border-radius: 2px;
+      padding: 0.8rem 0rem;
+    }
   }
   .language_wrapper > * {
     padding: 0rem 0.5rem;
