@@ -11,26 +11,33 @@
         <h3>{{ wordData.translation }}</h3>
         <h3>{{ wordData.nederlands }}</h3>
       </div>
+      <!-- <img src="../assets/expand_more-24px.svg" class="expand" alt=""> -->
     </div>
-    <div class="word_details" v-bind:class="{ open: worddetailsopen }">
-      <div class="requests">
-        <img
-          src="../assets/delete-24px.svg"
-          class="delete"
-          v-on:click="deleteWord(wordData._id)"
-        />
-        <Editword
-          v-bind:editingWord="wordData"
-          v-on:closeDetails="openDetails()"
-          v-on:fetchWordsAgain="$emit('fetchWordsAgain')"
-        />
-        <Moveword
-          v-bind:movingWord="wordData"
-          v-on:closeDetails="openDetails()"
-          v-on:fetchWordsAgain="$emit('fetchWordsAgain')"
-        />
+    <transition name="bounce">
+      <div
+        class="word_details"
+        v-if="worddetailsopen"
+        v-bind:class="{ open: worddetailsopen }"
+      >
+        <div class="requests">
+          <img
+            src="../assets/delete-24px.svg"
+            class="delete"
+            v-on:click="deleteWord(wordData._id)"
+          />
+          <Editword
+            v-bind:editingWord="wordData"
+            v-on:closeDetails="openDetails()"
+            v-on:fetchWordsAgain="$emit('fetchWordsAgain')"
+          />
+          <Moveword
+            v-bind:movingWord="wordData"
+            v-on:closeDetails="openDetails()"
+            v-on:fetchWordsAgain="$emit('fetchWordsAgain')"
+          />
+        </div>
       </div>
-    </div>
+    </transition>
     <!-- <div class="word_details-wrapper" v-bind:class="{ open: worddetailsopen }">
       <div class="word_details-around">
         <div class="requests">
@@ -120,6 +127,11 @@ section {
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
 
+    &.close {
+      // background-color: $light-blue;
+      // transition: background-color 0.2s ease-in;
+    }
+
     .word_wrapper-words {
       display: flex;
       flex-flow: column wrap;
@@ -130,34 +142,60 @@ section {
         padding: 0.8rem 0.5rem;
       }
     }
+    // .expand {
+    //   width: 50px;
+    //   height: 50px;
+    //   margin: 0.5rem;
+    //   border-radius: 2px;
+    //   box-shadow: 0 0 5px $shadow;
+    //   align-self: end;
+    // }
   }
 
   .word_details {
-    margin-top: -200px;
-    right: 1.5rem;
-    position: absolute;
-    opacity: 0;
+    // margin-top: -200px;
+    // right: 1.5rem;
+    // position: absolute;
     transition: opacity 0.2s ease-in;
 
     .requests {
       display: flex;
-      flex-flow: column wrap;
+      flex-flow: row nowrap;
+      // justify-content: space-around;
+      align-items: center;
       cursor: pointer;
 
       .delete {
         height: 50px;
+        width: 50px;
         border-radius: 2px;
         box-shadow: 0 0 5px $shadow;
       }
     }
 
     .requests > * {
-      margin: 0.5rem 0rem;
+      margin: 0rem 0.5rem;
     }
 
-    &.open {
+    &.bounce-enter-active,
+    &.bounce-leave-active {
       opacity: 1;
     }
+    &.bounce-enter,
+    &.bounce-leave-to {
+      opacity: 0;
+    }
+
+    // &.bounce-enter-active {
+    //   opacity: 1;
+    // }
+    // &.bounce-leave-active {
+    //   opacity: 0;
+    // }
+
+    // &.open {
+    //   display: block;
+    // }
   }
 
   // .word_details-wrapper {
