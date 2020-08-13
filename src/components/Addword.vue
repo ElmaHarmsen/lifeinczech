@@ -225,6 +225,10 @@ section {
           padding: 0.8rem 0.5rem;
           border: 1px solid blue;
           border-radius: 2px;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .category_select-label {
           padding: 0.8rem 0.5rem;
@@ -237,12 +241,20 @@ section {
           background-color: white;
           border: 1px solid blue;
           border-radius: 2px;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .inputs_radio {
           -webkit-appearance: none;
           height: 25px;
           width: 25px;
           border: 1px solid blue;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .inputs_radio:checked {
           background-color: blue;
@@ -258,6 +270,7 @@ section {
           border: 1px solid $purple;
           border-radius: 2px;
           background-color: $purple;
+          box-shadow: 0 0 5px $shadow;
         }
       }
     }

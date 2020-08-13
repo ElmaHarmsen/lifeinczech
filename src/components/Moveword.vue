@@ -159,6 +159,10 @@ section {
           width: 25px;
           border: 1px solid blue;
           border-radius: 2px;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .inputs_radio:checked {
           background-color: blue;
@@ -173,8 +177,7 @@ section {
       bottom: 1.5rem;
       right: 1.5rem;
       position: absolute;
-      background-color: blue;
-      border: 1px solid blue;
+      background-color: $light-blue;
       border-radius: 2px;
       box-shadow: 0 0 5px $shadow;
 
@@ -182,8 +185,8 @@ section {
       flex-flow: row wrap;
       justify-content: center;
       align-content: center;
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
 
       .moveword_close-span {
         background-color: white;
