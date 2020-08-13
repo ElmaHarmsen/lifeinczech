@@ -7,6 +7,7 @@
     >
       <span class="addword_span"></span>
       <span class="addword_span"></span>
+      <!-- <img src="../assets/add-24px.svg" alt=""> -->
     </div>
     <div class="addword_form-wrapper" v-bind:class="{ open: wordformopen }">
       <div class="addword_form">
@@ -33,17 +34,19 @@
             type="text"
             name="input_nederlands"
           />
-          <label for="category_select" class="category_select-label">Category</label>
+          <label for="category_select" class="category_select-label"
+            >Category</label
+          >
           <select
             v-model="select_category"
             class="category_select"
             name="select_category"
           >
             <option value="" disabled>Choose</option>
-            <option>Animals</option> 
+            <option>Animals</option>
             <option>Meals</option>
             <option>Objects</option>
-            <option>Politeness</option>                                    
+            <option>Politeness</option>
           </select>
           <div class="radio">
             <input
@@ -80,6 +83,10 @@
         <h3>{{ input_nederlands }}</h3>
       </div>
       <div class="addword_error">{{ error }}</div>
+      <div class="addword_close-form" v-on:click="openWordForm()">
+        <span class="addword_close-span"></span>
+        <span class="addword_close-span"></span>
+      </div>
     </div>
   </section>
 </template>
@@ -131,18 +138,20 @@ export default {
       );
       const response = await addword.json();
       console.log(response);
-      if (!response) {//If there is no responce there then we set an error and stop the method.
+      if (!response) {
+        //If there is no responce there then we set an error and stop the method.
         this.error = "Fail!";
         return;
       }
       this.$store.dispatch("triggerMessage", response.message);
-      if (this.$router.currentRoute.path === response.place) {//If there is no error, but the path from the API is the same as the one 
+      if (this.$router.currentRoute.path === response.place) {
+        //If there is no error, but the path from the API is the same as the one
         //the user is currently on, we just close the drawer and stop the method.
         this.openWordForm();
         this.$emit("fetchWordsAgain");
         return;
       }
-      this.$router.push(response.place);//Otherwise this takes you to the correct page.
+      this.$router.push(response.place); //Otherwise this takes you to the correct page.
     }
   }
 };
@@ -151,12 +160,7 @@ export default {
 <style lang="scss" scoped>
 section {
   .addword_btn {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    position: fixed;
-    z-index: 4;
-    background-color: $purple;
-    border: 1px solid $purple;
+    background-color: $light-blue;
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
 
@@ -170,10 +174,6 @@ section {
       transform: translate(0px, -5px);
     }
     &.close {
-      background-color: blue;
-      border: 1px solid blue;
-      transition: background-color .2s ease-out;
-
       span:first-of-type {
         transform: rotate(135deg) translate(5px, -5px);
       }
@@ -225,6 +225,10 @@ section {
           padding: 0.8rem 0.5rem;
           border: 1px solid blue;
           border-radius: 2px;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .category_select-label {
           padding: 0.8rem 0.5rem;
@@ -237,12 +241,20 @@ section {
           background-color: white;
           border: 1px solid blue;
           border-radius: 2px;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .inputs_radio {
           -webkit-appearance: none;
           height: 25px;
           width: 25px;
           border: 1px solid blue;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .inputs_radio:checked {
           background-color: blue;
@@ -258,6 +270,7 @@ section {
           border: 1px solid $purple;
           border-radius: 2px;
           background-color: $purple;
+          box-shadow: 0 0 5px $shadow;
         }
       }
     }
@@ -282,6 +295,26 @@ section {
     .addword_error {
       color: red;
       padding: 0.8rem 0.5rem;
+    }
+    .addword_close-form {
+      width: 50px;
+      height: 50px;
+      bottom: calc(50px + 2.5rem);
+      right: 1.5rem;
+      position: absolute;
+      background-color: $light-blue;
+      border-radius: 2px;
+      box-shadow: 0 0 5px $shadow;
+
+      .addword_close-span {
+        background-color: white;
+      }
+      span:first-of-type {
+        transform: rotate(135deg) translate(5px, -5px);
+      }
+      span:last-of-type {
+        transform: rotate(45deg) translate(-2.5px, -4px);
+      }
     }
   }
 }

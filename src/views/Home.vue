@@ -6,13 +6,11 @@
         Hotlist <br />
         @ Home
       </h1>
-      <Search />
     </div>
     <div v-if="loading" class="loading">
       <h1>Loading ...</h1>
     </div>
     <div v-else class="hotlist_content">
-      <Language />
       <div class="word_hotlist-wrapper">
         <Word
           v-for="wordData in hotlistWord"
@@ -24,17 +22,17 @@
         <!--What it does is fetching the data again, so it 'refreshes' the list.-->
       </div>
     </div>
-    <Addword v-on:fetchWordsAgain="fetchData()" /> <!--Here the addWord form asks the Hotlist to fetch the list with words again.-->
+    <Apps />
+    <!-- <Addword v-on:fetchWordsAgain="fetchData()" /> Here the addWord form asks the Hotlist to fetch the list with words again. -->
   </section>
 </template>
 
 <script>
 // @ is an alias to /src
 import Navigation from "@/components/Navigation.vue";
-import Search from "@/components/Search.vue";
-import Language from "@/components/Language.vue";
 import Word from "@/components/Word.vue";
-import Addword from "@/components/Addword.vue";
+// import Addword from "@/components/Addword.vue";
+import Apps from "@/components/Apps.vue";
 
 export default {
   name: "Home",
@@ -46,10 +44,9 @@ export default {
   },
   components: {
     Navigation,
-    Search,
-    Language,
     Word,
-    Addword
+    // Addword,
+    Apps
   },
   created: async function() {
     await this.fetchData();

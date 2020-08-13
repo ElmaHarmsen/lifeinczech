@@ -88,7 +88,7 @@ section {
       box-shadow: 0 0 5px $shadow;
 
       span:first-of-type {
-        transform: rotate(-45deg) translate(-8px, 6px);
+        transform: rotate(-45deg) translate(-8px, 8px);
         background-color: white;
       }
       span:nth-of-type(2) {

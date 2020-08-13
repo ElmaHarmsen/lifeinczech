@@ -5,9 +5,12 @@
       class="moveword_btn"
       v-bind:class="{ close: movewordformopen }"
     >
-      <h1 class="moveword_move">Move</h1>
+      <img src="../assets/open_with-24px.svg" class="moveword_move" />
     </div>
-    <div class="moveword_form-wrapper" v-bind:class="{ open: movewordformopen }">
+    <div
+      class="moveword_form-wrapper"
+      v-bind:class="{ open: movewordformopen }"
+    >
       <div class="moveword_form">
         <h1>This is the form to move a word</h1>
         <div class="moveword_pre-inputs">
@@ -62,7 +65,7 @@ export default {
       movewordformopen: false,
       form_submit: "",
       moveTo: ""
-    }
+    };
   },
   methods: {
     openMoveWordForm() {
@@ -90,14 +93,15 @@ export default {
       this.$store.dispatch("triggerMessage", response);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 section {
   .moveword_btn {
     .moveword_move {
-      color: $orange;
+      border-radius: 2px;
+      box-shadow: 0 0 5px $shadow;
     }
   }
 
@@ -155,6 +159,10 @@ section {
           width: 25px;
           border: 1px solid blue;
           border-radius: 2px;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .inputs_radio:checked {
           background-color: blue;
@@ -169,8 +177,7 @@ section {
       bottom: 1.5rem;
       right: 1.5rem;
       position: absolute;
-      background-color: blue;
-      border: 1px solid blue;
+      background-color: $light-blue;
       border-radius: 2px;
       box-shadow: 0 0 5px $shadow;
 
@@ -178,8 +185,8 @@ section {
       flex-flow: row wrap;
       justify-content: center;
       align-content: center;
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
 
       .moveword_close-span {
         background-color: white;

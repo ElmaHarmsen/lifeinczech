@@ -5,9 +5,12 @@
       class="editword_btn"
       v-bind:class="{ close: editwordformopen }"
     >
-      <h1 class="editword_edit">Edit</h1>
+      <img src="../assets/create-24px.svg" class="editword_edit" />
     </div>
-    <div class="editword_form-wrapper" v-bind:class="{ open: editwordformopen }">
+    <div
+      class="editword_form-wrapper"
+      v-bind:class="{ open: editwordformopen }"
+    >
       <div class="editword_form">
         <h1>This is the form to edit a word</h1>
         <div class="editword_pre-inputs">
@@ -43,18 +46,20 @@
             name="input_nederlands"
             value="Nederlands"
           />
-          <label for="category_select" class="category_select-label">Category</label>
+          <label for="category_select" class="category_select-label"
+            >Category</label
+          >
           <select
             v-model="editCategoryTo"
             class="category_select"
             name="select_category"
           >
             <option value="" disabled>Choose</option>
-            <option>Animals</option> 
+            <option>Animals</option>
             <option>Meals</option>
             <option>Objects</option>
-            <option>Politeness</option>                                    
-          </select>          
+            <option>Politeness</option>
+          </select>
         </div>
         <input
           v-on:click="editWord(editingWord._id), openEditWordForm()"
@@ -62,7 +67,7 @@
           type="submit"
           name="form_submit"
           v-bind:value="`Save and Edit`"
-        />        
+        />
       </div>
       <div class="editword_close" v-on:click="openEditWordForm()">
         <span class="editword_close-span"></span>
@@ -88,7 +93,7 @@ export default {
       editTranslationTo: "",
       editNederlandsTo: "",
       editCategoryTo: ""
-    }
+    };
   },
   methods: {
     openEditWordForm() {
@@ -111,7 +116,7 @@ export default {
               hotlist: this.editingWord.hotlist,
               dictionary: this.editingWord.dictionary,
               category: this.editCategoryTo
-            },
+            }
           })
         }
       );
@@ -122,14 +127,15 @@ export default {
       this.$store.dispatch("triggerMessage", response);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 section {
   .editword_btn {
     .editword_edit {
-      color: $orange;
+      border-radius: 2px;
+      box-shadow: 0 0 5px $shadow;
     }
   }
 
@@ -145,7 +151,7 @@ section {
 
     &.open {
       left: 0;
-    } 
+    }
 
     .editword_form {
       padding: 0.5rem;
@@ -179,12 +185,16 @@ section {
 
         input {
           grid-column: 1/3;
-        }  
+        }
         .inputs_field {
           width: calc(100% - 1.2rem);
           padding: 0.8rem 0.5rem;
           border: 1px solid blue;
           border-radius: 2px;
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
         }
         .category_select-label {
           padding: 0.8rem 0.5rem;
@@ -197,15 +207,18 @@ section {
           background-color: white;
           border: 1px solid blue;
           border-radius: 2px;
-        }      
+
+          &:focus {
+            box-shadow: 0 0 5px $shadow;
+          }
+        }
       }
     }
     .editword_close {
       bottom: 1.5rem;
       right: 1.5rem;
       position: absolute;
-      background-color: blue;
-      border: 1px solid blue;
+      background-color: $light-blue;
       border-radius: 2px;
       box-shadow: 0 0 5px $shadow;
 
@@ -213,8 +226,8 @@ section {
       flex-flow: row wrap;
       justify-content: center;
       align-content: center;
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
 
       .editword_close-span {
         background-color: white;

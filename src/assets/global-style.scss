@@ -49,20 +49,20 @@ $shadow: #888;
   }
 }
 
-.navigation_menu, .addword_btn, .word_details-close {
+.navigation_menu, .addword_btn, .addword_close-form, .word_details-close {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-content: center;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   transition: transform 0.2s;
 }
-.navigation_span, .addword_span, .moveword_close-span, .editword_close-span, .word_details-close-span {
+.navigation_span, .addword_span, .addword_close-span, .moveword_close-span, .editword_close-span, .word_details-close-span {
   display: block;
-  height: 1px;
-  width: 40px;
-  margin: 0.3rem 0rem;
+  height: 5px;
+  width: 35px;
+  margin: 0.2rem 0rem;
 }
 span {
   transition: transform 0.2s;
@@ -83,4 +83,5 @@ span {
   border: 1px solid $orange;
   border-radius: 2px;
   background-color: $orange;
+  box-shadow: 0 0 5px $shadow;
 }
