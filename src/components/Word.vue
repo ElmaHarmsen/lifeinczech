@@ -93,6 +93,17 @@ export default {
   methods: {
     openDetails() {
       this.worddetailsopen = !this.worddetailsopen;
+      if (!this.worddetailsopen) {
+        //If there is no clicked word, there is no worddetailsopen, and we remove the blurred class.
+        document
+          .querySelectorAll(".word_wrapper")
+          .forEach(word => word.classList.remove("word_blurred"));
+      } else {
+        //If there is a word wich has the details. we add the blurred class to all of them. Exept the one that is clicked which overrides the blur.
+        document
+          .querySelectorAll(".word_wrapper")
+          .forEach(word => word.classList.add("word_blurred"));
+      }
     },
     async deleteWord(id) {
       this.openDetails(); //This closes the popup
@@ -127,11 +138,6 @@ section {
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
 
-    &.close {
-      // background-color: $light-blue;
-      // transition: background-color 0.2s ease-in;
-    }
-
     .word_wrapper-words {
       display: flex;
       flex-flow: column wrap;
@@ -142,14 +148,9 @@ section {
         padding: 0.8rem 0.5rem;
       }
     }
-    // .expand {
-    //   width: 50px;
-    //   height: 50px;
-    //   margin: 0.5rem;
-    //   border-radius: 2px;
-    //   box-shadow: 0 0 5px $shadow;
-    //   align-self: end;
-    // }
+  }
+  .word_blurred {
+    filter: blur(3px);
   }
 
   .word_details {

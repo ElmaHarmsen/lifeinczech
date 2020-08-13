@@ -5,9 +5,9 @@
       class="addword_btn"
       v-bind:class="{ close: wordformopen }"
     >
-      <!-- <span class="addword_span"></span>
-      <span class="addword_span"></span> -->
-      <img src="../assets/add-24px.svg" alt="">
+      <span class="addword_span"></span>
+      <span class="addword_span"></span>
+      <!-- <img src="../assets/add-24px.svg" alt=""> -->
     </div>
     <div class="addword_form-wrapper" v-bind:class="{ open: wordformopen }">
       <div class="addword_form">
@@ -34,17 +34,19 @@
             type="text"
             name="input_nederlands"
           />
-          <label for="category_select" class="category_select-label">Category</label>
+          <label for="category_select" class="category_select-label"
+            >Category</label
+          >
           <select
             v-model="select_category"
             class="category_select"
             name="select_category"
           >
             <option value="" disabled>Choose</option>
-            <option>Animals</option> 
+            <option>Animals</option>
             <option>Meals</option>
             <option>Objects</option>
-            <option>Politeness</option>                                    
+            <option>Politeness</option>
           </select>
           <div class="radio">
             <input
@@ -82,7 +84,8 @@
       </div>
       <div class="addword_error">{{ error }}</div>
       <div class="addword_close-form" v-on:click="openWordForm()">
-        X
+        <span class="addword_close-span"></span>
+        <span class="addword_close-span"></span>
       </div>
     </div>
   </section>
@@ -135,18 +138,20 @@ export default {
       );
       const response = await addword.json();
       console.log(response);
-      if (!response) {//If there is no responce there then we set an error and stop the method.
+      if (!response) {
+        //If there is no responce there then we set an error and stop the method.
         this.error = "Fail!";
         return;
       }
       this.$store.dispatch("triggerMessage", response.message);
-      if (this.$router.currentRoute.path === response.place) {//If there is no error, but the path from the API is the same as the one 
+      if (this.$router.currentRoute.path === response.place) {
+        //If there is no error, but the path from the API is the same as the one
         //the user is currently on, we just close the drawer and stop the method.
         this.openWordForm();
         this.$emit("fetchWordsAgain");
         return;
       }
-      this.$router.push(response.place);//Otherwise this takes you to the correct page.
+      this.$router.push(response.place); //Otherwise this takes you to the correct page.
     }
   }
 };
@@ -155,10 +160,6 @@ export default {
 <style lang="scss" scoped>
 section {
   .addword_btn {
-    // bottom: 1.5rem;
-    // right: 1.5rem;
-    // position: fixed;
-    // z-index: 4;
     background-color: $light-blue;
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
@@ -172,18 +173,14 @@ section {
     span:last-of-type {
       transform: translate(0px, -5px);
     }
-    // &.close {
-    //   background-color: blue;
-    //   border: 1px solid blue;
-    //   transition: background-color .2s ease-out;
-
-    //   span:first-of-type {
-    //     transform: rotate(135deg) translate(5px, -5px);
-    //   }
-    //   span:last-of-type {
-    //     transform: rotate(45deg) translate(-2.5px, -4px);
-    //   }
-    // }
+    &.close {
+      span:first-of-type {
+        transform: rotate(135deg) translate(5px, -5px);
+      }
+      span:last-of-type {
+        transform: rotate(45deg) translate(-2.5px, -4px);
+      }
+    }
   }
 
   .addword_form-wrapper {
@@ -192,7 +189,7 @@ section {
     position: fixed;
     top: 0rem;
     left: -100%;
-    z-index: 4;
+    z-index: 3;
     transition: left 0.2s ease-in;
     background-color: white;
 
@@ -289,11 +286,22 @@ section {
     .addword_close-form {
       width: 50px;
       height: 50px;
-      bottom: 1.5rem;
+      bottom: calc(50px + 2.5rem);
       right: 1.5rem;
+      position: absolute;
       background-color: $light-blue;
       border-radius: 2px;
       box-shadow: 0 0 5px $shadow;
+
+      .addword_close-span {
+        background-color: white;
+      }
+      span:first-of-type {
+        transform: rotate(135deg) translate(5px, -5px);
+      }
+      span:last-of-type {
+        transform: rotate(45deg) translate(-2.5px, -4px);
+      }
     }
   }
 }

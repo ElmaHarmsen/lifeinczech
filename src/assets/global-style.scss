@@ -49,7 +49,7 @@ $shadow: #888;
   }
 }
 
-.navigation_menu, .word_details-close {
+.navigation_menu, .addword_btn, .addword_close-form, .word_details-close {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -58,7 +58,7 @@ $shadow: #888;
   height: 50px;
   transition: transform 0.2s;
 }
-.navigation_span,.moveword_close-span, .editword_close-span, .word_details-close-span {
+.navigation_span, .addword_span, .addword_close-span, .moveword_close-span, .editword_close-span, .word_details-close-span {
   display: block;
   height: 5px;
   width: 35px;
