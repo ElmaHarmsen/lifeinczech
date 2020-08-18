@@ -22,7 +22,7 @@
         <!--What it does is fetching the data again, so it 'refreshes' the list.-->
       </div>
     </div>
-    <Apps />
+    <Apps v-on:fetch-words-again="fetchData()" />
     <!-- <Addword v-on:fetch-words-again="fetchData()" /> Here the addWord form asks the Hotlist to fetch the list with words again. -->
   </section>
 </template>

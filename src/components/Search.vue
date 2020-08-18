@@ -1,15 +1,8 @@
 <template>
   <section>
-    <div
-      v-on:click="openSearch()"
-      class="search_btn"
-      v-bind:class="{ close: searchopen }"
-    >
-      <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" />
-    </div>
-    <div class="search_input" v-bind:class="{ open: searchopen }">
+    <div class="search_input">
       <input type="text" placeholder="Search" />
-      <div class="search_close" v-on:click="openSearch()">
+      <div class="search_close" v-on:click="$emit('close-search')">
         <span class="search_close-span"></span>
         <span class="search_close-span"></span>
       </div>
@@ -19,17 +12,7 @@
 
 <script>
 export default {
-  name: "Search",
-  data: function() {
-    return {
-      searchopen: false
-    };
-  },
-  methods: {
-    openSearch() {
-      this.searchopen = !this.searchopen;
-    }
-  }
+  name: "Search"
 };
 </script>
 
@@ -50,7 +33,7 @@ section {
     // width: 100%;
     // height: calc(50px + 1rem);
     padding: 0.5rem 0rem;
-    top: -100px;
+    top: 0px;
     right: 0.5rem;
     position: fixed;
     z-index: 3;
@@ -58,10 +41,6 @@ section {
     background-color: white;
     display: flex;
     flex-flow: row nowrap;
-
-    &.open {
-      top: 0px;
-    }
 
     input {
       width: calc(100% - 1rem - 50px);

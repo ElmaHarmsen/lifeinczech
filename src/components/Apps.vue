@@ -7,10 +7,10 @@
     >
       <img class="apps_btn-icon" src="../assets/apps-24px.svg" alt="" />
     </div>
+    <Search v-if="searchopen" v-on:close-search="toggleSearch()" />
     <div class="apps_wrapper" v-bind:class="{ open: appsopen }">
-      <div class="apps_search" v-on:click="openApps()">
-        <!-- <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" /> -->
-        <Search />
+      <div class="apps_search" v-on:click="toggleSearch">
+        <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" />
       </div>
       <div class="apps_filter">
         <img
@@ -20,7 +20,7 @@
         />
       </div>
       <div class="apps_add">
-        <Addword />
+        <Addword v-on:fetch-words-again="$emit('fetch-words-again')" />
       </div>
     </div>
   </section>
@@ -34,7 +34,8 @@ export default {
   name: "Apps",
   data: function() {
     return {
-      appsopen: false
+      appsopen: false,
+      searchopen: false
     };
   },
   components: {
@@ -44,6 +45,10 @@ export default {
   methods: {
     openApps() {
       this.appsopen = !this.appsopen;
+    },
+    toggleSearch() {
+      this.searchopen = !this.searchopen;
+      this.openApps();
     }
   }
 };

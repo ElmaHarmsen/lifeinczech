@@ -17,7 +17,7 @@
         />
       </div>
     </div>
-    <Apps />
+    <Apps v-on:fetch-words-again="fetchData()" />
     <!-- <Addword v-on:fetch-words-again="fetchData()" /> Here the addWord form asks the Dictionary to fetch the list with words again. -->
   </section>
 </template>
