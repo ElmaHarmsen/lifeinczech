@@ -24,7 +24,6 @@ section {
   position: absolute;
   z-index: 3;
   background-color: white;
-  // box-shadow: 0px 10px 5px -5px $shadow;
   box-shadow: 0 0 5px $shadow;
 
   h1 {

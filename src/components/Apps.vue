@@ -9,7 +9,8 @@
     </div>
     <div class="apps_wrapper" v-bind:class="{ open: appsopen }">
       <div class="apps_search">
-        <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" />
+        <!-- <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" /> -->
+        <Search />
       </div>
       <div class="apps_filter">
         <img
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import Search from "@/components/Search.vue";
 import Addword from "@/components/Addword.vue";
 
 export default {
@@ -36,6 +38,7 @@ export default {
     };
   },
   components: {
+    Search,
     Addword
   },
   methods: {
