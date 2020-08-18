@@ -13,12 +13,12 @@
           v-for="wordData in dictionaryWord"
           v-bind:key="wordData.id"
           v-bind:wordData="wordData"
-          v-on:fetchWordsAgain="fetchData()"
+          v-on:fetch-words-again="fetchData()"
         />
       </div>
     </div>
     <Apps />
-    <!-- <Addword v-on:fetchWordsAgain="fetchData()" /> Here the addWord form asks the Dictionary to fetch the list with words again. -->
+    <!-- <Addword v-on:fetch-words-again="fetchData()" /> Here the addWord form asks the Dictionary to fetch the list with words again. -->
   </section>
 </template>
 

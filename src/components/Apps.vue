@@ -8,7 +8,7 @@
       <img class="apps_btn-icon" src="../assets/apps-24px.svg" alt="" />
     </div>
     <div class="apps_wrapper" v-bind:class="{ open: appsopen }">
-      <div class="apps_search">
+      <div class="apps_search" v-on:click="openApps()">
         <!-- <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" /> -->
         <Search />
       </div>

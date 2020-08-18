@@ -28,12 +28,12 @@
           <Editword
             v-bind:editingWord="wordData"
             v-on:closeDetails="openDetails()"
-            v-on:fetchWordsAgain="$emit('fetchWordsAgain')"
+            v-on:fetch-words-again="$emit('fetch-words-again')"
           />
           <Moveword
             v-bind:movingWord="wordData"
             v-on:closeDetails="openDetails()"
-            v-on:fetchWordsAgain="$emit('fetchWordsAgain')"
+            v-on:fetch-words-again="$emit('fetch-words-again')"
           />
         </div>
       </div>
@@ -43,9 +43,9 @@
         <div class="requests">
           <img src="../assets/delete-24px.svg" class="delete" v-on:click="deleteWord(wordData._id)">
           <Editword v-bind:editingWord="wordData" v-on:closeDetails="openDetails()"
-            v-on:fetchWordsAgain="$emit('fetchWordsAgain')"/>
+            v-on:fetch-words-again="$emit('fetch-words-again')"/>
           <Moveword v-bind:movingWord="wordData" v-on:closeDetails="openDetails()" 
-            v-on:fetchWordsAgain="$emit('fetchWordsAgain')"/>
+            v-on:fetch-words-again="$emit('fetch-words-again')"/>
         </div>
         <div class="word_details-words">
           <h1>CZ: {{ wordData.word }}</h1>
@@ -121,7 +121,7 @@ export default {
       );
       const response = await deleteWord.text();
       console.log(response); //Either SYSTEM FAIL or YOU MANAGED
-      this.$emit("fetchWordsAgain");
+      this.$emit("fetch-words-again");
       this.$store.dispatch("triggerMessage", response);
     }
   }

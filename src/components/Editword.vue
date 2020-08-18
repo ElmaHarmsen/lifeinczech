@@ -123,7 +123,7 @@ export default {
       const response = await editWord.text();
       console.log(response);
       this.$emit("closeDetails");
-      this.$emit("fetchWordsAgain");
+      this.$emit("fetch-words-again");
       this.$store.dispatch("triggerMessage", response);
     }
   }
