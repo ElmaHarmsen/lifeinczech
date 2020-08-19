@@ -12,11 +12,11 @@
       v-bind:class="{ open: editwordformopen }"
     >
       <div class="editword_form">
-        <h1>This is the form to edit a word</h1>
+        <h1>Edit this word</h1>
         <div class="editword_pre-inputs">
-          <h3>{{ editingWord.word }}</h3>
-          <h3>{{ editingWord.translation }}</h3>
-          <h3>{{ editingWord.nederlands }}</h3>
+          <h2>{{ editingWord.word }}</h2>
+          <h2>{{ editingWord.translation }}</h2>
+          <h2>{{ editingWord.nederlands }}</h2>
         </div>
         <div class="editword_inputs">
           <input
@@ -70,8 +70,7 @@
         />
       </div>
       <div class="editword_close" v-on:click="openEditWordForm()">
-        <span class="editword_close-span"></span>
-        <span class="editword_close-span"></span>
+        <img src="../assets/close-24px.svg" alt="" />
       </div>
     </div>
   </section>
@@ -138,106 +137,14 @@ section {
       box-shadow: 0 0 5px $shadow;
     }
   }
-
   .editword_form-wrapper {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0rem;
-    left: -100%;
     z-index: 5;
-    transition: left 0.2s ease-in;
-    background-color: white;
 
-    &.open {
-      left: 0;
+    .editword_pre-inputs > * {
+      padding: 0.8rem 0.5rem;
     }
-
-    .editword_form {
-      padding: 0.5rem;
-
-      h1 {
-        height: 50px;
-      }
-
-      .editword_pre-inputs {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 100%;
-        gap: 0.5rem;
-
-        h3 {
-          border: 1px solid blue;
-          border-radius: 2px;
-          height: auto;
-          min-height: calc(50px - 1.6rem);
-        }
-      }
-      .editword_pre-inputs > * {
-        padding: 0.8rem 0.5rem;
-      }
-
-      .editword_inputs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-        margin: 1.5rem 0rem 1.5rem 0rem;
-
-        input {
-          grid-column: 1/3;
-        }
-        .inputs_field {
-          width: calc(100% - 1.2rem);
-          padding: 0.8rem 0.5rem;
-          border: 1px solid blue;
-          border-radius: 2px;
-
-          &:focus {
-            box-shadow: 0 0 5px $shadow;
-          }
-        }
-        .category_select-label {
-          padding: 0.8rem 0.5rem;
-          font-size: 18px;
-        }
-        .category_select {
-          -webkit-appearance: none;
-          width: 100%;
-          padding: 0.8rem 0.25rem;
-          background-color: white;
-          border: 1px solid blue;
-          border-radius: 2px;
-
-          &:focus {
-            box-shadow: 0 0 5px $shadow;
-          }
-        }
-      }
-    }
-    .editword_close {
-      bottom: 1.5rem;
-      right: 1.5rem;
-      position: absolute;
-      background-color: $light-blue;
-      border-radius: 2px;
-      box-shadow: 0 0 5px $shadow;
-
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      align-content: center;
-      width: 50px;
-      height: 50px;
-
-      .editword_close-span {
-        background-color: white;
-      }
-      span:first-of-type {
-        transform: rotate(135deg) translate(5px, -5px);
-      }
-      span:last-of-type {
-        transform: rotate(45deg) translate(-2.5px, -4px);
-      }
+    .inputs_button {
+      background-color: $orange;
     }
   }
 }

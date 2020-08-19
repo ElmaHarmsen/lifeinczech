@@ -36,7 +36,7 @@ export default {
       navItems: [
         {
           id: 0,
-          item: "Hotlist", //Home
+          item: "Hotlist",
           path: "/"
         },
         {
@@ -46,17 +46,6 @@ export default {
         }
       ]
     };
-  },
-  computed: {
-    navigationItemLimit: function() {
-      let item = this.navItem.item;
-      let length = 10;
-      let limitedItem = item.substring(0, length);
-      if (item.length > 10) {
-        limitedItem += <br></br>;
-      }
-      return limitedItem;
-    }
   },
   methods: {
     openNav() {
@@ -74,7 +63,6 @@ section {
     position: fixed;
     z-index: 2;
     background-color: $light-blue;
-    border: 1px solid $light-blue;
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
 
@@ -82,13 +70,12 @@ section {
       background-color: white;
     }
     &.close {
-      background-color: blue;
-      border: 1px solid blue;
-      transition: background-color .2s ease-out;
+      background-color: $purple;
+      transition: background-color 0.2s ease-out;
       box-shadow: 0 0 5px $shadow;
 
       span:first-of-type {
-        transform: rotate(-45deg) translate(-8px, 8px);
+        transform: rotate(-45deg) translate(-6px, 6px);
         background-color: white;
       }
       span:nth-of-type(2) {
@@ -99,9 +86,6 @@ section {
         background-color: white;
       }
     }
-  }
-  .header_page-title {
-    height: 50px;
   }
   .navigation_items-wrapper {
     width: 70%;
@@ -117,7 +101,6 @@ section {
     &.open {
       left: 0;
     }
-
     .navigation_items {
       position: relative;
       top: 100px;

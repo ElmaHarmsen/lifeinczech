@@ -1,12 +1,13 @@
 <template>
-  <section v-if="isPopupShown">
-    <h1>{{ popupText }}</h1>
+  <section>
+    <div class="message_display" v-if="isPopupShown">
+      <h1>{{ popupText }}</h1>
+    </div>
   </section>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-//Maps the getters into computed properties
+import { mapGetters } from "vuex"; //Maps the getters into computed properties
 
 export default {
   name: "MessagePopup",
@@ -17,18 +18,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 section {
-  width: calc(100% - 1rem);
-  height: calc(50px + 1rem);
-  top: 0rem;
-  right: 0.5rem;
-  position: absolute;
-  z-index: 3;
-  background-color: white;
-  box-shadow: 0 0 5px $shadow;
+  .message_display {
+    top: 0.5rem;
+    border-radius: 2px;
+    box-shadow: 0 0 5px $shadow;
 
-  h1 {
-    color: blue;
-    padding: 0.5rem;
+    h1 {
+      color: blue;
+      padding: 0.5rem;
+    }
   }
 }
 </style>

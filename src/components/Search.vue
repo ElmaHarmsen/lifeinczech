@@ -26,18 +26,7 @@ section {
       border-radius: 2px;
     }
   }
-
   .search_input {
-    width: calc(100% - 1rem);
-    // width: 100%;
-    // height: calc(50px + 1rem);
-    padding: 0.5rem 0rem;
-    top: 0px;
-    right: 0.5rem;
-    position: fixed;
-    z-index: 3;
-    transition: top 0.2s ease-in;
-    background-color: white;
     display: flex;
     flex-flow: row nowrap;
 
@@ -46,12 +35,14 @@ section {
       height: 48px;
       padding: 0rem 0.5rem;
       border: 1px solid #0d8cff;
-      border-radius: 2px;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
       box-shadow: 0 0 5px $shadow;
     }
     .search_close {
       img {
-        border-radius: 2px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
         box-shadow: 0 0 5px $shadow;
         background-color: $light-blue;
       }

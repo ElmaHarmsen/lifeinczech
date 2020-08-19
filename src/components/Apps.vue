@@ -14,12 +14,6 @@
         alt=""
       />
     </div>
-    <!-- <div 
-      class="apps_btn"
-      v-if="!appsopen" v-on:click="openApps()"
-    >
-      <img class="apps_btn-icon" src="../assets/apps-24px.svg" alt="" />
-    </div> -->
     <Search v-if="searchopen" v-on:close-search="toggleSearch()" />
     <div class="apps_wrapper" v-bind:class="{ open: appsopen }">
       <div class="apps_search" v-on:click="toggleSearch">
@@ -102,7 +96,6 @@ section {
     &.open {
       opacity: 1;
     }
-
     .apps_filter-icon,
     .apps_search-icon {
       border-radius: 2px;

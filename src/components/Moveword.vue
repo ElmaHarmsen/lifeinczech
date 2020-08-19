@@ -12,11 +12,11 @@
       v-bind:class="{ open: movewordformopen }"
     >
       <div class="moveword_form">
-        <h1>This is the form to move a word</h1>
+        <h1>Move this word</h1>
         <div class="moveword_pre-inputs">
-          <h3>{{ movingWord.word }}</h3>
-          <h3>{{ movingWord.translation }}</h3>
-          <h3>{{ movingWord.nederlands }}</h3>
+          <h2>{{ movingWord.word }}</h2>
+          <h2>{{ movingWord.translation }}</h2>
+          <h2>{{ movingWord.nederlands }}</h2>
         </div>
         <div class="moveword_inputs">
           <div class="radio">
@@ -49,8 +49,7 @@
         />
       </div>
       <div class="moveword_close" v-on:click="openMoveWordForm()">
-        <span class="moveword_close-span"></span>
-        <span class="moveword_close-span"></span>
+        <img src="../assets/close-24px.svg" alt="" />
       </div>
     </div>
   </section>
@@ -104,99 +103,14 @@ section {
       box-shadow: 0 0 5px $shadow;
     }
   }
-
   .moveword_form-wrapper {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0rem;
-    left: -100%;
     z-index: 5;
-    transition: left 0.2s ease-in;
-    background-color: white;
 
-    &.open {
-      left: 0;
+    .moveword_pre-inputs > * {
+      padding: 0.8rem 0.5rem;
     }
-
-    .moveword_form {
-      padding: 0.5rem;
-
-      h1 {
-        height: 50px;
-      }
-      .moveword_pre-inputs {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 100%;
-        gap: 0.5rem;
-
-        h3 {
-          border: 1px solid blue;
-          border-radius: 2px;
-          height: auto;
-          min-height: calc(50px - 1.6rem);
-        }
-      }
-      .moveword_pre-inputs > * {
-        padding: 0.8rem 0.5rem;
-      }
-
-      .moveword_inputs {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        padding: 1.5rem 0rem;
-
-        .radio {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-        }
-        .inputs_radio {
-          -webkit-appearance: none;
-          height: 25px;
-          width: 25px;
-          border: 1px solid blue;
-          border-radius: 2px;
-
-          &:focus {
-            box-shadow: 0 0 5px $shadow;
-          }
-        }
-        .inputs_radio:checked {
-          background-color: blue;
-        }
-        label {
-          padding: 0rem 0.5rem;
-          color: gray;
-        }
-      }
-    }
-    .moveword_close {
-      bottom: 1.5rem;
-      right: 1.5rem;
-      position: absolute;
-      background-color: $light-blue;
-      border-radius: 2px;
-      box-shadow: 0 0 5px $shadow;
-
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      align-content: center;
-      width: 50px;
-      height: 50px;
-
-      .moveword_close-span {
-        background-color: white;
-      }
-      span:first-of-type {
-        transform: rotate(135deg) translate(5px, -5px);
-      }
-      span:last-of-type {
-        transform: rotate(45deg) translate(-2.5px, -4px);
-      }
+    .inputs_button {
+      background-color: $orange;
     }
   }
 }
