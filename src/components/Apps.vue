@@ -1,12 +1,25 @@
 <template>
   <section>
-    <div
-      v-on:click="openApps()"
+    <div v-on:click="openApps()" class="apps_btn">
+      <img
+        v-bind:class="{ close: appsopen }"
+        class="apps_btn-icon"
+        src="../assets/apps-24px.svg"
+        alt=""
+      />
+      <img
+        class="apps_close_btn_icon"
+        v-if="appsopen"
+        src="../assets/close-24px.svg"
+        alt=""
+      />
+    </div>
+    <!-- <div 
       class="apps_btn"
-      v-bind:class="{ close: appsopen }"
+      v-if="!appsopen" v-on:click="openApps()"
     >
       <img class="apps_btn-icon" src="../assets/apps-24px.svg" alt="" />
-    </div>
+    </div> -->
     <Search v-if="searchopen" v-on:close-search="toggleSearch()" />
     <div class="apps_wrapper" v-bind:class="{ open: appsopen }">
       <div class="apps_search" v-on:click="toggleSearch">
@@ -65,6 +78,15 @@ section {
     .apps_btn-icon {
       border-radius: 2px;
       box-shadow: 0 0 5px $shadow;
+
+      &.close {
+        display: none;
+      }
+    }
+    .apps_close_btn_icon {
+      border-radius: 2px;
+      box-shadow: 0 0 5px $shadow;
+      background-color: $purple;
     }
   }
   .apps_wrapper {

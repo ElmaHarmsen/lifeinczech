@@ -3,8 +3,7 @@
     <div class="search_input">
       <input type="text" placeholder="Search" />
       <div class="search_close" v-on:click="$emit('close-search')">
-        <span class="search_close-span"></span>
-        <span class="search_close-span"></span>
+        <img src="../assets/close-24px.svg" alt="" />
       </div>
     </div>
   </section>
@@ -46,29 +45,15 @@ section {
       width: calc(100% - 1rem - 50px);
       height: 48px;
       padding: 0rem 0.5rem;
-      border: 1px solid blue;
+      border: 1px solid #0d8cff;
       border-radius: 2px;
       box-shadow: 0 0 5px $shadow;
     }
     .search_close {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      align-content: center;
-      width: 50px;
-      height: 50px;
-      background-color: blue;
-      border-radius: 2px;
-      box-shadow: 0 0 5px $shadow;
-
-      .search_close-span {
-        background-color: white;
-      }
-      span:first-of-type {
-        transform: rotate(135deg) translate(5px, -5px);
-      }
-      span:last-of-type {
-        transform: rotate(45deg) translate(-2.5px, -4px);
+      img {
+        border-radius: 2px;
+        box-shadow: 0 0 5px $shadow;
+        background-color: $light-blue;
       }
     }
   }
