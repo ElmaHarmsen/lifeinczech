@@ -29,6 +29,7 @@ section {
   .search_input {
     display: flex;
     flex-flow: row nowrap;
+    background-color: $background;
 
     input {
       width: calc(100% - 1rem - 50px);
@@ -38,6 +39,10 @@ section {
       border-top-left-radius: 2px;
       border-bottom-left-radius: 2px;
       box-shadow: 0 0 5px $shadow;
+
+      &:focus {
+        border: 1px solid $purple;
+      }
     }
     .search_close {
       img {
@@ -50,3 +55,8 @@ section {
   }
 }
 </style>
+
+What does the search do: - you open the searchbar and - you type in a word or
+category (string) and - the search functionality checks which items match this
+and - it fetches the data and - returns a list with matches to the search input.
+- using a get request from the database with the query word url

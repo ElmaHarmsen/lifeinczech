@@ -109,6 +109,7 @@ section {
       h1 {
         padding: 0rem 0rem 1.5rem 0rem;
         color: white;
+        font-weight: bold;
       }
     }
   }

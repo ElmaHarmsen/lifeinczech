@@ -22,9 +22,10 @@ section {
     top: 0.5rem;
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
+    background-color: $darker;
 
     h1 {
-      color: blue;
+      color: white;
       padding: 0.5rem;
     }
   }

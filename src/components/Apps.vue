@@ -64,8 +64,8 @@ export default {
 <style lang="scss" scoped>
 section {
   .apps_btn {
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: 0.5rem;
+    right: 0.5rem;
     position: fixed;
     z-index: 2;
 
@@ -88,8 +88,8 @@ section {
     height: calc(150px + 3.5rem);
     position: fixed;
     z-index: 2;
-    right: 1.5rem;
-    bottom: calc(50px + 1.5rem);
+    right: 0.5rem;
+    bottom: calc(50px + 0.5rem);
     opacity: 0;
     transition: opacity 0.2s ease-in;
 

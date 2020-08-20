@@ -6,12 +6,16 @@
       v-bind:class="{ close: worddetailsopen }"
     >
       <Language />
-      <div class="word_wrapper-words">
-        <h2>{{ wordData.word }}</h2>
-        <h2>{{ wordData.translation }}</h2>
-        <h2>{{ wordData.nederlands }}</h2>
+      <div class="word_words-around">
+        <div class="word_wrapper-words">
+          <h2>{{ wordData.word }}</h2>
+          <h2>{{ wordData.translation }}</h2>
+          <h2>{{ wordData.nederlands }}</h2>
+        </div>
+        <div class="word_words-category">
+          <h2>{{ wordData.category }}</h2>
+        </div>
       </div>
-      <!-- <img src="../assets/expand_more-24px.svg" class="expand" alt=""> -->
     </div>
     <transition name="bounce">
       <div
@@ -106,21 +110,36 @@ export default {
 <style lang="scss" scoped>
 section {
   .word_wrapper {
-    display: flex;
-    flex-flow: row nowrap;
+    display: grid;
+    grid-template-columns: auto 1fr;
     margin: 1.5rem 0rem;
     width: 100%;
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
+    background-color: $darker;
 
-    .word_wrapper-words {
+    .word_words-around {
       display: flex;
-      flex-flow: column wrap;
-      justify-content: space-evenly;
+      flex-flow: row nowrap;
+      justify-content: space-between;
 
-      h2 {
-        height: auto;
-        padding: 0.8rem 0.5rem;
+      .word_wrapper-words {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-evenly;
+
+        h2 {
+          height: auto;
+          padding: 0.8rem 0.5rem;
+        }
+      }
+      .word_words-category {
+        align-self: end;
+
+        h2 {
+          color: $light-blue;
+          padding: 0.8rem 0.5rem;
+        }
       }
     }
   }

@@ -13,11 +13,12 @@ export default {
   components: {
     MessagePopup
   }
-}
+};
 </script>
 
 <style lang="scss">
 #app {
   padding: 0.5rem;
+  background-color: $background;
 }
 </style>
