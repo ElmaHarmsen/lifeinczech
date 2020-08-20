@@ -14,6 +14,11 @@ const routes = [
     path: "/dictionary",
     name: "Dictionary",
     component: () => import("../views/Dictionary.vue")
+  },
+  {
+    path: "/search",
+    name: "SearchResult",
+    component: () => import("../views/SearchResult.vue")
   }
 ];
 

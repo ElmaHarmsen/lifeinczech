@@ -30,10 +30,13 @@ input {
   font-family: "IBM Serif";
   background-color: $darker;
 }
+body {
+  background-color: $background;
+}
 
 //Other reusabble stuff
 //Concerning page headers:
-.hotlist_content, .dictionary_content {
+.hotlist_content, .dictionary_content, .searchresult_content {
   margin: 50px 0rem;
 }
 .loading {
@@ -123,10 +126,6 @@ section {
     width: 25px;
     border: 1px solid $light-blue;
     border-radius: 2px;
-
-    &:focus {
-      border: 1px solid $purple;
-    }
   }
   .inputs_radio:checked {
     background-color: $light-blue;

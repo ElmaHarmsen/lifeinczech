@@ -134,7 +134,7 @@ section {
         }
       }
       .word_words-category {
-        align-self: end;
+        align-self: flex-end;
 
         h2 {
           color: $light-blue;

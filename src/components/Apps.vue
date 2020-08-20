@@ -14,7 +14,7 @@
         alt=""
       />
     </div>
-    <Search v-if="searchopen" v-on:close-search="toggleSearch()" />
+    <SearchField v-if="searchopen" v-on:close-search="toggleSearch()" />
     <div class="apps_wrapper" v-bind:class="{ open: appsopen }">
       <div class="apps_search" v-on:click="toggleSearch">
         <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" />
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import Search from "@/components/Search.vue";
+import SearchField from "@/components/SearchField.vue";
 import Addword from "@/components/Addword.vue";
 
 export default {
@@ -46,15 +46,19 @@ export default {
     };
   },
   components: {
-    Search,
+    SearchField,
     Addword
   },
   methods: {
     openApps() {
       this.appsopen = !this.appsopen;
     },
-    toggleSearch() {
+    async toggleSearch() {
       this.searchopen = !this.searchopen;
+      if (this.searchopen) {
+        await this.$nextTick(); //It waits for the querySelector (for the searchfield to exist)
+        document.querySelector("#the-search").focus();
+      }
       this.openApps();
     }
   }

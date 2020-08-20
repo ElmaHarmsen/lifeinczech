@@ -19,6 +19,5 @@ export default {
 <style lang="scss">
 #app {
   padding: 0.5rem;
-  background-color: $background;
 }
 </style>
