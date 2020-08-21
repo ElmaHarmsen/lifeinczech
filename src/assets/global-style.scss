@@ -164,7 +164,7 @@ section {
   font-size: 18px;
   color: white;
 }
-.category_select {
+.category_select, .filter_select {
   -webkit-appearance: none;
   width: 100%;
   padding: 0.8rem 0.25rem;
@@ -188,7 +188,7 @@ section {
 
 //Concerning the searchbar and the messagepopup
 section {
-  .search_input, .message_display {
+  .search_input, .filter_input, .message_display {
     width: calc(100% - 1rem);
     padding: 0.5rem 0rem;
     top: 0px;
@@ -196,5 +196,38 @@ section {
     position: fixed;
     z-index: 3;
     transition: top 0.2s ease-in;
+  }
+}
+.search_input, .filter_input {
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: $background;
+
+  input {
+    width: calc(100% - 1rem - 50px);
+    height: 48px;
+    padding: 0rem 0.5rem;
+    border: 1px solid #0d8cff;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    box-shadow: 0 0 5px $shadow;
+    color: white;
+
+    &:focus {
+      border: 1px solid $purple;
+    }
+  }
+  .search_submit, .filter_submit, 
+  .search_close, .filter_close {
+    img {
+      box-shadow: 0 0 5px $shadow;
+      background-color: $light-blue;
+    }
+  }
+  .search_close, .filter_close {
+    img {
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
   }
 }

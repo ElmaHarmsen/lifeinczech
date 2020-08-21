@@ -15,11 +15,12 @@
       />
     </div>
     <SearchField v-if="searchopen" v-on:close-search="toggleSearch()" />
+    <FilterField v-if="filteropen" v-on:close-filter="toggleFilter()" />
     <div class="apps_wrapper" v-bind:class="{ open: appsopen }">
-      <div class="apps_search" v-on:click="toggleSearch">
+      <div class="apps_search" v-on:click="toggleSearch()">
         <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" />
       </div>
-      <div class="apps_filter">
+      <div class="apps_filter" v-on:click="toggleFilter()">
         <img
           class="apps_filter-icon"
           src="../assets/filter_alt-24px.svg"
@@ -35,6 +36,7 @@
 
 <script>
 import SearchField from "@/components/SearchField.vue";
+import FilterField from "@/components/FilterField.vue";
 import Addword from "@/components/Addword.vue";
 
 export default {
@@ -42,11 +44,13 @@ export default {
   data: function() {
     return {
       appsopen: false,
-      searchopen: false
+      searchopen: false,
+      filteropen: false
     };
   },
   components: {
     SearchField,
+    FilterField,
     Addword
   },
   methods: {
@@ -58,6 +62,14 @@ export default {
       if (this.searchopen) {
         await this.$nextTick(); //It waits for the querySelector (for the searchfield to exist)
         document.querySelector("#the-search").focus();
+      }
+      this.openApps();
+    },
+    async toggleFilter() {
+      this.filteropen = !this.filteropen;
+      if (this.filteropen) {
+        await this.$nextTick();
+        document.querySelector("#the-filter").focus();
       }
       this.openApps();
     }
