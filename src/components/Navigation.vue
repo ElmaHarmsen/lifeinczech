@@ -66,6 +66,10 @@ section {
     border-radius: 2px;
     box-shadow: 0 0 5px $shadow;
 
+    @include screen-is(lg) {
+      display: none;
+    }
+
     .navigation_span {
       background-color: white;
     }
@@ -91,25 +95,48 @@ section {
     width: 70%;
     height: 100%;
     position: fixed;
-    top: 0rem;
+    top: 0;
     left: -75%;
     z-index: 1;
     transition: left 0.2s ease-in;
     background-color: $light-blue;
     box-shadow: 10px 0 5px -5px $shadow;
 
+    @include screen-is(lg) {
+      width: calc(100% - 1rem);
+      height: 50px;
+      top: 0;
+      left: 0.5rem;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      box-shadow: 0 0 5px $shadow;
+    }
+
     &.open {
       left: 0;
     }
     .navigation_items {
       position: relative;
-      top: 100px;
+      top: 100;
       padding: 0.5rem;
+
+      @include screen-is(lg) {
+        width: 50%;
+        top: 0;
+        left: calc(25% - 0.5rem);
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+      }
 
       h1 {
         padding: 0rem 0rem 1.5rem 0rem;
         color: white;
         font-weight: bold;
+
+        @include screen-is(lg) {
+          padding: 0rem 0rem 0rem 1.5rem;
+        }
       }
     }
   }

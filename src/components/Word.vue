@@ -118,6 +118,10 @@ section {
     box-shadow: 0 0 5px $shadow;
     background-color: $darker;
 
+    @include screen-is(lg) {
+      margin: 0rem;
+    }
+
     .word_words-around {
       display: flex;
       flex-flow: row nowrap;
@@ -148,6 +152,10 @@ section {
   }
   .word_details {
     transition: opacity 0.2s ease-in;
+
+    @include screen-is(lg) {
+      margin: 1.5rem 0rem;
+    }
 
     .requests {
       display: flex;

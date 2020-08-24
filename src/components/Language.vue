@@ -32,6 +32,11 @@ section {
       height: 24px;
       border-radius: 2px;
       padding: 0.8rem 0rem;
+
+      @include screen-is(lg) {
+        width: 44px;
+        height: 28px;
+      }
     }
   }
   .language_wrapper > * {
