@@ -81,9 +81,15 @@ export default {
 section {
   .apps_btn {
     bottom: 0.5rem;
-    right: 0.5rem;
+    left: 0.5rem;
     position: fixed;
     z-index: 2;
+
+    @include screen-is(lg) {
+      bottom: unset;
+      top: 0.5rem;
+      left: calc(25% - 50px - 0.5rem);
+    }
 
     .apps_btn-icon {
       border-radius: 2px;
@@ -104,13 +110,19 @@ section {
     height: calc(150px + 3.5rem);
     position: fixed;
     z-index: 2;
-    right: 0.5rem;
+    left: 0.5rem;
     bottom: calc(50px + 0.5rem);
     opacity: 0;
     transition: opacity 0.2s ease-in;
 
     &.open {
       opacity: 1;
+    }
+
+    @include screen-is(lg) {
+      bottom: unset;
+      top: calc(50px + 1rem);
+      left: calc(25% - 50px - 0.5rem);
     }
     .apps_filter-icon,
     .apps_search-icon {

@@ -1,7 +1,7 @@
 <template>
   <section id="home">
     <div class="page_header">
-      <Navigation />
+      <Navigation v-bind:activeLink="$options.name" />
       <h1 class="page_header-title">
         Hotlist <br />
         @ Home
@@ -31,7 +31,7 @@ import Word from "@/components/Word.vue";
 import Apps from "@/components/Apps.vue";
 
 export default {
-  name: "Home",
+  name: "Hotlist",
   data: function() {
     return {
       loading: true,

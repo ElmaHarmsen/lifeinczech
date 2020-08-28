@@ -30,9 +30,6 @@ h1, h2 {
     font-size: 25px !important;
   }
 }
-// h2 {
-//   font-family: "IBM Sans";
-// }
 a {
   text-decoration: none;
 }
@@ -104,10 +101,15 @@ body {
   width: 100%;
   padding: 0.8rem 0.5rem;
   font-weight: bold;
+  font-size: 18px;
   color: white;
   border: none;
   border-radius: 2px;
   box-shadow: 0 0 5px $shadow;
+
+  @include screen-is(lg) {
+    font-size: 21px;
+  }
 }
 section {
   .editword_form-wrapper, .addword_form-wrapper, .moveword_form-wrapper {
@@ -122,6 +124,21 @@ section {
     &.open {
       left: 0;
     }
+
+    @include screen-is(lg) {
+      width: 51%;
+      height: 100%;
+      position: fixed;
+      top: -100%;
+      left: 24.5%;
+      transition: top 0.2s ease-in;
+      box-shadow: 0 0 5px $shadow;
+
+      &.open {
+        top: 0;
+        left: 24.5%;
+      }
+    }
   }
 }
 .editword_form, .addword_form, .moveword_form {
@@ -129,6 +146,11 @@ section {
 
   h1 {
     height: 50px;
+  }
+
+  @include screen-is(lg) {
+    width: 60%;
+    margin: 0rem auto;
   }
 }
 .editword_inputs, .moveword_inputs {
@@ -138,6 +160,10 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+
+  @include screen-is(lg) {
+    gap: 2.5rem;
+  }
 
   input, .addword_pre-inputs {
     grid-column: 1/3;
@@ -219,10 +245,17 @@ section {
     width: calc(100% - 1rem);
     padding: 0.5rem 0rem;
     top: 0px;
-    right: 0.5rem;
+    left: 0.5rem;
     position: fixed;
     z-index: 3;
     transition: top 0.2s ease-in;
+
+    @include screen-is(lg) {
+      width: 50%;
+      left: 25%;
+      padding: 0;
+      height: 50px;
+    }
   }
 }
 .search_input, .filter_input {

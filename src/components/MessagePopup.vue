@@ -24,6 +24,12 @@ section {
     box-shadow: 0 0 5px $shadow;
     background-color: $darker;
 
+    @include screen-is(lg) {
+      top: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
     h1 {
       color: white;
       padding: 0.5rem;

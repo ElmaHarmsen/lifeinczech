@@ -16,6 +16,7 @@
           v-bind:to="navitem.path"
           v-for="navitem in navItems"
           v-bind:key="navitem.id"
+          v-bind:class="{ active: navitem.item === activeLink }"
         >
           <h1>
             {{ navitem.item }}
@@ -29,7 +30,7 @@
 <script>
 export default {
   name: "Navigation",
-  props: ["navItem"],
+  props: ["activeLink"],
   data: function() {
     return {
       navopen: false,
@@ -41,7 +42,7 @@ export default {
         },
         {
           id: 1,
-          item: "Dictionary CZ-EN-NL",
+          item: "Dictionary",
           path: "/dictionary"
         }
       ]
@@ -103,12 +104,13 @@ section {
     box-shadow: 10px 0 5px -5px $shadow;
 
     @include screen-is(lg) {
-      width: calc(100% - 1rem);
+      width: 50%;
       height: 50px;
-      top: 0;
-      left: 0.5rem;
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      top: 0.5rem;
+      left: unset;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
       box-shadow: 0 0 5px $shadow;
     }
 
@@ -117,13 +119,12 @@ section {
     }
     .navigation_items {
       position: relative;
-      top: 100;
+      top: 100px;
       padding: 0.5rem;
 
       @include screen-is(lg) {
-        width: 50%;
+        width: 100%;
         top: 0;
-        left: calc(25% - 0.5rem);
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
@@ -135,8 +136,16 @@ section {
         font-weight: bold;
 
         @include screen-is(lg) {
-          padding: 0rem 0rem 0rem 1.5rem;
+          padding: 0rem 1rem;
+
+          // &:hover {
+          //   color: $background;
+          //   transition: 0.2s ease-in;
+          // }
         }
+      }
+      .navigation_one-item.active h1 {
+        color: $background;
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="page_header">
-      <Navigation />
+      <Navigation v-bind:activeLink="$options.name" />
       <h1 class="page_header-title">
         Dictionary <br />
         # CZ - EN - NL
