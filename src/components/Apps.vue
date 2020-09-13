@@ -88,7 +88,7 @@ section {
     @include screen-is(lg) {
       bottom: unset;
       top: 0.5rem;
-      left: calc(25% - 50px - 0.5rem);
+      left: 25%;
     }
 
     .apps_btn-icon {
@@ -122,7 +122,7 @@ section {
     @include screen-is(lg) {
       bottom: unset;
       top: calc(50px + 1rem);
-      left: calc(25% - 50px - 0.5rem);
+      left: 25%;
     }
     .apps_filter-icon,
     .apps_search-icon {

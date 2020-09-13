@@ -104,12 +104,12 @@ section {
     box-shadow: 10px 0 5px -5px $shadow;
 
     @include screen-is(lg) {
-      width: 50%;
+      width: calc(50% - 50px - 1rem);
       height: 50px;
       top: 0.5rem;
       left: unset;
-      margin-left: 50%;
-      transform: translateX(-50%);
+      margin-left: calc(50% + 50px + 1rem);
+      transform: translateX(calc(-50% - 50px + 1rem));
       border-radius: 2px;
       box-shadow: 0 0 5px $shadow;
     }
