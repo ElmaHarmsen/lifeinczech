@@ -93,7 +93,7 @@ section {
 
     .apps_btn-icon {
       border-radius: 2px;
-      box-shadow: 0 0 5px $shadow;
+      border-bottom: 4px solid $purple;
 
       &.close {
         display: none;
@@ -101,7 +101,6 @@ section {
     }
     .apps_close_btn_icon {
       border-radius: 2px;
-      box-shadow: 0 0 5px $shadow;
       background-color: $purple;
     }
   }
@@ -127,7 +126,6 @@ section {
     .apps_filter-icon,
     .apps_search-icon {
       border-radius: 2px;
-      box-shadow: 0 0 5px $shadow;
     }
   }
   .apps_wrapper > * {

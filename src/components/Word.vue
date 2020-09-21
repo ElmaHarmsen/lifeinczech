@@ -114,9 +114,9 @@ section {
     grid-template-columns: auto 1fr;
     margin: 1.5rem 0rem;
     width: 100%;
-    border-radius: 2px;
-    box-shadow: 0 0 5px $shadow;
-    background-color: $darker;
+    border-radius: 20px;
+    background-color: $purple;
+    border-bottom: 4px solid $shadow;
 
     @include screen-is(lg) {
       margin: 0rem;
@@ -141,7 +141,7 @@ section {
         align-self: flex-end;
 
         h2 {
-          color: $light-blue;
+          color: $shadow;
           padding: 0.8rem 0.5rem;
         }
       }
@@ -167,7 +167,7 @@ section {
         height: 50px;
         width: 50px;
         border-radius: 2px;
-        box-shadow: 0 0 5px $shadow;
+        border-bottom: 4px solid $shadow;
       }
     }
     .requests > * {

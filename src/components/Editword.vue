@@ -134,7 +134,7 @@ section {
   .editword_btn {
     .editword_edit {
       border-radius: 2px;
-      box-shadow: 0 0 5px $shadow;
+      border-bottom: 4px solid $shadow;
     }
   }
   .editword_form-wrapper {
@@ -144,7 +144,7 @@ section {
       padding: 0.8rem 0.5rem;
     }
     .inputs_button {
-      background-color: $orange;
+      background-color: $light-blue;
     }
   }
 }

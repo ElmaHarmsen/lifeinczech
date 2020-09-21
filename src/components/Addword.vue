@@ -157,9 +157,8 @@ export default {
 <style lang="scss" scoped>
 section {
   .addword_btn {
-    background-color: $light-blue;
+    background-color: $purple;
     border-radius: 2px;
-    box-shadow: 0 0 5px $shadow;
   }
   .addword_form-wrapper {
     z-index: 3;
@@ -168,7 +167,7 @@ section {
       padding: 0.8rem 0.5rem;
     }
     .inputs_button {
-      background-color: $purple;
+      background-color: $light-blue;
     }
   }
   .addword_error {

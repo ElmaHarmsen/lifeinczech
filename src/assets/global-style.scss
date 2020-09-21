@@ -1,11 +1,11 @@
 //Colors
-$light-blue: #0D8CFF;
-$purple: #910DFF;
+$light-blue: #C28108; //#16345C; //#0D1E36; //#0D8CFF;
+$purple: #4279C2; //#910DFF;
 $red: #FF3226;
 $orange: #FF7126;
-$shadow: rgba(0, 0, 0, 0.1);
-$background: #2e303e;
-$darker: #272935;
+$shadow: #16345C; //rgba(0, 0, 0, 0.9); //#666666b0;//#a6a6a6ce;//rgba(0, 0, 0, 0.3);
+$background: #1C4375; //#5777A2;//#235390; //#2e303e;
+$darker: #E6E6E6;//#272935;
 
 //Breakpoints
 $breakpoints: (
@@ -74,6 +74,7 @@ body {
   .page_header-title {
     line-height: 1.2;
     margin-left: calc(50px + 1rem);
+    color: #E6E6E6;
 
     @include screen-is(lg) {
       display: none;
@@ -105,7 +106,7 @@ body {
   color: white;
   border: none;
   border-radius: 2px;
-  box-shadow: 0 0 5px $shadow;
+  border-bottom: 4px solid $shadow;
 
   @include screen-is(lg) {
     font-size: 21px;
@@ -132,7 +133,8 @@ section {
       top: -100%;
       left: 24.5%;
       transition: top 0.2s ease-in;
-      box-shadow: 0 0 5px $shadow;
+      border-left: 4px solid $shadow;
+      border-right: 4px solid $shadow;
 
       &.open {
         top: 0;
@@ -146,6 +148,7 @@ section {
 
   h1 {
     height: 50px;
+    color: white;
   }
 
   @include screen-is(lg) {
@@ -205,7 +208,7 @@ section {
 .inputs_field {
   width: calc(100% - 1.2rem);
   padding: 0.8rem 0.5rem;
-  border: 1px solid $light-blue;
+  border: 1px solid $shadow;
   border-radius: 2px;
 
   &:focus {
@@ -222,21 +225,21 @@ section {
   width: 100%;
   padding: 0.8rem 0.25rem;
   background-color: $darker;
-  border: 1px solid $light-blue;
+  border: 1.5px solid $purple;
   border-radius: 2px;
-  color: white;
+  color: gray;
 
   &:focus {
-    border: 1px solid $purple;
+    border: 1px solid $light-blue;
   }
 }
 .addword_close, .editword_close, .moveword_close {
   bottom: 0.5rem;
   right: 0.5rem;
   position: absolute;
-  background-color: $light-blue;
+  background-color: $purple;
   border-radius: 2px;
-  box-shadow: 0 0 5px $shadow;
+  border-bottom: 4px solid $shadow;
 }
 
 //Concerning the searchbar and the messagepopup
@@ -267,21 +270,21 @@ section {
     width: calc(100% - 1rem - 50px);
     height: 48px;
     padding: 0rem 0.5rem;
-    border: 1px solid #0d8cff;
+    border: 1.5px solid $purple;
+    border-right: none;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
-    box-shadow: 0 0 5px $shadow;
-    color: white;
+    color: black;
 
     &:focus {
-      border: 1px solid $purple;
+      border: 1.5px solid $light-blue;
+      border-right: none;
     }
   }
   .search_submit, .filter_submit, 
   .search_close, .filter_close {
     img {
-      box-shadow: 0 0 5px $shadow;
-      background-color: $light-blue;
+      background-color: $purple;
     }
   }
   .search_close, .filter_close {

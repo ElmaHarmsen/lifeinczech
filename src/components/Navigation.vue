@@ -65,7 +65,7 @@ section {
     z-index: 2;
     background-color: $light-blue;
     border-radius: 2px;
-    box-shadow: 0 0 5px $shadow;
+    border-bottom: 4px solid $shadow;
 
     @include screen-is(lg) {
       display: none;
@@ -77,7 +77,8 @@ section {
     &.close {
       background-color: $purple;
       transition: background-color 0.2s ease-out;
-      box-shadow: 0 0 5px $shadow;
+      border-bottom: none;
+      top: calc(0.5rem + 4px);
 
       span:first-of-type {
         transform: rotate(-45deg) translate(-6px, 6px);
@@ -101,7 +102,7 @@ section {
     z-index: 1;
     transition: left 0.2s ease-in;
     background-color: $light-blue;
-    box-shadow: 10px 0 5px -5px $shadow;
+    border-right: 4px solid $shadow;
 
     @include screen-is(lg) {
       width: calc(50% - 50px - 1rem);
@@ -111,7 +112,8 @@ section {
       margin-left: calc(50% + 50px + 1rem);
       transform: translateX(calc(-50% - 50px + 1rem));
       border-radius: 2px;
-      box-shadow: 0 0 5px $shadow;
+      border-bottom: 4px solid $shadow;
+      border-right: none;
     }
 
     &.open {
@@ -132,20 +134,15 @@ section {
 
       h1 {
         padding: 0rem 0rem 1.5rem 0rem;
-        color: white;
+        color: $shadow;
         font-weight: bold;
 
         @include screen-is(lg) {
           padding: 0rem 1rem;
-
-          // &:hover {
-          //   color: $background;
-          //   transition: 0.2s ease-in;
-          // }
         }
       }
       .navigation_one-item.active h1 {
-        color: $background;
+        color: white;
       }
     }
   }
