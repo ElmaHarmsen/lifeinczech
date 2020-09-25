@@ -157,7 +157,7 @@ export default {
 <style lang="scss" scoped>
 section {
   .addword_btn {
-    background-color: $purple;
+    background-color: #16345c;
     border-radius: 2px;
   }
   .addword_form-wrapper {

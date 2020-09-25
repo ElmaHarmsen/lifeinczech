@@ -1,11 +1,11 @@
 /*Global fonts*/
-@font-face {
-  font-family: "IBM Sans";
-  src: url('../assets/IBMPlexSans-Regular.ttf');
+/* @font-face {
+  font-family: "Round";
+  src: url('../assets/VarelaRound-Regular.ttf');
   font-display: swap;
-}
+} */
 @font-face {
-  font-family: "IBM Serif";
-  src: url('../assets/IBMPlexSerif-Regular.ttf');
+  font-family: "Round";
+  src: url('../assets/VarelaRound-Regular.ttf');
   font-display: swap;
 }

@@ -24,7 +24,7 @@ $breakpoints: (
 h1, h2 {
   font-size: 21px !important;
   color: white;
-  font-family: "IBM Serif";
+  font-family: "Round" !important;
 
   @include screen-is(lg) {
     font-size: 25px !important;
@@ -36,10 +36,13 @@ a {
 span {
   transition: transform 0.2s;
 }
+label {
+  font-family: "Round";
+}
 input {
-  color: white;
-  font-family: "IBM Serif";
-  background-color: $darker;
+  color: $background;
+  font-family: "Round";
+  background-color: white;
 }
 body {
   background-color: $background;
@@ -51,7 +54,7 @@ body {
   margin: 50px 0rem;
 
   @include screen-is(lg) {
-    width: 50%;
+    width: 55%;
     margin: 100px auto 50px auto; //Because the page_header-title is gone
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -63,8 +66,13 @@ body {
   width: auto;
   margin: 50px auto;
 
+  @include screen-is(lg) {
+    width: 50%;
+    margin: 100px auto;
+  }
+
   h1 {
-    padding: 0rem 0.5rem;
+    font-family: "Round";
   }
 }
 .page_header {
@@ -75,6 +83,8 @@ body {
     line-height: 1.2;
     margin-left: calc(50px + 1rem);
     color: #E6E6E6;
+    font-family: "Round";
+    font-weight: 800;
 
     @include screen-is(lg) {
       display: none;
@@ -106,7 +116,6 @@ body {
   color: white;
   border: none;
   border-radius: 2px;
-  border-bottom: 4px solid $shadow;
 
   @include screen-is(lg) {
     font-size: 21px;
@@ -127,18 +136,18 @@ section {
     }
 
     @include screen-is(lg) {
-      width: 51%;
+      width: 56%;
       height: 100%;
       position: fixed;
       top: -100%;
-      left: 24.5%;
+      left: 22%;
       transition: top 0.2s ease-in;
       border-left: 4px solid $shadow;
       border-right: 4px solid $shadow;
 
       &.open {
         top: 0;
-        left: 24.5%;
+        left: 22%;
       }
     }
   }
@@ -180,11 +189,10 @@ section {
     -webkit-appearance: none;
     height: 25px;
     width: 25px;
-    border: 1px solid $light-blue;
     border-radius: 2px;
   }
   .inputs_radio:checked {
-    background-color: $light-blue;
+    background-color: $purple;
   }
   label {
     padding: 0.8rem 0.5rem;
@@ -198,9 +206,9 @@ section {
   gap: 0.5rem;
 
   h2 {
-    border: 1px solid $light-blue;
     border-radius: 2px;
-    background-color: $darker;
+    background-color: white;
+    color: $background;
     height: auto;
     min-height: calc(50px - 1.6rem);
   }
@@ -208,11 +216,11 @@ section {
 .inputs_field {
   width: calc(100% - 1.2rem);
   padding: 0.8rem 0.5rem;
-  border: 1px solid $shadow;
+  border: none;
   border-radius: 2px;
 
   &:focus {
-    border: 1px solid $purple;
+    background-color: $purple;
   }
 }
 .category_select-label {
@@ -225,12 +233,12 @@ section {
   width: 100%;
   padding: 0.8rem 0.25rem;
   background-color: $darker;
-  border: 1.5px solid $purple;
+  border: none;
   border-radius: 2px;
-  color: gray;
+  color: $background;
 
   &:focus {
-    border: 1px solid $light-blue;
+    background-color: $purple;
   }
 }
 .addword_close, .editword_close, .moveword_close {
@@ -239,7 +247,13 @@ section {
   position: absolute;
   background-color: $purple;
   border-radius: 2px;
-  border-bottom: 4px solid $shadow;
+
+  @include screen-is(lg) {
+    top: 0.5rem;
+    left: 0.5rem;
+    right: unset;
+    bottom: unset;
+  }
 }
 
 //Concerning the searchbar and the messagepopup
@@ -256,7 +270,7 @@ section {
     @include screen-is(lg) {
       width: 50%;
       left: 25%;
-      padding: 0;
+      padding: 0.5rem 0rem;
       height: 50px;
     }
   }
@@ -266,18 +280,20 @@ section {
   flex-flow: row nowrap;
   background-color: $background;
 
-  input {
+  input, select {
     width: calc(100% - 1rem - 50px);
     height: 48px;
     padding: 0rem 0.5rem;
-    border: 1.5px solid $purple;
+    background-color: $purple;
+    border: 1px solid $purple;
     border-right: none;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
-    color: black;
+    color: white;
 
     &:focus {
-      border: 1.5px solid $light-blue;
+      background-color: $light-blue;
+      border: 1px solid $light-blue;
       border-right: none;
     }
   }

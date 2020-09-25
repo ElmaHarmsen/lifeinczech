@@ -134,7 +134,6 @@ section {
   .editword_btn {
     .editword_edit {
       border-radius: 2px;
-      border-bottom: 4px solid $shadow;
     }
   }
   .editword_form-wrapper {

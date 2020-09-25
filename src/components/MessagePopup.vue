@@ -21,18 +21,21 @@ section {
   .message_display {
     top: 0.5rem;
     border-radius: 2px;
-    background-color: $darker;
-    border-bottom: 4px solid $shadow;
+    background-color: $purple;
 
     @include screen-is(lg) {
-      top: 0.5;
+      top: 0.5rem;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
 
     h1 {
-      color: black;
+      color: white;
       padding: 0.5rem;
+
+      @include screen-is(lg) {
+        padding: 0rem 0.5rem;
+      }
     }
   }
 }

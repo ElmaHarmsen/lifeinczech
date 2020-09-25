@@ -65,7 +65,6 @@ section {
     z-index: 2;
     background-color: $light-blue;
     border-radius: 2px;
-    border-bottom: 4px solid $shadow;
 
     @include screen-is(lg) {
       display: none;
@@ -77,8 +76,6 @@ section {
     &.close {
       background-color: $purple;
       transition: background-color 0.2s ease-out;
-      border-bottom: none;
-      top: calc(0.5rem + 4px);
 
       span:first-of-type {
         transform: rotate(-45deg) translate(-6px, 6px);
@@ -105,14 +102,13 @@ section {
     border-right: 4px solid $shadow;
 
     @include screen-is(lg) {
-      width: calc(50% - 50px - 1rem);
+      width: calc(55% - 50px - 1rem);
       height: 50px;
       top: 0.5rem;
       left: unset;
       margin-left: calc(50% + 50px + 1rem);
       transform: translateX(calc(-50% - 50px + 1rem));
       border-radius: 2px;
-      border-bottom: 4px solid $shadow;
       border-right: none;
     }
 

@@ -56,6 +56,9 @@ export default {
   methods: {
     openApps() {
       this.appsopen = !this.appsopen;
+      document
+        .querySelectorAll(".word_wrapper")
+        .forEach(word => word.classList.toggle("word_blurred"));
     },
     async toggleSearch() {
       this.searchopen = !this.searchopen;
@@ -88,12 +91,11 @@ section {
     @include screen-is(lg) {
       bottom: unset;
       top: 0.5rem;
-      left: 25%;
+      left: 22.5%;
     }
 
     .apps_btn-icon {
       border-radius: 2px;
-      border-bottom: 4px solid $purple;
 
       &.close {
         display: none;
@@ -121,7 +123,7 @@ section {
     @include screen-is(lg) {
       bottom: unset;
       top: calc(50px + 1rem);
-      left: 25%;
+      left: 22.5%;
     }
     .apps_filter-icon,
     .apps_search-icon {

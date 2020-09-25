@@ -134,7 +134,11 @@ section {
 
         h2 {
           height: auto;
-          padding: 0.8rem 0.5rem;
+          padding: 1rem 0.5rem;
+
+          @include screen-is(lg) {
+            padding: 1.4rem 0.5rem;
+          }
         }
       }
       .word_words-category {
@@ -167,7 +171,6 @@ section {
         height: 50px;
         width: 50px;
         border-radius: 2px;
-        border-bottom: 4px solid $shadow;
       }
     }
     .requests > * {

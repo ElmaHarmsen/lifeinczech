@@ -2,14 +2,23 @@
   <section>
     <div class="language_wrapper">
       <h1>
-        <img class="language_images" src="../assets/czech-flag.svg" alt="" /> :
-      </h1>
-      <h1>
-        <img class="language_images" src="../assets/english-flag.svg" alt="" />
+        <img
+          class="language_images"
+          src="../assets/czech-republic.svg"
+          alt=""
+        />
         :
       </h1>
       <h1>
-        <img class="language_images" src="../assets/dutch-flag.svg" alt="" /> :
+        <img
+          class="language_images"
+          src="../assets/united-kingdom.svg"
+          alt=""
+        />
+        :
+      </h1>
+      <h1>
+        <img class="language_images" src="../assets/netherlands.svg" alt="" /> :
       </h1>
     </div>
   </section>
@@ -26,16 +35,15 @@ section {
   .language_wrapper {
     display: flex;
     flex-flow: column wrap;
+    padding-left: 0.5rem;
 
     .language_images {
-      width: 40px;
-      height: 24px;
-      border-radius: 2px;
+      width: 35px;
+      height: auto;
       padding: 0.8rem 0rem;
 
       @include screen-is(lg) {
-        width: 44px;
-        height: 28px;
+        width: 45px;
       }
     }
   }

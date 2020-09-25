@@ -100,7 +100,6 @@ section {
   .moveword_btn {
     .moveword_move {
       border-radius: 2px;
-      border-bottom: 4px solid $shadow;
     }
   }
   .moveword_form-wrapper {
