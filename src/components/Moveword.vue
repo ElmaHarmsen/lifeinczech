@@ -72,7 +72,7 @@ export default {
     },
     async moveWord(id) {
       const moveWord = await fetch(
-        "https://dictionary--api.herokuapp.com/api/dictionarycz",
+        `${process.env.VUE_APP_API_URL}/dictionarycz`,
         {
           method: "PATCH",
           headers: {
@@ -109,7 +109,7 @@ section {
       padding: 0.8rem 0.5rem;
     }
     .inputs_button {
-      background-color: $light-blue;
+      background-color: $gold;
     }
   }
 }

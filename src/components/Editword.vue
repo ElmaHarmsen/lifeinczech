@@ -100,7 +100,7 @@ export default {
     },
     async editWord(id) {
       const editWord = await fetch(
-        "https://dictionary--api.herokuapp.com/api/dictionarycz",
+        `${process.env.VUE_APP_API_URL}/dictionarycz`,
         {
           method: "PUT",
           headers: {
@@ -143,7 +143,7 @@ section {
       padding: 0.8rem 0.5rem;
     }
     .inputs_button {
-      background-color: $light-blue;
+      background-color: $gold;
     }
   }
 }

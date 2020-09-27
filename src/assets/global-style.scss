@@ -1,11 +1,11 @@
 //Colors
-$light-blue: #C28108; //#16345C; //#0D1E36; //#0D8CFF;
-$purple: #4279C2; //#910DFF;
+$gold: #C28108; //#16345C; //#0D1E36; //#0D8CFF;
+$light-blue: #4279C2; //#910DFF;
 $red: #FF3226;
 $orange: #FF7126;
-$shadow: #16345C; //rgba(0, 0, 0, 0.9); //#666666b0;//#a6a6a6ce;//rgba(0, 0, 0, 0.3);
-$background: #1C4375; //#5777A2;//#235390; //#2e303e;
-$darker: #E6E6E6;//#272935;
+$dark-blue: #16345C; //rgba(0, 0, 0, 0.9); //#666666b0;//#a6a6a6ce;//rgba(0, 0, 0, 0.3);
+$medium-blue: #1C4375; //#5777A2;//#235390; //#2e303e;
+$white-ish: #E6E6E6;//#272935;
 
 //Breakpoints
 $breakpoints: (
@@ -30,22 +30,30 @@ h1, h2 {
     font-size: 25px !important;
   }
 }
+small {
+  color: $gold;
+  font-family: "Round" !important;
+  font-weight: 800;
+}
 a {
   text-decoration: none;
 }
 span {
   transition: transform 0.2s;
+  font-family: "Round" !important;
+  color: white;
 }
 label {
   font-family: "Round";
 }
 input {
-  color: $background;
+  color: $medium-blue;
   font-family: "Round";
   background-color: white;
 }
 body {
-  background-color: $background;
+  background-color: $medium-blue;
+  overflow-x: hidden;
 }
 
 //Other reusabble stuff
@@ -98,7 +106,6 @@ body {
     background-color: $shadow;
   }
 }
-
 .page_header {
   display: flex;
   flex-flow: row nowrap;
@@ -213,7 +220,7 @@ section {
 .editword_inputs, .moveword_inputs {
   padding: 1.5rem 0rem;
 }
-.editword_inputs, .addword_inputs, .moveword_inputs {
+.editword_inputs, .addword_inputs, .moveword_inputs, .login_inputs {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
@@ -237,7 +244,7 @@ section {
     border-radius: 2px;
   }
   .inputs_radio:checked {
-    background-color: $purple;
+    background-color: $light-blue;
   }
   label {
     padding: 0.8rem 0.5rem;
@@ -260,13 +267,13 @@ section {
   }
 }
 .inputs_field {
-  width: calc(100% - 1.2rem);
+  width: calc(100% - 1rem);
   padding: 0.8rem 0.5rem;
   border: none;
   border-radius: 2px;
 
   &:focus {
-    background-color: $purple;
+    background-color: $light-blue;
   }
 }
 .category_select-label {
@@ -278,10 +285,10 @@ section {
   -webkit-appearance: none;
   width: 100%;
   padding: 0.8rem 0.25rem;
-  background-color: $darker;
+  background-color: $white-ish;
   border: none;
   border-radius: 2px;
-  color: $background;
+  color: $medium-blue;
 
   // &:focus {
   //   background-color: $purple;
@@ -291,7 +298,7 @@ section {
   bottom: 0.5rem;
   right: 0.5rem;
   position: absolute;
-  background-color: $purple;
+  background-color: $light-blue;
   border-radius: 2px;
 
   @include screen-is(lg) {
