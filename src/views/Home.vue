@@ -6,6 +6,11 @@
         Hotlist <br />
         @ Home
       </h1>
+      <img
+        class="page_header-img"
+        src="../assets/DuckyDictionaryIcon.png"
+        alt=""
+      />
     </div>
     <div v-if="loading" class="loading">
       <h1>Loading ...</h1>
