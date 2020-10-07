@@ -1,13 +1,16 @@
 <template>
   <section id="searchresult">
     <div class="page_header">
-      <Navigation />
-      <h1 class="page_header-title">
-        Search result(s) <br />
-        for {{ currentQuery }}
-      </h1>
+      <!-- <Navigation /> -->
+      <div class="page_header-title">
+        <img class="page_header-img" src="../assets/SmallDucky.png" alt="" />
+        <h1>
+          Ducky
+        </h1>
+      </div>
     </div>
     <div class="searchresult_content">
+      <h1>Search result(s) for "{{ currentQuery }}"</h1>
       <div class="searchresult_words" v-if="searchResultJson.length">
         <!-- It the length of the result is not 0 -->
         <Word
@@ -22,7 +25,7 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation.vue";
+// import Navigation from "@/components/Navigation.vue";
 import Word from "@/components/Word.vue";
 
 export default {
@@ -49,7 +52,7 @@ export default {
     }
   },
   components: {
-    Navigation,
+    // Navigation,
     Word
   },
   created: async function() {

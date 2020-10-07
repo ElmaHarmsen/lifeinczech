@@ -103,7 +103,7 @@ section {
     }
     .apps_close_btn_icon {
       border-radius: 2px;
-      background-color: $purple;
+      background-color: transparent;
     }
   }
   .apps_wrapper {

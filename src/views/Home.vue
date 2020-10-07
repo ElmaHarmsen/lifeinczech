@@ -1,16 +1,13 @@
 <template>
   <section id="home">
     <div class="page_header">
-      <Navigation v-bind:activeLink="$options.name" />
-      <h1 class="page_header-title">
-        Hotlist <br />
-        @ Home
-      </h1>
-      <img
-        class="page_header-img"
-        src="../assets/DuckyDictionaryIcon.png"
-        alt=""
-      />
+      <!-- <Navigation v-bind:activeLink="$options.name" /> -->
+      <div class="page_header-title">
+        <img class="page_header-img" src="../assets/SmallDucky.png" alt="" />
+        <h1>
+          Ducky
+        </h1>
+      </div>
     </div>
     <div v-if="loading" class="loading">
       <h1>Loading ...</h1>
@@ -31,7 +28,7 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation.vue";
+// import Navigation from "@/components/Navigation.vue";
 import Word from "@/components/Word.vue";
 import Apps from "@/components/Apps.vue";
 
@@ -44,7 +41,7 @@ export default {
     };
   },
   components: {
-    Navigation,
+    // Navigation,
     Word,
     Apps
   },

@@ -44,6 +44,11 @@ export default {
           id: 1,
           item: "Dictionary",
           path: "/dictionary"
+        },
+        {
+          id: 2,
+          item: "Logout",
+          path: "/login"
         }
       ]
     };
@@ -51,6 +56,9 @@ export default {
   methods: {
     openNav() {
       this.navopen = !this.navopen;
+      document
+        .querySelectorAll(".word_wrapper")
+        .forEach(word => word.classList.toggle("word_blurred"));
     }
   }
 };
@@ -59,11 +67,11 @@ export default {
 <style lang="scss" scoped>
 section {
   .navigation_menu {
-    top: 0.5rem;
-    left: 0.5rem;
-    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    position: absolute;
     z-index: 2;
-    background-color: $light-blue;
+    background-color: transparent;
     border-radius: 2px;
 
     @include screen-is(lg) {
@@ -71,35 +79,35 @@ section {
     }
 
     .navigation_span {
-      background-color: white;
+      background-color: #e6e6e6;
     }
     &.close {
-      background-color: $purple;
+      background-color: transparent;
       transition: background-color 0.2s ease-out;
 
       span:first-of-type {
         transform: rotate(-45deg) translate(-6px, 6px);
-        background-color: white;
       }
       span:nth-of-type(2) {
         opacity: 0;
       }
       span:last-of-type {
         transform: rotate(45deg) translate(-8px, -8px);
-        background-color: white;
       }
     }
   }
   .navigation_items-wrapper {
-    width: 70%;
-    height: 100%;
+    width: calc(100% - 1rem);
+    height: 20%;
     position: fixed;
-    top: 0;
-    left: -75%;
-    z-index: 1;
-    transition: left 0.2s ease-in;
+    top: calc(50px + 1rem);
+    left: 0.5rem;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
     background-color: $light-blue;
-    border-right: 4px solid $shadow;
+    border-radius: 20px;
+    border-bottom: 4px solid $shadow;
 
     @include screen-is(lg) {
       width: calc(55% - 50px - 1rem);
@@ -113,12 +121,15 @@ section {
     }
 
     &.open {
-      left: 0;
+      opacity: 1; //still visible (also apps)
+      //No scrolling allowed
     }
     .navigation_items {
-      position: relative;
-      top: 100px;
-      padding: 0.5rem;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      padding: 0rem 1rem;
 
       @include screen-is(lg) {
         width: 100%;
@@ -129,7 +140,7 @@ section {
       }
 
       h1 {
-        padding: 0rem 0rem 1.5rem 0rem;
+        // padding: 0rem 0rem 1.5rem 0rem;
         color: $shadow;
         font-weight: bold;
 

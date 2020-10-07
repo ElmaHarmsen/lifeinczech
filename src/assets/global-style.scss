@@ -51,7 +51,11 @@ body {
 //Other reusabble stuff
 //Concerning page headers:
 .hotlist_content, .dictionary_content, .searchresult_content {
-  margin: 50px 0rem;
+  margin: 100px 0rem;
+
+  h1 {
+    text-align: center;
+  }
 
   @include screen-is(lg) {
     width: 55%;
@@ -78,21 +82,28 @@ body {
 .page_header {
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
 
   .page_header-title {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     line-height: 1.2;
-    margin-left: calc(50px + 1rem);
     color: #E6E6E6;
     font-family: "Round";
     font-weight: 800;
+    text-align: center;
 
-    @include screen-is(lg) {
-      display: none;
+    .page_header-img {
+      height: 30px;
+      width: auto;
+
+      @include screen-is(lg) {
+        height: 40px;
+      }
     }
-  }
-  .page_header-img {
-    height: 50px;
-    width: auto;
   }
 }
 .navigation_menu {
@@ -100,15 +111,16 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   align-content: center;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: auto;
   transition: transform 0.2s;
 }
 .navigation_span {
   display: block;
-  height: 4px;
+  height: 3px;
   width: 35px;
   margin: 0.2rem 0rem;
+  border-radius: 2px;
 }
 
 //Concerning the forms:

@@ -12,9 +12,9 @@
           <h2>{{ wordData.translation }}</h2>
           <h2>{{ wordData.nederlands }}</h2>
         </div>
-        <div class="word_words-category">
+        <!-- <div class="word_words-category">
           <h2>{{ wordData.category }}</h2>
-        </div>
+        </div> -->
       </div>
     </div>
     <transition name="bounce">
@@ -39,6 +39,10 @@
             v-on:closeDetails="openDetails()"
             v-on:fetch-words-again="$emit('fetch-words-again')"
           />
+          <div class="word_words-category">
+            <h2>Category</h2>
+            <h2>{{ wordData.category }}</h2>
+          </div>
         </div>
       </div>
     </transition>
