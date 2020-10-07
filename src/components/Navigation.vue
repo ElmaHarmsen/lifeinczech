@@ -49,6 +49,11 @@ export default {
           id: 2,
           item: "Logout",
           path: "/login"
+        },
+        {
+          id: 3,
+          item: "Why Ducky?",
+          path: "/whyducky"
         }
       ]
     };

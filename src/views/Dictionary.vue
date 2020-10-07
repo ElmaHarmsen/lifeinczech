@@ -5,7 +5,7 @@
       <div class="page_header-title">
         <img class="page_header-img" src="../assets/SmallDucky.png" alt="" />
         <h1>
-          Ducky
+          Elma's Ducky
         </h1>
       </div>
     </div>
