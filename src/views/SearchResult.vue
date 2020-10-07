@@ -5,12 +5,12 @@
       <div class="page_header-title">
         <img class="page_header-img" src="../assets/SmallDucky.png" alt="" />
         <h1>
-          Ducky
+          Elma's Ducky
         </h1>
+        <h1>Search result(s) for "{{ currentQuery }}"</h1>
       </div>
     </div>
     <div class="searchresult_content">
-      <h1>Search result(s) for "{{ currentQuery }}"</h1>
       <div class="searchresult_words" v-if="searchResultJson.length">
         <!-- It the length of the result is not 0 -->
         <Word

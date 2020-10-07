@@ -90,7 +90,7 @@ section {
 
     @include screen-is(lg) {
       bottom: unset;
-      top: 0.5rem;
+      top: 1rem;
       left: 22.5%;
     }
 

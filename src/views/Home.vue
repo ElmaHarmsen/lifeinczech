@@ -10,7 +10,7 @@
       </div>
     </div>
     <div v-if="loading" class="loading">
-      <h1>Loading ...</h1>
+      <img class="spinner" src="../assets/spinner.gif" alt="" />
     </div>
     <div v-else class="hotlist_content">
       <Word

@@ -19,14 +19,13 @@ export default {
 <style lang="scss" scoped>
 section {
   .message_display {
-    top: 0.5rem;
-    border-radius: 2px;
+    height: 50px !important;
+    border-radius: 20px;
     background-color: $purple;
+    border-bottom: 4px solid $shadow;
 
     @include screen-is(lg) {
-      top: 0.5rem;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      top: 1rem;
     }
 
     h1 {
