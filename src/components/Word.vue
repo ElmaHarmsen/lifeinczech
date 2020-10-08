@@ -156,7 +156,7 @@ section {
     }
   }
   .word_blurred {
-    filter: blur(3px);
+    filter: blur(4px);
   }
   .word_details {
     transition: opacity 0.2s ease-in;

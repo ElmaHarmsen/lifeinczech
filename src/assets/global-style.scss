@@ -51,7 +51,7 @@ body {
 //Other reusabble stuff
 //Concerning page headers:
 .hotlist_content, .dictionary_content, .searchresult_content, .whyducky_content {
-  margin: 100px 0rem 60px 0rem;
+  margin: 100px 0rem 70px 0rem;
 
   h1 {
     text-align: center;
@@ -63,12 +63,15 @@ body {
 
   @include screen-is(lg) {
     width: 55%;
-    margin: 150px auto 60px auto; //Because the page_header-title is gone
+    margin: 150px auto 70px auto; //Because the page_header-title is gone
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 100%;
     gap: 2.5rem;
   }
+}
+.background_with-opacity {
+  background-color: violet;
 }
 .loading {
   width: auto;
@@ -94,6 +97,7 @@ body {
 
   .page_header-title {
     position: fixed;
+    z-index: 1;
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);

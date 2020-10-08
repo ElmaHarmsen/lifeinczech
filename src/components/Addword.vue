@@ -5,7 +5,7 @@
       class="addword_btn"
       v-bind:class="{ close: wordformopen }"
     >
-      <img src="../assets/add-24px.svg" alt="" />
+      <img class="apps_add-icon" src="../assets/add-24px.svg" alt="" />
     </div>
     <div class="addword_form-wrapper" v-bind:class="{ open: wordformopen }">
       <div class="addword_form">
@@ -159,6 +159,10 @@ section {
   .addword_btn {
     background-color: #16345c;
     border-radius: 2px;
+
+    .apps_add-icon {
+      border-radius: 2px;
+    }
   }
   .addword_form-wrapper {
     z-index: 3;
