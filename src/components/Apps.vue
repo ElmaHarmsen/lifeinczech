@@ -16,51 +16,57 @@
     </div>
     <SearchField v-if="searchopen" v-on:close-search="toggleSearch()" />
     <FilterField v-if="filteropen" v-on:close-filter="toggleFilter()" />
-    <div class="apps_wrapper" v-bind:class="{ open: appsopen }">
-      <div class="navigation_items-wrapper">
-        <div class="navigation_items">
-          <router-link
-            class="navigation_one-item"
-            v-bind:to="navitem.path"
-            v-for="navitem in navItems"
-            v-bind:key="navitem.id"
-          >
-            <h1>
-              {{ navitem.item }}
-            </h1>
-          </router-link>
-          <!-- <div class="apps_menu">
-            <img class="apps_menu-icon" src="../assets/menu-24px.svg" alt="">
-          </div> -->
+    <transition name="bounce">
+      <div class="apps_wrapper" v-if="appsopen">
+        <div class="navigation_items-wrapper">
+          <div class="navigation_items">
+            <router-link
+              class="navigation_one-item"
+              v-bind:to="navitem.path"
+              v-for="navitem in navItems"
+              v-bind:key="navitem.id"
+            >
+              <h1>
+                {{ navitem.item }}
+              </h1>
+            </router-link>
+            <!-- <div class="apps_menu">
+              <img class="apps_menu-icon" src="../assets/menu-24px.svg" alt="">
+            </div> -->
+          </div>
         </div>
-      </div>
-      <router-link v-bind:to="'/login'">
-        <div class="apps_logout">
-          <h1>Logout</h1>
+        <router-link v-bind:to="'/login'">
+          <div class="apps_logout">
+            <h1>Logout</h1>
+            <img
+              class="apps_logout-icon"
+              src="../assets/power_settings_new-24px.svg"
+              alt=""
+            />
+          </div>
+        </router-link>
+        <div class="apps_search" v-on:click="toggleSearch()">
+          <h1>Search</h1>
           <img
-            class="apps_logout-icon"
-            src="../assets/power_settings_new-24px.svg"
+            class="apps_search-icon"
+            src="../assets/search-24px.svg"
             alt=""
           />
         </div>
-      </router-link>
-      <div class="apps_search" v-on:click="toggleSearch()">
-        <h1>Search</h1>
-        <img class="apps_search-icon" src="../assets/search-24px.svg" alt="" />
+        <div class="apps_filter" v-on:click="toggleFilter()">
+          <h1>Filter</h1>
+          <img
+            class="apps_filter-icon"
+            src="../assets/filter_alt-24px.svg"
+            alt=""
+          />
+        </div>
+        <div class="apps_add">
+          <h1>Add</h1>
+          <Addword v-on:fetch-words-again="$emit('fetch-words-again')" />
+        </div>
       </div>
-      <div class="apps_filter" v-on:click="toggleFilter()">
-        <h1>Filter</h1>
-        <img
-          class="apps_filter-icon"
-          src="../assets/filter_alt-24px.svg"
-          alt=""
-        />
-      </div>
-      <div class="apps_add">
-        <h1>Add</h1>
-        <Addword v-on:fetch-words-again="$emit('fetch-words-again')" />
-      </div>
-    </div>
+    </transition>
   </section>
 </template>
 
@@ -137,7 +143,7 @@ section {
     bottom: 1rem;
     right: 1rem;
     position: fixed;
-    z-index: 2;
+    z-index: 3;
 
     @include screen-is(lg) {
       bottom: unset;
@@ -163,17 +169,30 @@ section {
   //   z-index: 1;
   // }
   .apps_wrapper {
-    width: auto;
-    height: calc(200px + 4.5rem);
+    // height: calc(200px + 4.5rem);
+    background-color: #e6e6e6a6;
+    height: 100%;
+    width: 100%;
     position: fixed;
     z-index: 2;
-    right: 1rem;
-    bottom: calc(50px + 1rem);
-    opacity: 0;
-    transition: opacity 0.2s ease-in;
+    right: 0;
+    bottom: 0;
+    padding-right: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: end;
+    padding-bottom: calc(50px + 1.5rem);
 
-    &.open {
-      opacity: 1;
+    &.bounce-enter-active,
+    &.bounce-leave-active {
+      transition: all 0.3s ease;
+    }
+    &.bounce-enter, &.bounce-leave-to
+    /* .component-fade-leave-active below version 2.1.8 */ {
+      transform: translateX(300%);
+    }
+    &.bouce-enter-to {
+      transform: translateX(0);
     }
 
     @include screen-is(lg) {

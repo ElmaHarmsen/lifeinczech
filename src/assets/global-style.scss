@@ -155,11 +155,13 @@ section {
     position: fixed;
     top: 0rem;
     left: -100%;
-    transition: left 0.2s ease-in;
+    transition: all 0.2s ease-in;
     background-color: $background;
+    opacity: 0;
 
     &.open {
       left: 0;
+      opacity: 1;
     }
 
     @include screen-is(lg) {
