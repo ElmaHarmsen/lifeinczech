@@ -20,9 +20,12 @@ export default {
 section {
   .message_display {
     height: 50px !important;
-    border-radius: 20px;
+    border-radius: 2px;
     background-color: $purple;
     border-bottom: 4px solid $shadow;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
 
     @include screen-is(lg) {
       top: 1rem;

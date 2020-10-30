@@ -165,7 +165,7 @@ section {
     }
   }
   .addword_form-wrapper {
-    z-index: 3;
+    z-index: 5;
 
     .addword_pre-inputs > * {
       padding: 0.8rem 0.5rem;

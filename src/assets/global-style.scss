@@ -70,9 +70,6 @@ body {
     gap: 2.5rem;
   }
 }
-.background_with-opacity {
-  background-color: violet;
-}
 .loading {
   width: auto;
   margin: 50px auto;
@@ -112,7 +109,7 @@ body {
       width: auto;
 
       @include screen-is(lg) {
-        height: 40px;
+        height: 50px;
       }
     }
   }
@@ -182,7 +179,7 @@ section {
   }
 }
 .editword_form, .addword_form, .moveword_form {
-  padding: 0.5rem;
+  padding: 1rem;
 
   h1 {
     height: 50px;
@@ -288,19 +285,18 @@ section {
 //Concerning the searchbar and the messagepopup
 section {
   .search_input, .filter_input, .message_display {
-    width: calc(100% - 1rem);
+    width: calc(100% - 2rem);
     height: 60px;
     top: 1rem;
-    left: 0.5rem;
+    left: 1rem;
     position: fixed;
     z-index: 3;
     transition: top 0.2s ease-in;
 
     @include screen-is(lg) {
-      width: calc(55% - 50px - 1rem);
-      margin-left: calc(50% + 50px + 0.5rem);
-      transform: translateX(calc(-50% - 50px + 1rem));
-      height: 50px;
+      width: 21%;
+      left: unset;
+      right: 1rem;
     }
   }
 }

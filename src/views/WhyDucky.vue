@@ -10,41 +10,53 @@
       </div>
     </div>
     <div class="whyducky_content">
-      <!-- <h2>
-        Imagine, you are finding yourself in a foreign country; France, the Czech Republic, Greece... name it. Important is, you haven't masterd its language, yet.
-      </h2>
-      <br>
-      <h2>
-        Now you want politely face the local people and participate in a conversation with the fitting language.
-      </h2>
-      <br> -->
-      <h2>
-        You might find yourself in a situation where you're slightly unknown to
-        the local language. Now you want to participate in a conversation but
-        you're missing just the right words. You most likely don't want to
-        interrupt someone with your "stupid question".
-      </h2>
-      <br />
-      <h2>
-        Luckily for you, Ducky the answer to your question! Collect here words
-        you repeatedly need in your Ducky Dictionary, and for quick access store
-        them in the homescreen Hotlist. Add this progressive web app to the
-        homescreen of your phone, and... kapow! No more "stupid questions" and
-        before you know it you've mastered the language : )
-      </h2>
-      <br />
-      <h2>Therefore remember, ask Ducky.</h2>
+      <div>
+        <h2>
+          You might find yourself in a situation where you're slightly unknown
+          to the local language. Now you want to participate in a conversation
+          but you're missing just the right words. You most likely don't want to
+          interrupt someone with your "stupid question".
+        </h2>
+        <br />
+        <h2>
+          Luckily for you, Ducky the answer to your question! Collect here words
+          you repeatedly need in your Ducky Dictionary, and for quick access
+          store them in the homescreen Homelist. Add this progressive web app to
+          the homescreen of your phone, and... kapow! No more "stupid questions"
+          and before you know it you've mastered the language : )
+        </h2>
+        <br />
+        <h2>Therefore remember, ask Ducky.</h2>
+      </div>
+      <img class="bigducky" src="../assets/SmallDucky.png" alt="" />
     </div>
+    <Apps v-on:fetch-words-again="fetchData()" />
   </section>
 </template>
 
 <script>
-// import Navigation from "@/components/Navigation.vue";
+import Apps from "@/components/Apps.vue";
 
 export default {
   name: "WhyDucky",
   components: {
-    // Navigation
+    Apps
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.whyducky_content {
+  img {
+    display: none;
+  }
+  @include screen-is(lg) {
+    img {
+      width: 100%;
+      margin-left: -30%;
+      opacity: 0.1;
+      filter: grayscale(90%);
+    }
+  }
+}
+</style>

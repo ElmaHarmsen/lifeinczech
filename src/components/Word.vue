@@ -141,7 +141,7 @@ section {
           padding: 1rem 0.5rem;
 
           @include screen-is(lg) {
-            padding: 1.4rem 0.5rem;
+            padding: 1.2rem 0.5rem;
           }
         }
       }

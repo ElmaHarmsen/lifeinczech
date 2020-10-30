@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
 #app {
-  padding: 0.5rem;
+  padding: 1rem;
 
   @include screen-is(lg) {
     padding: 0;

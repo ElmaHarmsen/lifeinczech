@@ -21,12 +21,14 @@
       </div>
       <h1 v-else>No results for your query</h1>
     </div>
+    <Apps v-on:fetch-words-again="fetchData()" />
   </section>
 </template>
 
 <script>
 // import Navigation from "@/components/Navigation.vue";
 import Word from "@/components/Word.vue";
+import Apps from "@/components/Apps.vue";
 
 export default {
   name: "SearchResult",
@@ -53,7 +55,8 @@ export default {
   },
   components: {
     // Navigation,
-    Word
+    Word,
+    Apps
   },
   created: async function() {
     if (!this.$route.query.word) {

@@ -26,13 +26,15 @@
               v-for="navitem in navItems"
               v-bind:key="navitem.id"
             >
+              <img
+                v-bind:src="require(`@/assets/${navitem.img}`)"
+                class="navigation_item-img"
+                alt=""
+              />
               <h1>
                 {{ navitem.item }}
               </h1>
             </router-link>
-            <!-- <div class="apps_menu">
-              <img class="apps_menu-icon" src="../assets/menu-24px.svg" alt="">
-            </div> -->
           </div>
         </div>
         <router-link v-bind:to="'/login'">
@@ -87,19 +89,22 @@ export default {
       navItems: [
         {
           id: 0,
-          item: "Hotlist",
+          item: "Homelist",
+          img: "home.svg",
           path: "/"
         },
         {
           id: 1,
           item: "Dictionary",
+          img: "dictionary.svg",
           path: "/dictionary"
+        },
+        {
+          id: 2,
+          item: "Why Ducky?",
+          img: "question.svg",
+          path: "/whyducky"
         }
-        // {
-        //   id: 2,
-        //   item: "Why Ducky?",
-        //   path: "/whyducky"
-        // }
       ]
     };
   },
@@ -163,15 +168,9 @@ section {
       background-color: transparent;
     }
   }
-  // .apps_everything {
-  //   background-color: sandybrown;
-  //   position: absolute;
-  //   z-index: 1;
-  // }
   .apps_wrapper {
-    // height: calc(200px + 4.5rem);
     background-color: #e6e6e6a6;
-    height: 100%;
+    height: auto;
     width: 100%;
     position: fixed;
     z-index: 2;
@@ -189,16 +188,34 @@ section {
     }
     &.bounce-enter, &.bounce-leave-to
     /* .component-fade-leave-active below version 2.1.8 */ {
-      transform: translateX(300%);
+      transform: translateY(200%);
     }
     &.bouce-enter-to {
-      transform: translateX(0);
+      transform: translateY(0);
     }
 
     @include screen-is(lg) {
+      width: 21%;
+      height: 100%;
+      right: 0;
+      left: unset;
       bottom: unset;
-      top: calc(50px + 1rem);
-      right: 22.5%;
+      top: 0;
+      margin: 0rem auto;
+      border-left: 4px solid $darker;
+      justify-content: flex-start;
+
+      &.bounce-enter-active,
+      &.bounce-leave-active {
+        transition: all 0.3s ease;
+      }
+      &.bounce-enter, &.bounce-leave-to
+      /* .component-fade-leave-active below version 2.1.8 */ {
+        transform: translateX(200%);
+      }
+      &.bouce-enter-to {
+        transform: translateX(0);
+      }
     }
     .apps_menu-icon,
     .apps_logout-icon,
@@ -209,19 +226,18 @@ section {
       background-color: #16345c;
     }
     .navigation_items-wrapper {
-      width: auto;
-      position: fixed;
-      z-index: 2;
-      right: calc(50px + 1rem);
-      bottom: 1rem;
-      padding: 0rem 1rem;
+      margin: 1rem;
+      position: relative;
+      left: 1rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      border-radius: 20px;
+      background-color: #16345c;
+      border-bottom: 4px solid $light-blue;
 
       .navigation_items {
-        height: 50px;
-        text-align: right;
         display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
+        flex-flow: column;
 
         .navigation_one-item {
           display: flex;
@@ -229,8 +245,13 @@ section {
           align-items: center;
 
           h1 {
-            // margin: 0rem 0.5rem;
             margin-left: 1rem;
+            padding: 1rem 0rem;
+          }
+          .navigation_item-img {
+            width: 40px;
+            height: 50px;
+            padding: 0.25rem 0.5rem;
           }
         }
       }

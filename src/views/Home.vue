@@ -33,7 +33,7 @@ import Word from "@/components/Word.vue";
 import Apps from "@/components/Apps.vue";
 
 export default {
-  name: "Hotlist",
+  name: "Homelist",
   data: function() {
     return {
       loading: true,
