@@ -26,17 +26,18 @@
               v-for="navitem in navItems"
               v-bind:key="navitem.id"
             >
+              <h1>
+                {{ navitem.item }}
+              </h1>
               <img
                 v-bind:src="require(`@/assets/${navitem.img}`)"
                 class="navigation_item-img"
                 alt=""
               />
-              <h1>
-                {{ navitem.item }}
-              </h1>
             </router-link>
           </div>
         </div>
+        <span class="line"></span>
         <router-link v-bind:to="'/login'">
           <div class="apps_logout">
             <h1>Logout</h1>
@@ -79,7 +80,6 @@ import Addword from "@/components/Addword.vue";
 
 export default {
   name: "Apps",
-  props: ["activeLink"],
   data: function() {
     return {
       appsopen: false,
@@ -176,11 +176,12 @@ section {
     z-index: 2;
     right: 0;
     bottom: 0;
-    padding-right: 1rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: end;
     padding-bottom: calc(50px + 1.5rem);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 
     &.bounce-enter-active,
     &.bounce-leave-active {
@@ -188,7 +189,7 @@ section {
     }
     &.bounce-enter, &.bounce-leave-to
     /* .component-fade-leave-active below version 2.1.8 */ {
-      transform: translateY(200%);
+      transform: translateY(150%);
     }
     &.bouce-enter-to {
       transform: translateY(0);
@@ -202,8 +203,11 @@ section {
       bottom: unset;
       top: 0;
       margin: 0rem auto;
-      border-left: 4px solid $darker;
+      border-left: 4px solid $shadow;
       justify-content: flex-start;
+      border-top-right-radius: unset;
+      border-bottom-left-radius: 20px;
+      padding-bottom: unset;
 
       &.bounce-enter-active,
       &.bounce-leave-active {
@@ -223,44 +227,39 @@ section {
     .apps_search-icon,
     .apps_add-icon {
       border-radius: 2px;
-      background-color: #16345c;
+      background-color: $purple;
     }
-    .navigation_items-wrapper {
-      margin: 1rem;
-      position: relative;
-      left: 1rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      border-radius: 20px;
-      background-color: #16345c;
-      border-bottom: 4px solid $light-blue;
+  }
+  .navigation_items-wrapper {
+    .navigation_items {
+      display: flex;
+      flex-flow: column;
+      align-items: end;
 
-      .navigation_items {
+      .navigation_one-item {
         display: flex;
-        flex-flow: column;
+        flex-flow: row nowrap;
+        align-items: center;
+        padding: 0.5rem 0rem;
 
-        .navigation_one-item {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-
-          h1 {
-            margin-left: 1rem;
-            padding: 1rem 0rem;
-          }
-          .navigation_item-img {
-            width: 40px;
-            height: 50px;
-            padding: 0.25rem 0.5rem;
-          }
+        &.router-link-exact-active h1 {
+          color: $purple;
         }
       }
     }
   }
+  .navigation_item-img {
+    width: 42px;
+    height: 42px;
+    padding: 0.25rem;
+    background-color: $purple;
+    border-radius: 2px;
+  }
   .apps_logout,
   .apps_search,
   .apps_filter,
-  .apps_add {
+  .apps_add,
+  .navigation_items {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -271,9 +270,8 @@ section {
       text-align: right;
     }
   }
-  .apps_logout,
   .apps_wrapper > * {
-    padding: 0.5rem 0rem;
+    padding: 0.5rem 1rem;
   }
 }
 </style>
