@@ -156,8 +156,8 @@ section {
     }
   }
   .word_blurred {
-    // filter: blur(4px);
-    display: none;
+    filter: blur(2px);
+    opacity: 0.5;
   }
   .word_details {
     transition: opacity 0.2s ease-in;

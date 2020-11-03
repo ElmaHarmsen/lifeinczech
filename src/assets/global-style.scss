@@ -87,11 +87,16 @@ body {
   }
 }
 .line {
-  width: calc(100% - 2rem);
-  height: 2px;
-  padding: 0rem !important;
-  margin: 0rem 1rem 0.5rem 1rem;
-  background-color: $shadow;
+  display: none;
+
+  @include screen-is(lg) {
+    display: block;
+    width: calc(100% - 1.5rem);
+    height: 4px;
+    padding: 0rem !important;
+    margin: 0rem auto 0.5rem auto;
+    background-color: $shadow;
+  }
 }
 .page_header {
   display: flex;

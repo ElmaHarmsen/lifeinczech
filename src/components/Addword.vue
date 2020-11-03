@@ -157,12 +157,15 @@ export default {
 <style lang="scss" scoped>
 section {
   .addword_btn {
-    background-color: #16345c;
+    transition: all 0.4s ease-in;
     border-radius: 2px;
 
     .apps_add-icon {
       border-radius: 2px;
     }
+  }
+  .addword_btn:hover {
+    transform: rotate(360deg);
   }
   .addword_form-wrapper {
     z-index: 5;

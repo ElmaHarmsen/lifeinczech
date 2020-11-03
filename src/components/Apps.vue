@@ -17,7 +17,7 @@
     <SearchField v-if="searchopen" v-on:close-search="toggleSearch()" />
     <FilterField v-if="filteropen" v-on:close-filter="toggleFilter()" />
     <transition name="bounce">
-      <div class="apps_wrapper" v-if="appsopen">
+      <div class="apps_wrapper" v-if="appsopen || $mq === 'desktop'">
         <div class="navigation_items-wrapper">
           <div class="navigation_items">
             <router-link
@@ -26,9 +26,6 @@
               v-for="navitem in navItems"
               v-bind:key="navitem.id"
             >
-              <h1>
-                {{ navitem.item }}
-              </h1>
               <img
                 v-bind:src="require(`@/assets/${navitem.img}`)"
                 class="navigation_item-img"
@@ -38,9 +35,29 @@
           </div>
         </div>
         <span class="line"></span>
-        <router-link v-bind:to="'/login'">
+        <div class="apps_functionalities-wrapper">
+          <div>
+            <div class="apps_search" v-on:click="toggleSearch()">
+              <img
+                class="apps_search-icon"
+                src="../assets/search-24px.svg"
+                alt=""
+              />
+            </div>
+            <div class="apps_filter" v-on:click="toggleFilter()">
+              <img
+                class="apps_filter-icon"
+                src="../assets/filter_alt-24px.svg"
+                alt=""
+              />
+            </div>
+            <div class="apps_add">
+              <Addword v-on:fetch-words-again="$emit('fetch-words-again')" />
+            </div>
+          </div>
+        </div>
+        <router-link v-bind:to="'/login'" class="logout_link">
           <div class="apps_logout">
-            <h1>Logout</h1>
             <img
               class="apps_logout-icon"
               src="../assets/power_settings_new-24px.svg"
@@ -48,26 +65,6 @@
             />
           </div>
         </router-link>
-        <div class="apps_search" v-on:click="toggleSearch()">
-          <h1>Search</h1>
-          <img
-            class="apps_search-icon"
-            src="../assets/search-24px.svg"
-            alt=""
-          />
-        </div>
-        <div class="apps_filter" v-on:click="toggleFilter()">
-          <h1>Filter</h1>
-          <img
-            class="apps_filter-icon"
-            src="../assets/filter_alt-24px.svg"
-            alt=""
-          />
-        </div>
-        <div class="apps_add">
-          <h1>Add</h1>
-          <Addword v-on:fetch-words-again="$emit('fetch-words-again')" />
-        </div>
       </div>
     </transition>
   </section>
@@ -151,9 +148,7 @@ section {
     z-index: 3;
 
     @include screen-is(lg) {
-      bottom: unset;
-      top: 1rem;
-      right: 22.5%;
+      display: none;
     }
 
     .apps_btn-icon {
@@ -169,19 +164,17 @@ section {
     }
   }
   .apps_wrapper {
-    background-color: #e6e6e6a6;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    margin: 1rem 0rem;
     height: auto;
     width: 100%;
-    position: fixed;
+    position: absolute;
     z-index: 2;
     right: 0;
     bottom: 0;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: end;
-    padding-bottom: calc(50px + 1.5rem);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
 
     &.bounce-enter-active,
     &.bounce-leave-active {
@@ -196,17 +189,21 @@ section {
     }
 
     @include screen-is(lg) {
-      width: 21%;
+      background-color: $purple;
+      width: 5%;
       height: 100%;
+      position: fixed;
       right: 0;
       left: unset;
       bottom: unset;
       top: 0;
       margin: 0rem auto;
       border-left: 4px solid $shadow;
-      justify-content: flex-start;
+      display: flex;
+      flex-flow: column;
       border-top-right-radius: unset;
       border-bottom-left-radius: 20px;
+      border-top-left-radius: 20px;
       padding-bottom: unset;
 
       &.bounce-enter-active,
@@ -221,13 +218,56 @@ section {
         transform: translateX(0);
       }
     }
-    .apps_menu-icon,
-    .apps_logout-icon,
-    .apps_filter-icon,
-    .apps_search-icon,
-    .apps_add-icon {
-      border-radius: 2px;
-      background-color: $purple;
+    .apps_functionalities-wrapper {
+      @include screen-is(lg) {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .apps_menu-icon,
+      .apps_filter-icon,
+      .apps_search-icon,
+      .apps_add-icon {
+        border-radius: 2px;
+        background-color: $shadow;
+        margin: 0.5rem auto;
+      }
+      .apps_add {
+        width: 50px;
+        height: 50px;
+        margin: 0.5rem auto;
+        background-color: $light-blue;
+      }
+      .apps_search,
+      .apps_filter,
+      .apps_add,
+      .navigation_items {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+
+        h1 {
+          padding-right: 1rem;
+          text-align: right;
+        }
+      }
+      .apps_wrapper > * {
+        padding: 0.5rem 1rem;
+      }
+    }
+    .logout_link {
+      margin: 0rem auto;
+
+      .apps_logout {
+        margin: 0.5rem auto;
+
+        @include screen-is(lg) {
+          margin: 1rem auto;
+        }
+      }
     }
   }
   .navigation_items-wrapper {
@@ -235,12 +275,18 @@ section {
       display: flex;
       flex-flow: column;
       align-items: end;
+      margin: 0rem auto;
+
+      @include screen-is(lg) {
+        margin: 0.5rem auto;
+      }
 
       .navigation_one-item {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         padding: 0.5rem 0rem;
+        margin: 0rem auto;
 
         &.router-link-exact-active h1 {
           color: $purple;
@@ -249,29 +295,11 @@ section {
     }
   }
   .navigation_item-img {
-    width: 42px;
-    height: 42px;
-    padding: 0.25rem;
-    background-color: $purple;
+    width: 35px;
+    height: 35px;
+    padding: 0.5rem;
+    background-color: $shadow;
     border-radius: 2px;
-  }
-  .apps_logout,
-  .apps_search,
-  .apps_filter,
-  .apps_add,
-  .navigation_items {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-end;
-
-    h1 {
-      padding-right: 1rem;
-      text-align: right;
-    }
-  }
-  .apps_wrapper > * {
-    padding: 0.5rem 1rem;
   }
 }
 </style>
