@@ -155,12 +155,12 @@ section {
       }
     }
   }
-  .word_blurred {
-    filter: blur(2px);
-    opacity: 0.5;
-  }
+  // .word_blurred {
+  //   filter: blur(2px);
+  //   opacity: 0.5;
+  // }
   .word_details {
-    transition: opacity 0.2s ease-in;
+    transition: all 0.2s ease-in;
 
     @include screen-is(lg) {
       margin: 1.5rem 0rem;
@@ -170,6 +170,7 @@ section {
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
+      justify-content: center;
       cursor: pointer;
 
       .delete {

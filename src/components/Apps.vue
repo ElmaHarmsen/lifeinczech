@@ -1,12 +1,23 @@
 <template>
   <section>
     <div v-on:click="openApps()" class="apps_btn">
-      <img
+      <!-- <img
         v-bind:class="{ close: appsopen }"
         class="apps_btn-icon"
         src="../assets/apps-24px.svg"
         alt=""
-      />
+      /> -->
+      <div class="apps_btn-grid" v-bind:class="{ close: appsopen }">
+        <span class="apps_btn-span"></span>
+        <span class="apps_btn-span"></span>
+        <span class="apps_btn-span"></span>
+        <span class="apps_btn-span"></span>
+        <span class="apps_btn-span"></span>
+        <span class="apps_btn-span"></span>
+        <span class="apps_btn-span"></span>
+        <span class="apps_btn-span"></span>
+        <span class="apps_btn-span"></span>
+      </div>
       <img
         class="apps_close_btn_icon"
         v-if="appsopen"
@@ -142,36 +153,84 @@ export default {
 <style lang="scss" scoped>
 section {
   .apps_btn {
-    bottom: 1rem;
-    right: 1rem;
+    width: 32.5%;
+    bottom: 1.5rem;
+    right: 0rem;
     position: fixed;
     z-index: 3;
+    text-align: center;
+
+    .apps_btn-grid {
+      display: grid;
+      grid-template-columns: 0.7rem 0.7rem 0.7rem;
+      grid-template-rows: 0.7rem 0.7rem 0.7rem;
+      gap: 0.4rem;
+      justify-items: center;
+      width: 3.3rem;
+      height: 3.3rem;
+      margin: 0rem auto;
+
+      .apps_btn-span {
+        display: block;
+        width: 0.7rem;
+        height: 0.7rem;
+        background-color: white;
+        margin: 0rem;
+        border-radius: 2px;
+      }
+    }
+
+    .apps_btn-grid {
+      border-radius: 2px;
+
+      span {
+        transition: all 0.2s ease-in;
+      }
+
+      &.close {
+        span:nth-of-type(8) {
+          transition: all 0.2s ease-in;
+          opacity: 0;
+        }
+        span:nth-of-type(2) {
+          transition: all 0.2s ease-in;
+          opacity: 0;
+        }
+        span:nth-of-type(6) {
+          transition: all 0.2s ease-in;
+          opacity: 0;
+        }
+        span:nth-of-type(4) {
+          transition: all 0.2s ease-in;
+          opacity: 0;
+        }
+        span {
+          transform: rotate(135deg);
+        }
+      }
+    }
 
     @include screen-is(lg) {
       display: none;
     }
-
-    .apps_btn-icon {
-      border-radius: 2px;
-
-      &.close {
-        display: none;
-      }
-    }
     .apps_close_btn_icon {
-      border-radius: 2px;
+      display: none;
       background-color: transparent;
     }
   }
   .apps_wrapper {
+    background-color: $purple;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top: 4px solid $shadow;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     justify-items: center;
-    margin: 1rem 0rem;
+    padding: 1rem 0rem;
     height: auto;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     right: 0;
     bottom: 0;
@@ -182,7 +241,7 @@ section {
     }
     &.bounce-enter, &.bounce-leave-to
     /* .component-fade-leave-active below version 2.1.8 */ {
-      transform: translateY(150%);
+      transform: translateY(100%);
     }
     &.bouce-enter-to {
       transform: translateY(0);
@@ -198,6 +257,8 @@ section {
       bottom: unset;
       top: 0;
       margin: 0rem auto;
+      padding: 0;
+      border-top: none;
       border-left: 4px solid $shadow;
       display: flex;
       flex-flow: column;
@@ -238,7 +299,7 @@ section {
         width: 50px;
         height: 50px;
         margin: 0.5rem auto;
-        background-color: $light-blue;
+        background-color: $shadow;
       }
       .apps_search,
       .apps_filter,
@@ -288,8 +349,8 @@ section {
         padding: 0.5rem 0rem;
         margin: 0rem auto;
 
-        &.router-link-exact-active h1 {
-          color: $purple;
+        &.router-link-exact-active img {
+          background-color: $light-blue;
         }
       }
     }
