@@ -12,9 +12,6 @@
           <h2>{{ wordData.translation }}</h2>
           <h2>{{ wordData.nederlands }}</h2>
         </div>
-        <!-- <div class="word_words-category">
-          <h2>{{ wordData.category }}</h2>
-        </div> -->
       </div>
     </div>
     <transition name="bounce">
@@ -120,7 +117,7 @@ section {
     width: 100%;
     border-radius: 20px;
     background-color: $purple;
-    border-bottom: 4px solid $shadow;
+    // border-bottom: 4px solid $darker;
 
     @include screen-is(lg) {
       margin: 0rem;
@@ -143,14 +140,6 @@ section {
           @include screen-is(lg) {
             padding: 1.2rem 0.5rem;
           }
-        }
-      }
-      .word_words-category {
-        align-self: flex-end;
-
-        h2 {
-          color: $shadow;
-          padding: 0.8rem 0.5rem;
         }
       }
     }

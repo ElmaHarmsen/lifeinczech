@@ -25,7 +25,9 @@
         alt=""
       />
     </div>
-    <SearchField v-if="searchopen" v-on:close-search="toggleSearch()" />
+    <transition name="bounce">
+      <SearchField v-if="searchopen" v-on:close-search="toggleSearch()" />
+    </transition>
     <FilterField v-if="filteropen" v-on:close-filter="toggleFilter()" />
     <transition name="bounce">
       <div class="apps_wrapper" v-if="appsopen || $mq === 'desktop'">
@@ -153,9 +155,9 @@ export default {
 <style lang="scss" scoped>
 section {
   .apps_btn {
-    width: 32.5%;
+    width: calc(30% - 0.3rem);
     bottom: 1.5rem;
-    right: 0rem;
+    right: 1.25rem;
     position: fixed;
     z-index: 3;
     text-align: center;
@@ -219,20 +221,22 @@ section {
     }
   }
   .apps_wrapper {
-    background-color: $purple;
+    background-color: $background;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    border-top: 4px solid $shadow;
+    border: 4px solid $shadow;
+    border-bottom: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     justify-items: center;
     padding: 1rem 0rem;
     height: auto;
-    width: 100%;
+    width: calc(100% - 2rem - 8px);
+    margin: 0rem auto;
     position: fixed;
     z-index: 2;
-    right: 0;
+    right: unset;
     bottom: 0;
 
     &.bounce-enter-active,
@@ -243,23 +247,22 @@ section {
     /* .component-fade-leave-active below version 2.1.8 */ {
       transform: translateY(100%);
     }
-    &.bouce-enter-to {
-      transform: translateY(0);
+    &.bounce-enter-to {
+      transform: translateY(0%);
     }
 
     @include screen-is(lg) {
-      background-color: $purple;
+      background-color: $background;
       width: 5%;
-      height: 100%;
+      height: calc(100% - 8px);
       position: fixed;
       right: 0;
       left: unset;
       bottom: unset;
-      top: 0;
-      margin: 0rem auto;
+      top: 0px;
       padding: 0;
-      border-top: none;
-      border-left: 4px solid $shadow;
+      border: 4px solid $shadow;
+      border-right: none;
       display: flex;
       flex-flow: column;
       border-top-right-radius: unset;
@@ -273,9 +276,9 @@ section {
       }
       &.bounce-enter, &.bounce-leave-to
       /* .component-fade-leave-active below version 2.1.8 */ {
-        transform: translateX(200%);
+        transform: translateX(100%);
       }
-      &.bouce-enter-to {
+      &.bounce-enter-to {
         transform: translateX(0);
       }
     }
@@ -292,14 +295,15 @@ section {
       .apps_search-icon,
       .apps_add-icon {
         border-radius: 2px;
-        background-color: $shadow;
+        background-color: $purple;
         margin: 0.5rem auto;
       }
       .apps_add {
         width: 50px;
         height: 50px;
         margin: 0.5rem auto;
-        background-color: $shadow;
+        background-color: $purple;
+        border-radius: 2px;
       }
       .apps_search,
       .apps_filter,
@@ -323,6 +327,8 @@ section {
       margin: 0rem auto;
 
       .apps_logout {
+        border-radius: 2px;
+        background-color: $purple;
         margin: 0.5rem auto;
 
         @include screen-is(lg) {
@@ -359,7 +365,7 @@ section {
     width: 35px;
     height: 35px;
     padding: 0.5rem;
-    background-color: $shadow;
+    background-color: $purple;
     border-radius: 2px;
   }
 }

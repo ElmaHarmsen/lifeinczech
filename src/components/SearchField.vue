@@ -1,21 +1,23 @@
 <template>
-  <section>
-    <div class="search_input">
-      <input
-        v-model="searchQuery"
-        v-on:submit="performSearch()"
-        type="text"
-        placeholder="Search"
-        id="the-search"
-      />
-      <div class="search_submit" v-on:click="performSearch()">
-        <img src="../assets/send-24px.svg" alt="" />
+  <transition name="bounce">
+    <section>
+      <div class="search_input">
+        <input
+          v-model="searchQuery"
+          v-on:submit="performSearch()"
+          type="text"
+          placeholder="Search"
+          id="the-search"
+        />
+        <div class="search_submit" v-on:click="performSearch()">
+          <img src="../assets/send-24px.svg" alt="" />
+        </div>
+        <div class="search_close" v-on:click="$emit('close-search')">
+          <img src="../assets/close-24px.svg" alt="" />
+        </div>
       </div>
-      <div class="search_close" v-on:click="$emit('close-search')">
-        <img src="../assets/close-24px.svg" alt="" />
-      </div>
-    </div>
-  </section>
+    </section>
+  </transition>
 </template>
 
 <script>
