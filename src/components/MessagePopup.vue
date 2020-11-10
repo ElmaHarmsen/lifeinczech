@@ -28,7 +28,7 @@ section {
     align-items: center;
 
     @include screen-is(lg) {
-      top: 1rem;
+      top: 0rem;
     }
 
     h1 {

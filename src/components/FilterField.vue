@@ -11,9 +11,9 @@
       <div class="filter_submit">
         <img src="../assets/unfold_more-24px.svg" alt="" />
       </div>
-      <div class="filter_close" v-on:click="$emit('close-filter')">
+      <!-- <div class="filter_close" v-on:click="$emit('close-filter')">
         <img src="../assets/close-24px.svg" alt="" />
-      </div>
+      </div> -->
     </div>
   </section>
 </template>

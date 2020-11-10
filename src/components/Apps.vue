@@ -155,9 +155,9 @@ export default {
 <style lang="scss" scoped>
 section {
   .apps_btn {
-    width: calc(30% - 0.3rem);
+    width: 31%;
     bottom: 1.5rem;
-    right: 1.25rem;
+    right: 0rem;
     position: fixed;
     z-index: 3;
     text-align: center;
@@ -176,7 +176,7 @@ section {
         display: block;
         width: 0.7rem;
         height: 0.7rem;
-        background-color: white;
+        background-color: #e6e6e6;
         margin: 0rem;
         border-radius: 2px;
       }
@@ -222,18 +222,15 @@ section {
   }
   .apps_wrapper {
     background-color: $background;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border: 4px solid $shadow;
-    border-bottom: none;
+    border-top: 4px solid $shadow;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     justify-items: center;
     padding: 1rem 0rem;
     height: auto;
-    width: calc(100% - 2rem - 8px);
-    margin: 0rem auto;
+    width: 100%;
+    margin: 0rem 0rem 0rem -1rem;
     position: fixed;
     z-index: 2;
     right: unset;
@@ -254,20 +251,19 @@ section {
     @include screen-is(lg) {
       background-color: $background;
       width: 5%;
-      height: calc(100% - 8px);
+      height: calc(100% - 0px);
       position: fixed;
       right: 0;
       left: unset;
       bottom: unset;
       top: 0px;
       padding: 0;
-      border: 4px solid $shadow;
+      border-top-left-radius: 0;
+      border-left: 4px solid $shadow;
       border-right: none;
+      border-top: none;
       display: flex;
       flex-flow: column;
-      border-top-right-radius: unset;
-      border-bottom-left-radius: 20px;
-      border-top-left-radius: 20px;
       padding-bottom: unset;
 
       &.bounce-enter-active,

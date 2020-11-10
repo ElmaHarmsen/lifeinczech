@@ -117,12 +117,18 @@ body {
     font-weight: 800;
     text-align: center;
 
+    @include screen-is(lg) {
+      left: 1rem;
+      transform: none;
+    }
+
     .page_header-img {
       height: 30px;
       width: auto;
 
       @include screen-is(lg) {
         height: 50px;
+        margin-right: 50%;
       }
     }
   }
@@ -180,7 +186,7 @@ section {
       position: fixed;
       top: -100%;
       left: 22%;
-      transition: top 0.2s ease-in;
+      transition: all 0.2s ease-in;
       border-left: 4px solid $shadow;
       border-right: 4px solid $shadow;
 
@@ -246,8 +252,9 @@ section {
 
   h2 {
     border-radius: 2px;
-    background-color: white;
-    color: $background;
+    background-color: $background;
+    border: 4px solid $shadow;
+    color: white;
     height: auto;
     min-height: calc(50px - 1.6rem);
   }
@@ -298,13 +305,18 @@ section {
 //Concerning the searchbar and the messagepopup
 section {
   .search_input, .filter_input, .message_display {
-    width: calc(100% - 2rem - 8px);
+    width: calc(100% - 2rem);    
     height: 50px;
-    border: 4px solid $shadow;
-    top: 1rem;
-    left: 1rem;
+    border-bottom: 4px solid $shadow;
+    background-color: $background;
+    top: 0rem;
+    left: 0rem;
     position: fixed;
     z-index: 3;
+    padding: 1.5rem 1rem 0rem 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 
     &.bounce-enter-active,
     &.bounce-leave-active {
@@ -319,35 +331,32 @@ section {
     }
 
     @include screen-is(lg) {
-      width: 21%;
-      left: 1rem;
-      right: unset;
+      width: calc(55% - 2rem);    
+      left: 50%;
+      transform: translateX(-50%);
+      // border-right: 4px solid $shadow;
     }
   }
 }
 .search_input, .filter_input {
-  display: flex;
-  flex-flow: row nowrap;
-  background-color: $background;
+  div {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: $background;
+  }
 
   input, select {
-    width: calc(100% - 1rem - 50px);
-    padding: 0rem 0.5rem;
+    width: 100% !important;
+    width: auto;
+    padding: 0.5rem 1rem;
     background-color: $background;
     border: none;
-    border-right: none;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
     color: white;
-
-    // &:focus {
-    //   border-right: none;
-    // }
   }
   .search_submit, .filter_submit,
   .search_close, .filter_close {
     img {
-      background-color: $purple;
+      // background-color: $purple;
     }
   }
   .search_close, .filter_close {

@@ -40,6 +40,7 @@
             <h2>Category</h2>
             <h2>{{ wordData.category }}</h2>
           </div>
+          <h1 v-on:click="openDetails()">Close</h1>
         </div>
       </div>
     </transition>
@@ -114,10 +115,15 @@ section {
     display: grid;
     grid-template-columns: auto 1fr;
     margin: 1.5rem 0rem;
-    width: 100%;
+    width: calc(100% - 8px);
     border-radius: 20px;
-    background-color: $purple;
-    // border-bottom: 4px solid $darker;
+    background-color: $background;
+    border: 4px solid $shadow;
+    transition: all 0.1s ease-in;
+
+    &.close {
+      background-color: $light-blue;
+    }
 
     @include screen-is(lg) {
       margin: 0rem;
@@ -144,15 +150,21 @@ section {
       }
     }
   }
-  // .word_blurred {
-  //   filter: blur(2px);
-  //   opacity: 0.5;
-  // }
   .word_details {
+    width: calc(100% - 2rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    background-color: $background;
+    border-bottom: 4px solid $shadow;
     transition: all 0.2s ease-in;
 
     @include screen-is(lg) {
-      margin: 1.5rem 0rem;
+      left: 50%;
+      transform: translateX(-50%);
+      right: unset;
+      width: calc(55% - 2rem);
     }
 
     .requests {
@@ -171,13 +183,14 @@ section {
     .requests > * {
       margin: 0rem 0.5rem;
     }
+    transition: all 0.3s ease-in;
     &.bounce-enter-active,
     &.bounce-leave-active {
-      opacity: 1;
+      top: 0;
     }
     &.bounce-enter,
     &.bounce-leave-to {
-      opacity: 0;
+      top: -10%;
     }
   }
 }

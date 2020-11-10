@@ -4,9 +4,6 @@
       <!-- <Navigation /> -->
       <div class="page_header-title">
         <img class="page_header-img" src="../assets/SmallDucky.png" alt="" />
-        <h1>
-          Elma's Ducky
-        </h1>
         <h1>Search result(s) for "{{ currentQuery }}"</h1>
       </div>
     </div>
