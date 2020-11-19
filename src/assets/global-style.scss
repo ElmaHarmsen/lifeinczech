@@ -123,11 +123,11 @@ body {
     }
 
     .page_header-img {
-      height: 30px;
+      height: 60px;
       width: auto;
 
       @include screen-is(lg) {
-        height: 50px;
+        height: 100px;
         margin-right: 50%;
       }
     }

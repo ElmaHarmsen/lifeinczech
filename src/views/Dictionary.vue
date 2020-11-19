@@ -3,7 +3,7 @@
     <div class="page_header">
       <!-- <Navigation v-bind:activeLink="$options.name" /> -->
       <div class="page_header-title">
-        <img class="page_header-img" src="../assets/SmallDucky.png" alt="" />
+        <img class="page_header-img" src="../assets/Ducky-3.png" alt="" />
         <h1>
           Elma's Ducky
         </h1>
