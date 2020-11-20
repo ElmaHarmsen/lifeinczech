@@ -28,7 +28,6 @@
         <br />
         <h2>Therefore remember, ask Ducky.</h2>
       </div>
-      <img class="bigducky" src="../assets/SmallDucky.png" alt="" />
     </div>
     <Apps v-on:fetch-words-again="fetchData()" />
     <img src="../assets/Ducky-3.png" alt="" class="big-duck" />
@@ -67,7 +66,7 @@ export default {
     display: block;
     position: absolute;
     z-index: -1;
-    margin-top: -25%;
+    margin-top: -30%;
     margin-left: 40%;
     transform: scale(1.5);
     opacity: 0.2;
