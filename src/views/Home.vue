@@ -60,7 +60,7 @@ export default {
   methods: {
     async fetchData() {
       const hotlist = await fetch(
-        "https://dictionary--api.herokuapp.com/api/dictionarycz"
+        `${process.env.VUE_APP_API_URL}/dictionarycz`
       );
       this.hotlistJson = await hotlist.json();
     }

@@ -72,7 +72,7 @@ export default {
     },
     async moveWord(id) {
       const moveWord = await fetch(
-        "https://dictionary--api.herokuapp.com/api/dictionarycz",
+        `${process.env.VUE_APP_API_URL}/dictionarycz`,
         {
           method: "PATCH",
           headers: {

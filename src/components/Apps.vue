@@ -337,7 +337,7 @@ section {
     .navigation_items {
       display: flex;
       flex-flow: column;
-      align-items: end;
+      align-items: flex-end;
       margin: 0rem auto;
 
       @include screen-is(lg) {
@@ -352,7 +352,7 @@ section {
         margin: 0rem auto;
 
         &.router-link-exact-active img {
-          background-color: $light-blue;
+          background-color: $purple;
         }
       }
     }

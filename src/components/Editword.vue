@@ -100,7 +100,7 @@ export default {
     },
     async editWord(id) {
       const editWord = await fetch(
-        "https://dictionary--api.herokuapp.com/api/dictionarycz",
+        `${process.env.VUE_APP_API_URL}/dictionarycz`,
         {
           method: "PUT",
           headers: {
