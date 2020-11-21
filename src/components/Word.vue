@@ -122,7 +122,7 @@ section {
     transition: all 0.1s ease-in;
 
     &.close {
-      background-color: $light-blue;
+      background-color: $purple;
     }
 
     @include screen-is(lg) {

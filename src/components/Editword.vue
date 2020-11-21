@@ -143,7 +143,7 @@ section {
       padding: 0.8rem 0.5rem;
     }
     .inputs_button {
-      background-color: $gold;
+      background-color: $light-blue;
     }
   }
 }

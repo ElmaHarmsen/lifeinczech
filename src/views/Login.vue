@@ -135,7 +135,7 @@ export default {
   margin: 2.5rem 0rem;
 }
 .button_login {
-  background-color: $gold;
+  background-color: $light-blue;
 }
 .login_register {
   margin: 1rem 0rem;
