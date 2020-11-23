@@ -1,6 +1,13 @@
 <template>
   <section id="login">
-    <h1 class="special_h1">DuckyDictionary</h1>
+    <div class="page_header">
+      <div class="page_header-title">
+        <img class="page_header-img" src="../assets/Ducky-3.png" alt="" />
+        <h1>
+          Ducky Dictionary
+        </h1>
+      </div>
+    </div>
     <div class="login_inputs">
       <input
         v-model="input_username"
@@ -35,14 +42,11 @@
     </div>
     <div class="login_register" v-if="isRegistering">
       <span>Already have an account? </span
-      ><small @click="toggleRegistering">Login here :))</small>
+      ><small @click="toggleRegistering">Login here</small>
     </div>
     <div class="login_register" v-else>
       <span>Don't have an account? </span
-      ><small @click="toggleRegistering">Register here :))</small>
-    </div>
-    <div class="ducky_wrapper">
-      <img class="ducky" src="../assets/DuckyDictionary.png" alt="" />
+      ><small @click="toggleRegistering">Register here</small>
     </div>
   </section>
 </template>
@@ -132,10 +136,26 @@ export default {
   opacity: 0;
 }
 .login_inputs {
-  margin: 2.5rem 0rem;
+  margin: 150px auto 2rem auto;
+
+  @include screen-is(lg) {
+    width: 25%;
+  }
+
+  .inputs_field {
+    border-bottom: 4px solid $shadow;
+    background-color: $background;
+    color: #fff;
+    font-size: 21px;
+
+    @include screen-is(lg) {
+      font-size: 25px;
+    }
+  }
 }
 .button_login {
   background-color: $light-blue;
+  color: $paars;
 }
 .login_register {
   margin: 1rem 0rem;

@@ -21,11 +21,24 @@
         v-bind:class="{ open: worddetailsopen }"
       >
         <div class="requests">
-          <img
+          <!-- <img
             src="../assets/delete-24px.svg"
             class="delete"
             v-on:click="deleteWord(wordData._id)"
-          />
+          /> -->
+          <svg
+            class="delete"
+            v-on:click="deleteWord(wordData._id)"
+            height="50"
+            viewBox="0 0 24 24"
+            width="50"
+            fill="white"
+          >
+            <path d="M0 0h24v24H0V0z" fill="#f6b22b" />
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"
+            />
+          </svg>
           <Editword
             v-bind:editingWord="wordData"
             v-on:closeDetails="openDetails()"
@@ -122,7 +135,8 @@ section {
     transition: all 0.1s ease-in;
 
     &.close {
-      background-color: $purple;
+      background-color: $shadow;
+      border: 4px solid $light-blue;
     }
 
     @include screen-is(lg) {
@@ -173,6 +187,13 @@ section {
       align-items: center;
       justify-content: center;
       cursor: pointer;
+
+      svg {
+        transition: 0.2s ease-in;
+      }
+      svg:hover {
+        fill: $paars;
+      }
 
       .delete {
         height: 50px;

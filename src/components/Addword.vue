@@ -5,7 +5,18 @@
       class="addword_btn"
       v-bind:class="{ close: wordformopen }"
     >
-      <img class="apps_add-icon" src="../assets/add-24px.svg" alt="" />
+      <svg
+        class="apps_add-icon"
+        height="50"
+        viewBox="0 0 24 24"
+        width="50"
+        fill="white"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"
+        />
+      </svg>
     </div>
     <div class="addword_form-wrapper" v-bind:class="{ open: wordformopen }">
       <div class="addword_form">
@@ -160,8 +171,11 @@ section {
     transition: all 0.4s ease-in;
     border-radius: 2px;
 
-    .apps_add-icon {
-      border-radius: 2px;
+    svg {
+      transition: 0.2s ease-in;
+    }
+    svg:hover {
+      fill: $paars;
     }
   }
   .addword_btn:hover {
@@ -175,6 +189,7 @@ section {
     }
     .inputs_button {
       background-color: $light-blue;
+      color: $paars;
     }
   }
   .addword_error {
