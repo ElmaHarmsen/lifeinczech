@@ -125,6 +125,7 @@ section {
     }
     .inputs_button {
       background-color: $light-blue;
+      color: $paars;
     }
   }
 }

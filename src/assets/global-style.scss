@@ -209,8 +209,10 @@ section {
   padding: 1rem;
 
   h1 {
+    text-align: center;
+    font-weight: bolder;
     height: 50px;
-    color: white;
+    color: $darker;
   }
 
   @include screen-is(lg) {
@@ -221,7 +223,7 @@ section {
 .editword_inputs, .moveword_inputs {
   padding: 1.5rem 0rem;
 }
-.editword_inputs, .addword_inputs, .moveword_inputs, .login_inputs {
+.editword_inputs, .addword_inputs, .moveword_inputs {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
@@ -245,7 +247,7 @@ section {
     border-radius: 2px;
   }
   .inputs_radio:checked {
-    background-color: $purple;
+    background-color: $light-blue;
   }
   label {
     padding: 0.8rem 0.5rem;

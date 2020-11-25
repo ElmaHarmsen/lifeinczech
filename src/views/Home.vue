@@ -1,14 +1,6 @@
 <template>
   <section id="home">
-    <div class="page_header">
-      <!-- <Navigation v-bind:activeLink="$options.name" /> -->
-      <div class="page_header-title">
-        <img class="page_header-img" src="../assets/Ducky-3.png" alt="" />
-        <h1>
-          Elma's Ducky
-        </h1>
-      </div>
-    </div>
+    <page-header />
     <div v-if="loading" class="loading">
       <img class="spinner" src="../assets/spinner.gif" alt="" />
     </div>
@@ -31,6 +23,7 @@
 // import Navigation from "@/components/Navigation.vue";
 import Word from "@/components/Word.vue";
 import Apps from "@/components/Apps.vue";
+import PageHeader from "../components/PageHeader.vue";
 
 export default {
   name: "Homelist",
@@ -41,9 +34,9 @@ export default {
     };
   },
   components: {
-    // Navigation,
     Word,
-    Apps
+    Apps,
+    PageHeader
   },
   created: async function() {
     await this.fetchData();

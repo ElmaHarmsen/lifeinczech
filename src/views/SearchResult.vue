@@ -1,12 +1,6 @@
 <template>
   <section id="searchresult">
-    <div class="page_header">
-      <!-- <Navigation /> -->
-      <div class="page_header-title">
-        <img class="page_header-img" src="../assets/Ducky-3.png" alt="" />
-        <h1>Search result(s) for "{{ currentQuery }}"</h1>
-      </div>
-    </div>
+    <page-header />
     <div class="searchresult_content">
       <div class="searchresult_words" v-if="searchResultJson.length">
         <!-- It the length of the result is not 0 -->
@@ -23,9 +17,9 @@
 </template>
 
 <script>
-// import Navigation from "@/components/Navigation.vue";
 import Word from "@/components/Word.vue";
 import Apps from "@/components/Apps.vue";
+import PageHeader from "../components/PageHeader.vue";
 
 export default {
   name: "SearchResult",
@@ -51,9 +45,9 @@ export default {
     }
   },
   components: {
-    // Navigation,
     Word,
-    Apps
+    Apps,
+    PageHeader
   },
   created: async function() {
     if (!this.$route.query.word) {

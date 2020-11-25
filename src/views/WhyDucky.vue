@@ -1,14 +1,6 @@
 <template>
   <section>
-    <div class="page_header">
-      <!-- <Navigation v-bind:activeLink="$options.name" /> -->
-      <div class="page_header-title">
-        <img class="page_header-img" src="../assets/Ducky-3.png" alt="" />
-        <h1>
-          Why Ducky?
-        </h1>
-      </div>
-    </div>
+    <page-header />
     <div class="whyducky_content">
       <div>
         <h2>
@@ -36,11 +28,13 @@
 
 <script>
 import Apps from "@/components/Apps.vue";
+import PageHeader from "../components/PageHeader.vue";
 
 export default {
   name: "WhyDucky",
   components: {
-    Apps
+    Apps,
+    PageHeader
   }
 };
 </script>
@@ -66,8 +60,8 @@ export default {
     display: block;
     position: absolute;
     z-index: -1;
-    margin-top: -30%;
-    margin-left: 40%;
+    top: 15%;
+    right: 25%;
     transform: scale(1.5);
     opacity: 0.2;
     width: auto;

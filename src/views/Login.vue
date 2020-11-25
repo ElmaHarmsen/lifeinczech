@@ -1,13 +1,6 @@
 <template>
   <section id="login">
-    <div class="page_header">
-      <div class="page_header-title">
-        <img class="page_header-img" src="../assets/Ducky-3.png" alt="" />
-        <h1>
-          Ducky Dictionary
-        </h1>
-      </div>
-    </div>
+    <page-header />
     <div class="login_inputs">
       <input
         v-model="input_username"
@@ -52,7 +45,10 @@
 </template>
 
 <script>
+import PageHeader from "../components/PageHeader.vue";
+
 export default {
+  components: { PageHeader },
   name: "Login",
   data: function() {
     return {
@@ -136,9 +132,10 @@ export default {
   opacity: 0;
 }
 .login_inputs {
-  margin: 150px auto 2rem auto;
+  margin: 100px auto 2rem auto;
 
   @include screen-is(lg) {
+    margin: 150px auto 2rem auto;
     width: 25%;
   }
 
@@ -147,6 +144,7 @@ export default {
     background-color: $background;
     color: #fff;
     font-size: 21px;
+    margin: 0rem 0rem 3rem 0rem;
 
     @include screen-is(lg) {
       font-size: 25px;

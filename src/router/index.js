@@ -23,7 +23,7 @@ const routes = [
   },
   {
     path: "/whyducky",
-    name: "WhyDucky?",
+    name: "WhyDucky",
     component: () => import("../views/WhyDucky.vue")
   },
   {

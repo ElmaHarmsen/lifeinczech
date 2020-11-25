@@ -135,7 +135,6 @@ section {
     transition: all 0.1s ease-in;
 
     &.close {
-      background-color: $shadow;
       border: 4px solid $light-blue;
     }
 
