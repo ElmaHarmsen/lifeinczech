@@ -2,18 +2,24 @@
   <div class="page_wrapper">
     <div v-if="!atLogin() && !atWhyDucky()" class="page_header-div">
       <img src="../assets/Ducky-3.png" alt="" />
-      <h1 class="page_header-h1">{{ currentUser.username }}'s</h1>
-      <h1 class="page_header-h1">Ducky</h1>
+      <h1 class="page_header-h1">
+        {{ currentUser.username }}'s <br />
+        Ducky
+      </h1>
     </div>
     <div v-if="atLogin()" class="page_header-div">
-      <h1 class="page_header-h1">Ducky</h1>
-      <!-- <img src="../assets/Ducky-3.png" alt="" /> -->
-      <h1 class="page_header-h1">Dictionary</h1>
+      <img src="../assets/Ducky-3.png" alt="" />
+      <h1 class="page_header-h1">
+        Ducky <br />
+        Dictionary
+      </h1>
     </div>
     <div v-if="atWhyDucky()" class="page_header-div">
-      <h1 class="page_header-h1">Why</h1>
-      <!-- <img src="../assets/Ducky-3.png" alt="" /> -->
-      <h1 class="page_header-h1">Ducky?</h1>
+      <img src="../assets/Ducky-3.png" alt="" />
+      <h1 class="page_header-h1">
+        Why <br />
+        Ducky?
+      </h1>
     </div>
   </div>
 </template>
@@ -39,17 +45,25 @@ export default {
 
 <style lang="scss" scoped>
 .page_wrapper {
+  background-color: $background;
   position: fixed;
-  top: 1rem;
-  width: 100%;
+  top: 0rem;
+  padding: 1rem 0rem 0.5rem 0rem;
+  width: calc(100% - 2rem);
 
-  div {
+  .page_header-div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    background: linear-gradient(to right, #822792 0%, #f6b22b 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
     img {
       width: 45px;
       height: auto;
-      position: absolute;
-      top: 0rem;
-      left: 0rem;
 
       @include screen-is(lg) {
         position: relative;
@@ -58,38 +72,36 @@ export default {
         padding-bottom: 0.5rem;
       }
     }
-  }
 
-  .page_header-div {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    width: calc(100% - 2rem);
-    background: linear-gradient(to right, #822792 0%, #f6b22b 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    br {
+      display: none;
+
+      @include screen-is(lg) {
+        display: block;
+      }
+    }
 
     .page_header-h1 {
       font-weight: bolder;
-      font-size: 40px !important;
-      padding: 0rem 0.3rem;
-      height: 45px;
+      font-size: 35px !important;
 
       @include screen-is(lg) {
-        font-size: 55px !important;
+        font-size: 45px !important;
         padding: 0rem;
-        height: 60px;
       }
     }
 
     @include screen-is(lg) {
       flex-flow: column nowrap;
+      justify-content: start;
+      align-items: flex-start;
+      width: auto;
       margin: 0rem 1rem;
     }
   }
 
   @include screen-is(lg) {
-    width: 25%;
+    width: auto;
     margin: 0rem auto;
   }
 }

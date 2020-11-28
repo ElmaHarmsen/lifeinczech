@@ -1,10 +1,6 @@
 <template>
   <section>
-    <div
-      v-on:click="openWordForm()"
-      class="addword_btn"
-      v-bind:class="{ close: wordformopen }"
-    >
+    <div @click="toggleWordForm()" class="addword_btn">
       <svg
         class="apps_add-icon"
         height="50"
@@ -18,7 +14,7 @@
         />
       </svg>
     </div>
-    <div class="addword_form-wrapper" v-bind:class="{ open: wordformopen }">
+    <div class="addword_form-wrapper" v-show="wordFormOpened">
       <div class="addword_form">
         <h1>Add a word</h1>
         <div class="addword_inputs">
@@ -104,7 +100,7 @@ export default {
   name: "Addword",
   data: function() {
     return {
-      wordformopen: false,
+      wordFormOpened: false,
       input_word: "",
       input_translation: "",
       input_nederlands: "",
@@ -123,8 +119,11 @@ export default {
     }
   },
   methods: {
-    openWordForm() {
-      this.wordformopen = !this.wordformopen;
+    toggleWordForm() {
+      this.wordFormOpened = !this.wordFormOpened;
+    },
+    close() {
+      this.wordFormOpened = false;
     },
     async fetchData() {
       const addword = await fetch(

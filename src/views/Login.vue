@@ -144,7 +144,7 @@ export default {
     background-color: $background;
     color: #fff;
     font-size: 21px;
-    margin: 0rem 0rem 3rem 0rem;
+    margin: 1.5rem 0rem;
 
     @include screen-is(lg) {
       font-size: 25px;
@@ -154,9 +154,9 @@ export default {
 .button_login {
   background-color: $light-blue;
   color: $paars;
+  margin: 1.5rem auto;
 }
 .login_register {
-  margin: 1rem 0rem;
   text-align: center;
 }
 </style>

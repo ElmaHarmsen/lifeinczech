@@ -1,12 +1,6 @@
 <template>
   <section>
     <div v-on:click="openApps()" class="apps_btn">
-      <!-- <img
-        v-bind:class="{ close: appsopen }"
-        class="apps_btn-icon"
-        src="../assets/apps-24px.svg"
-        alt=""
-      /> -->
       <div class="apps_btn-grid" v-bind:class="{ close: appsopen }">
         <span class="apps_btn-span"></span>
         <span class="apps_btn-span"></span>
@@ -18,17 +12,13 @@
         <span class="apps_btn-span"></span>
         <span class="apps_btn-span"></span>
       </div>
-      <img
-        class="apps_close_btn_icon"
-        v-if="appsopen"
-        src="../assets/close-24px-orange.svg"
-        alt=""
-      />
     </div>
-    <transition name="bounce">
+    <transition name="component-fade" mode="out-in">
       <SearchField v-if="searchopen" v-on:close-search="toggleSearch()" />
     </transition>
-    <FilterField v-if="filteropen" v-on:close-filter="toggleFilter()" />
+    <transition name="component-fade" mode="out-in">
+      <FilterField v-if="filteropen" v-on:close-filter="toggleFilter()" />
+    </transition>
     <transition name="bounce">
       <div class="apps_wrapper" v-if="appsopen || $mq === 'desktop'">
         <div class="navigation_items-wrapper">
@@ -92,7 +82,9 @@
               </svg>
             </div>
             <div class="apps_add">
-              <Addword v-on:fetch-words-again="$emit('fetch-words-again')" />
+              <transition name="component-fade" mode="out-in">
+                <Addword v-on:fetch-words-again="$emit('fetch-words-again')" />
+              </transition>
             </div>
           </div>
         </div>
@@ -274,8 +266,8 @@ section {
     &.bounce-leave-active {
       transition: all 0.3s ease;
     }
-    &.bounce-enter, &.bounce-leave-to
-    /* .component-fade-leave-active below version 2.1.8 */ {
+    &.bounce-enter,
+    &.bounce-leave-to {
       transform: translateY(100%);
     }
     &.bounce-enter-to {
@@ -299,18 +291,6 @@ section {
       display: flex;
       flex-flow: column;
       padding-bottom: unset;
-
-      &.bounce-enter-active,
-      &.bounce-leave-active {
-        transition: all 0.3s ease;
-      }
-      &.bounce-enter, &.bounce-leave-to
-      /* .component-fade-leave-active below version 2.1.8 */ {
-        transform: translateX(100%);
-      }
-      &.bounce-enter-to {
-        transform: translateX(0);
-      }
     }
     .apps_functionalities-wrapper {
       @include screen-is(lg) {
@@ -415,5 +395,14 @@ section {
     background-color: $purple;
     border-radius: 2px;
   }
+}
+
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
