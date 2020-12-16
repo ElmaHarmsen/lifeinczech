@@ -6,7 +6,7 @@
         height="50"
         viewBox="0 0 24 24"
         width="50"
-        fill="#822792"
+        fill="#E6E6E6"
       >
         <path d="M0 0h24v24H0V0z" fill="#f6b22b" />
         <path
@@ -15,48 +15,53 @@
       </svg>
       <h1>Move</h1>
     </div>
-    <div class="moveword_form-wrapper" v-show="wordFormOpened">
-      <div class="moveword_form">
-        <h1>Move this word</h1>
-        <div class="moveword_pre-inputs">
+    <transition name="bounce">
+      <div class="moveword_form-wrapper" v-show="wordFormOpened">
+        <div class="moveword_form">
+          <h1>
+            <small>Move word</small> <br />
+            {{ movingWord.translation }}
+          </h1>
+          <!-- <div class="moveword_pre-inputs">
           <h2>{{ movingWord.word }}</h2>
           <h2>{{ movingWord.translation }}</h2>
           <h2>{{ movingWord.nederlands }}</h2>
-        </div>
-        <div class="moveword_inputs">
-          <div class="radio">
-            <input
-              class="inputs_radio"
-              type="radio"
-              id="hotlist"
-              v-model="moveTo"
-              value="Hotlist"
-            />
-            <label for="hotlist">@ Hotlist</label>
+        </div> -->
+          <div class="moveword_inputs">
+            <div class="radio">
+              <input
+                class="inputs_radio"
+                type="radio"
+                id="hotlist"
+                v-model="moveTo"
+                value="Hotlist"
+              />
+              <label for="hotlist">@ Hotlist</label>
+            </div>
+            <div class="radio dictionary">
+              <input
+                class="inputs_radio"
+                type="radio"
+                id="dictionary"
+                v-model="moveTo"
+                value="Dictionary"
+              />
+              <label for="dictionary">@ Dictionary</label>
+            </div>
           </div>
-          <div class="radio dictionary">
-            <input
-              class="inputs_radio"
-              type="radio"
-              id="dictionary"
-              v-model="moveTo"
-              value="Dictionary"
-            />
-            <label for="dictionary">@ Dictionary</label>
-          </div>
+          <input
+            v-on:click="moveWord(movingWord._id), close()"
+            class="inputs_button"
+            type="submit"
+            name="form_submit"
+            v-bind:value="`Move this word to ${moveTo}`"
+          />
         </div>
-        <input
-          v-on:click="moveWord(movingWord._id), openMoveWordForm()"
-          class="inputs_button"
-          type="submit"
-          name="form_submit"
-          v-bind:value="`Move this word to ${moveTo}`"
-        />
+        <div class="moveword_close" v-on:click="close()">
+          <img src="../assets/close-24px.svg" alt="" />
+        </div>
       </div>
-      <div class="moveword_close" v-on:click="openMoveWordForm()">
-        <img src="../assets/close-24px.svg" alt="" />
-      </div>
-    </div>
+    </transition>
   </section>
 </template>
 
@@ -115,7 +120,7 @@ section {
       transition: 0.2s ease-in;
     }
     svg:hover {
-      fill: $paars;
+      fill: $white;
     }
 
     h1 {
@@ -125,11 +130,31 @@ section {
   .moveword_form-wrapper {
     z-index: 5;
 
+    &.bounce-enter-active,
+    &.bounce-leave-active {
+      transition: all 0.2s ease;
+    }
+    &.bounce-enter,
+    &.bounce-leave-to {
+      transform: translatex(-100%);
+
+      @include screen-is(lg) {
+        transform: translateY(100%);
+      }
+    }
+    &.bounce-enter-to {
+      transform: translateX(0%);
+
+      @include screen-is(lg) {
+        transform: translateY(0%);
+      }
+    }
+
     .moveword_pre-inputs > * {
       padding: 0.8rem 0.5rem;
     }
     .inputs_button {
-      background-color: $light-blue;
+      background-color: $white;
       color: $paars;
     }
   }

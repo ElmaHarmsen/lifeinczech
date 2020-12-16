@@ -13,10 +13,10 @@
         <span class="apps_btn-span"></span>
       </div>
     </div>
-    <transition name="component-fade" mode="out-in">
+    <transition name="bounce" mode="out-in">
       <SearchField v-if="searchopen" v-on:close-search="toggleSearch()" />
     </transition>
-    <transition name="component-fade" mode="out-in">
+    <transition name="bounce" mode="out-in">
       <FilterField v-if="filteropen" v-on:close-filter="toggleFilter()" />
     </transition>
     <transition name="bounce">
@@ -202,7 +202,7 @@ section {
         display: block;
         width: 0.7rem;
         height: 0.7rem;
-        background-color: $light-blue;
+        background-color: $yellow;
         margin: 0rem;
         border-radius: 2px;
       }
@@ -248,7 +248,7 @@ section {
   }
   .apps_wrapper {
     background-color: $background;
-    border-top: 4px solid $shadow;
+    border-top: 4px solid $dark;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -285,7 +285,7 @@ section {
       top: 0px;
       padding: 0;
       border-top-left-radius: 0;
-      border-left: 4px solid $shadow;
+      border-left: 4px solid $dark;
       border-right: none;
       border-top: none;
       display: flex;
@@ -305,19 +305,19 @@ section {
       .apps_search-icon,
       .apps_add-icon {
         border-radius: 2px;
-        background-color: $purple;
+        background-color: $blue;
         margin: 0.5rem auto;
       }
       .apps_add {
         width: 50px;
         height: 50px;
         margin: 0.5rem auto;
-        background-color: $purple;
+        background-color: $blue;
         border-radius: 2px;
         transition: 0.2s ease-in;
       }
       .apps_add:hover {
-        background-color: $light-blue;
+        background-color: $yellow;
       }
       .apps_search,
       .apps_filter,
@@ -332,8 +332,8 @@ section {
           transition: 0.2s ease-in;
         }
         svg:hover {
-          background-color: $light-blue;
-          fill: $paars;
+          background-color: $yellow;
+          fill: $white;
         }
       }
       .apps_wrapper > * {
@@ -345,15 +345,15 @@ section {
 
       .apps_logout {
         border-radius: 2px;
-        background-color: $purple;
+        background-color: $blue;
         margin: 0.5rem auto;
 
         svg {
           transition: 0.2s ease-in;
         }
         svg:hover {
-          background-color: $light-blue;
-          fill: $paars;
+          background-color: $yellow;
+          fill: $white;
         }
 
         @include screen-is(lg) {
@@ -382,7 +382,7 @@ section {
 
         &.router-link-exact-active {
           img {
-            background-color: $light-blue;
+            background-color: $yellow;
           }
         }
       }
@@ -392,8 +392,12 @@ section {
     width: 35px;
     height: 35px;
     padding: 0.5rem;
-    background-color: $purple;
+    background-color: $blue;
     border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .navigation_item-img:hover {
+    background-color: $yellow;
   }
 }
 

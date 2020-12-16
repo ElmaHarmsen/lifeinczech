@@ -1,11 +1,11 @@
 //Colors
-$light-blue: #f6b22b; //#16345C; //#0D1E36; //#0D8CFF;
-$purple: #4279C2; //#910DFF;
+$yellow: #f6b22b; //#16345C; //#0D1E36; //#0D8CFF;
+$blue: #4279C2; //#910DFF;
 $red: #FF3226;
 $orange: #FF7126;
-$shadow: #16345C; //rgba(0, 0, 0, 0.9); //#666666b0;//#a6a6a6ce;//rgba(0, 0, 0, 0.3);
+$dark: #16345C; //rgba(0, 0, 0, 0.9); //#666666b0;//#a6a6a6ce;//rgba(0, 0, 0, 0.3);
 $background: #1C4375; //#5777A2;//#235390; //#2e303e;
-$darker: #E6E6E6;//#272935;
+$white: #E6E6E6;//#272935;
 $paars: #822792;
 
 //Breakpoints
@@ -32,7 +32,7 @@ h1, h2 {
   }
 }
 small {
-  color: $light-blue;
+  color: $yellow;
   font-family: "Round" !important;
   font-weight: 800;
 }
@@ -48,9 +48,9 @@ label {
   font-family: "Round";
 }
 input {
-  color: $background;
+  color: $white;
   font-family: "Round";
-  background-color: white;
+  background-color: $background;
 }
 body {
   background-color: $background;
@@ -104,7 +104,7 @@ body {
     height: 4px;
     padding: 0rem !important;
     margin: 0rem auto 0.5rem auto;
-    background-color: $shadow;
+    background-color: $dark;
   }
 }
 .page_header {
@@ -184,8 +184,8 @@ body {
   @include screen-is(lg) {
     width: calc(55% + 8px);
     left: 21.9%;
-    border-left: 4px solid $shadow;
-    border-right: 4px solid $shadow;
+    border-left: 4px solid $dark;
+    border-right: 4px solid $dark;
   }
 }
 .editword_form, .addword_form, .moveword_form {
@@ -195,7 +195,7 @@ body {
     text-align: center;
     font-weight: bolder;
     height: 50px;
-    color: $darker;
+    color: $white;
   }
 
   @include screen-is(lg) {
@@ -228,9 +228,10 @@ body {
     height: 25px;
     width: 25px;
     border-radius: 2px;
+    background-color: $dark;
   }
   .inputs_radio:checked {
-    background-color: $light-blue;
+    background-color: $yellow;
   }
   label {
     padding: 0.8rem 0.5rem;
@@ -246,7 +247,7 @@ body {
   h2 {
     border-radius: 2px;
     background-color: $background;
-    border: 4px solid $shadow;
+    border: 4px solid $dark;
     color: white;
     height: auto;
     min-height: calc(50px - 1.6rem);
@@ -257,40 +258,44 @@ body {
   padding: 0.8rem 0.5rem;
   border: none;
   border-radius: 2px;
+  border-bottom: 4px solid $dark;
+  font-size: 21px;
 
-  &:focus {
-    background-color: $purple;
+  @include screen-is(lg) {
+    font-size: 25px;
   }
 }
 .category_select-label {
   padding: 0.8rem 0.5rem;
-  font-size: 18px;
   color: white;
 }
 .category_select, .filter_select {
   -webkit-appearance: none;
   width: 100%;
   padding: 0.8rem 0.25rem;
-  background-color: $darker;
+  background-color: $background;
   border: none;
   border-radius: 2px;
-  color: $background;
+  color: $white;
+  border-bottom: 4px solid $dark;
+  font-size: 21px;
 
-  // &:focus {
-  //   background-color: $purple;
-  // }
+  @include screen-is(lg) {
+    font-size: 25px;
+  }
 }
 .addword_close, .editword_close, .moveword_close {
   bottom: 0.5rem;
   right: 0.5rem;
   position: absolute;
-  background-color: $purple;
+  background-color: $blue;
   border-radius: 2px;
+  cursor: pointer;
 
   @include screen-is(lg) {
     top: 0.5rem;
-    left: 0.5rem;
-    right: unset;
+    right: 0.5rem;
+    left: unset;
     bottom: unset;
   }
 }
@@ -300,7 +305,7 @@ section {
   .search_input, .filter_input, .message_display {
     width: calc(100% - 2rem);    
     height: 50px;
-    border-bottom: 4px solid $shadow;
+    border-bottom: 4px solid $dark;
     background-color: $background;
     position: fixed;
     left: 0;
@@ -312,9 +317,8 @@ section {
     justify-content: space-between;
 
     @include screen-is(lg) {
-      width: calc(55% - 2rem);    
-      left: 50%;
-      transform: translateX(-50%);
+      width: calc(55% - 2rem);
+      left: 22.5%;
     }
   }
 }
@@ -336,7 +340,7 @@ section {
   .search_submit, .filter_submit,
   .search_close, .filter_close {
     img {
-      // background-color: $purple;
+      // background-color: $blue;
     }
   }
   .search_close, .filter_close {

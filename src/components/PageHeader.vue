@@ -57,9 +57,9 @@ export default {
     justify-content: center;
     align-items: center;
     width: auto;
-    background: linear-gradient(to right, #822792 0%, #f6b22b 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // background: linear-gradient(to right, #822792 0%, #f6b22b 100%);
+    // background-clip: text;
+    // -webkit-text-fill-color: transparent;
 
     img {
       width: 45px;
@@ -84,6 +84,7 @@ export default {
     .page_header-h1 {
       font-weight: bolder;
       font-size: 35px !important;
+      color: $yellow;
 
       @include screen-is(lg) {
         font-size: 45px !important;

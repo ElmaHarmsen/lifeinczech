@@ -21,11 +21,6 @@
         v-bind:class="{ open: worddetailsopen }"
       >
         <div class="requests">
-          <!-- <img
-            src="../assets/delete-24px.svg"
-            class="delete"
-            v-on:click="deleteWord(wordData._id)"
-          /> -->
           <div>
             <svg
               class="delete"
@@ -33,7 +28,7 @@
               height="50"
               viewBox="0 0 24 24"
               width="50"
-              fill="#822792"
+              fill="#E6E6E6"
             >
               <path d="M0 0h24v24H0V0z" fill="#f6b22b" />
               <path
@@ -140,11 +135,11 @@ section {
     width: calc(100% - 8px);
     border-radius: 20px;
     background-color: $background;
-    border: 4px solid $shadow;
+    border: 4px solid $dark;
     transition: all 0.1s ease-in;
 
     &.close {
-      border: 4px solid $light-blue;
+      border: 4px solid $white;
     }
 
     @include screen-is(lg) {
@@ -181,26 +176,34 @@ section {
     left: 0;
     padding: 0.5rem 1rem;
     background-color: $background;
-    border-top: 4px solid $shadow;
+    border-top: 4px solid $dark;
     transition: all 0.2s ease-in;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 
     @include screen-is(lg) {
-      display: none;
+      bottom: unset;
+      top: 0;
       width: calc(55%);
+      left: 22.5%;
       padding: 0.5rem 0rem;
+      border-top: none;
+      border-bottom: 4px solid $dark;
     }
 
     .requests {
       cursor: pointer;
 
+      @include screen-is(lg) {
+        display: flex;
+      }
+
       svg {
         transition: 0.2s ease-in;
       }
       svg:hover {
-        fill: $paars;
+        fill: $white;
       }
 
       .delete {
@@ -221,7 +224,16 @@ section {
     }
     .word_details-close {
       align-self: end;
-      margin: 1rem auto;
+      justify-self: end;
+      position: relative;
+      bottom: 1rem;
+      right: 1.5rem;
+
+      @include screen-is(lg) {
+        align-self: start;
+        bottom: unset;
+        top: 1rem;
+      }
     }
     &.bounce-enter-active,
     &.bounce-leave-active {
@@ -230,6 +242,10 @@ section {
     &.bounce-enter,
     &.bounce-leave-to {
       transform: translateY(100%);
+
+      @include screen-is(lg) {
+        transform: translateY(-100%);
+      }
     }
     &.bounce-enter-to {
       transform: translateY(0%);

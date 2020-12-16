@@ -110,9 +110,9 @@ section {
   //     z-index: 2;
   //     opacity: 0;
   //     transition: opacity 0.2s ease-in;
-  //     background-color: $purple;
+  //     background-color: $blue;
   //     border-radius: 20px;
-  //     border-bottom: 4px solid $shadow;
+  //     border-bottom: 4px solid $dark;
 
   //     @include screen-is(lg) {
   //       width: calc(55% - 50px - 1rem);
@@ -146,7 +146,7 @@ section {
 
   //       h1 {
   //         // padding: 0rem 0rem 1.5rem 0rem;
-  //         color: $shadow;
+  //         color: $dark;
   //         font-weight: bold;
 
   //         @include screen-is(lg) {

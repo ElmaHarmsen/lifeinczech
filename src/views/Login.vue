@@ -132,15 +132,15 @@ export default {
   opacity: 0;
 }
 .login_inputs {
-  margin: 100px auto 2rem auto;
+  margin: 100px auto 0px auto;
 
   @include screen-is(lg) {
-    margin: 150px auto 2rem auto;
+    margin: 150px auto 0px auto;
     width: 25%;
   }
 
   .inputs_field {
-    border-bottom: 4px solid $shadow;
+    border-bottom: 4px solid $dark;
     background-color: $background;
     color: #fff;
     font-size: 21px;
@@ -152,9 +152,12 @@ export default {
   }
 }
 .button_login {
-  background-color: $light-blue;
+  background-color: $white;
   color: $paars;
   margin: 1.5rem auto;
+  transition: all 0.2s;
+}
+.button_login:hover {
 }
 .login_register {
   text-align: center;

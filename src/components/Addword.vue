@@ -14,84 +14,89 @@
         />
       </svg>
     </div>
-    <div class="addword_form-wrapper" v-show="wordFormOpened">
-      <div class="addword_form">
-        <h1>Add a word</h1>
-        <div class="addword_inputs">
-          <input
-            v-model="input_word"
-            class="inputs_field"
-            placeholder="Čeština"
-            type="text"
-            name="input_word"
-          />
-          <input
-            v-model="input_translation"
-            class="inputs_field"
-            placeholder="English"
-            type="text"
-            name="input_translation"
-          />
-          <input
-            v-model="input_nederlands"
-            class="inputs_field"
-            placeholder="Nederlands"
-            type="text"
-            name="input_nederlands"
-          />
-          <label for="category_select" class="category_select-label"
-            >Category</label
-          >
-          <select
-            v-model="select_category"
-            class="category_select"
-            name="select_category"
-          >
-            <option value="" disabled>Choose</option>
-            <option>Animals</option>
-            <option>Meals</option>
-            <option>Objects</option>
-            <option>Politeness</option>
-          </select>
-          <div class="radio">
+    <transition name="bounce">
+      <div class="addword_form-wrapper" v-show="wordFormOpened">
+        <div class="addword_form">
+          <h1>
+            <small>Add word</small> <br />
+            {{ input_translation }}
+          </h1>
+          <div class="addword_inputs">
             <input
-              class="inputs_radio"
-              type="radio"
-              id="hotlist"
-              v-model="addTo"
-              value="Hotlist"
+              v-model="input_word"
+              class="inputs_field"
+              placeholder="Čeština"
+              type="text"
+              name="input_word"
             />
-            <label for="hotlist">@ Hotlist</label>
-          </div>
-          <div class="radio dictionary">
             <input
-              class="inputs_radio"
-              type="radio"
-              id="dictionary"
-              v-model="addTo"
-              value="Dictionary"
+              v-model="input_translation"
+              class="inputs_field"
+              placeholder="English"
+              type="text"
+              name="input_translation"
             />
-            <label for="dictionary">@ Dictionary</label>
-          </div>
-          <div class="addword_pre-inputs">
+            <input
+              v-model="input_nederlands"
+              class="inputs_field"
+              placeholder="Nederlands"
+              type="text"
+              name="input_nederlands"
+            />
+            <label for="category_select" class="category_select-label"
+              >Category</label
+            >
+            <select
+              v-model="select_category"
+              class="category_select"
+              name="select_category"
+            >
+              <option value="" disabled>Choose</option>
+              <option>Animals</option>
+              <option>Meals</option>
+              <option>Objects</option>
+              <option>Politeness</option>
+            </select>
+            <div class="radio">
+              <input
+                class="inputs_radio"
+                type="radio"
+                id="hotlist"
+                v-model="addTo"
+                value="Hotlist"
+              />
+              <label for="hotlist">@ Hotlist</label>
+            </div>
+            <div class="radio dictionary">
+              <input
+                class="inputs_radio"
+                type="radio"
+                id="dictionary"
+                v-model="addTo"
+                value="Dictionary"
+              />
+              <label for="dictionary">@ Dictionary</label>
+            </div>
+            <!-- <div class="addword_pre-inputs">
             <h2>{{ input_word }}</h2>
             <h2>{{ input_translation }}</h2>
             <h2>{{ input_nederlands }}</h2>
+          </div> -->
+            <input
+              v-on:click="fetchData()"
+              class="inputs_button"
+              type="submit"
+              name="form_submit"
+              v-bind:value="`Add this word to ${addTo}`"
+            />
           </div>
-          <input
-            v-on:click="fetchData()"
-            class="inputs_button"
-            type="submit"
-            name="form_submit"
-            v-bind:value="`Add this word to ${addTo}`"
-          />
+        </div>
+        <div class="addword_error">{{ error }}</div>
+        <div class="addword_close" v-on:click="close()">
+          <img src="../assets/close-24px.svg" alt="" />
         </div>
       </div>
-      <div class="addword_error">{{ error }}</div>
-      <div class="addword_close" v-on:click="openWordForm()">
-        <img src="../assets/close-24px.svg" alt="" />
-      </div>
-    </div>
+    </transition>
   </section>
 </template>
 
@@ -154,7 +159,7 @@ export default {
       if (this.$router.currentRoute.path === response.place) {
         //If there is no error, but the path from the API is the same as the one
         //the user is currently on, we just close the drawer and stop the method.
-        this.openWordForm();
+        this.close();
         this.$emit("fetch-words-again");
         return;
       }
@@ -174,7 +179,7 @@ section {
       transition: 0.2s ease-in;
     }
     svg:hover {
-      fill: $paars;
+      fill: $white;
     }
   }
   .addword_btn:hover {
@@ -187,8 +192,28 @@ section {
       padding: 0.8rem 0.5rem;
     }
     .inputs_button {
-      background-color: $light-blue;
+      background-color: $white;
       color: $paars;
+    }
+
+    &.bounce-enter-active,
+    &.bounce-leave-active {
+      transition: all 0.2s ease;
+    }
+    &.bounce-enter,
+    &.bounce-leave-to {
+      transform: translatex(-100%);
+
+      @include screen-is(lg) {
+        transform: translateY(100%);
+      }
+    }
+    &.bounce-enter-to {
+      transform: translateX(0%);
+
+      @include screen-is(lg) {
+        transform: translateY(0%);
+      }
     }
   }
   .addword_error {

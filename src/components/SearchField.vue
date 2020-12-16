@@ -1,18 +1,20 @@
 <template>
-  <div class="search_input">
-    <input
-      v-model="searchQuery"
-      v-on:submit="performSearch()"
-      type="text"
-      placeholder="Search for words"
-      id="the-search"
-    />
-    <div>
-      <div class="search_submit" v-on:click="performSearch()">
-        <img src="../assets/send-24px.svg" alt="" />
+  <transition name="bounce">
+    <div class="search_input">
+      <input
+        v-model="searchQuery"
+        v-on:submit="performSearch()"
+        type="text"
+        placeholder="Search for words"
+        id="the-search"
+      />
+      <div>
+        <div class="search_submit" v-on:click="performSearch()">
+          <img src="../assets/send-24px.svg" alt="" />
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -44,4 +46,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.search_input {
+  &.bounce-enter-active,
+  &.bounce-leave-active {
+    transition: all 0.2s ease;
+  }
+  &.bounce-enter,
+  &.bounce-leave-to {
+    transform: translateY(-100%);
+  }
+  &.bounce-enter-to {
+    transform: translateY(0%);
+  }
+}
+</style>

@@ -21,8 +21,8 @@ section {
   .message_display {
     height: 50px !important;
     border-radius: 2px;
-    background-color: $purple;
-    border-bottom: 4px solid $shadow;
+    background-color: $blue;
+    border-bottom: 4px solid $dark;
     display: flex;
     flex-flow: row;
     align-items: center;

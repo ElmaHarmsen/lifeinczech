@@ -6,7 +6,7 @@
         height="50"
         viewBox="0 0 24 24"
         width="50"
-        fill="#822792"
+        fill="#E6E6E6"
       >
         <path d="M0 0h24v24H0V0z" fill="#f6b22b" />
         <path
@@ -15,69 +15,74 @@
       </svg>
       <h1>Edit</h1>
     </div>
-    <div class="editword_form-wrapper" v-show="wordFormOpened">
-      <div class="editword_form">
-        <h1>Edit this word</h1>
-        <div class="editword_pre-inputs">
+    <transition name="bounce">
+      <div class="editword_form-wrapper" v-show="wordFormOpened">
+        <div class="editword_form">
+          <h1>
+            <small>Edit word</small> <br />
+            {{ editingWord.translation }}
+          </h1>
+          <!-- <div class="editword_pre-inputs">
           <h2>{{ editingWord.word }}</h2>
           <h2>{{ editingWord.translation }}</h2>
           <h2>{{ editingWord.nederlands }}</h2>
+        </div> -->
+          <div class="editword_inputs">
+            <input
+              class="inputs_field"
+              placeholder="Čeština"
+              id="word"
+              v-model="editWordTo"
+              type="text"
+              name="input_word"
+              value="Word"
+            />
+            <input
+              class="inputs_field"
+              placeholder="English"
+              id="translation"
+              v-model="editTranslationTo"
+              type="text"
+              name="input_translation"
+              value="Translation"
+            />
+            <input
+              class="inputs_field"
+              placeholder="Nederlands"
+              id="nederlands"
+              v-model="editNederlandsTo"
+              type="text"
+              name="input_nederlands"
+              value="Nederlands"
+            />
+            <label for="category_select" class="category_select-label"
+              >Category</label
+            >
+            <select
+              v-model="editCategoryTo"
+              class="category_select"
+              name="select_category"
+            >
+              <option value="" disabled>Choose</option>
+              <option>Animals</option>
+              <option>Meals</option>
+              <option>Objects</option>
+              <option>Politeness</option>
+            </select>
+          </div>
+          <input
+            v-on:click="editWord(editingWord._id), close()"
+            class="inputs_button"
+            type="submit"
+            name="form_submit"
+            v-bind:value="`Save and Edit`"
+          />
         </div>
-        <div class="editword_inputs">
-          <input
-            class="inputs_field"
-            placeholder="Čeština"
-            id="word"
-            v-model="editWordTo"
-            type="text"
-            name="input_word"
-            value="Word"
-          />
-          <input
-            class="inputs_field"
-            placeholder="English"
-            id="translation"
-            v-model="editTranslationTo"
-            type="text"
-            name="input_translation"
-            value="Translation"
-          />
-          <input
-            class="inputs_field"
-            placeholder="Nederlands"
-            id="nederlands"
-            v-model="editNederlandsTo"
-            type="text"
-            name="input_nederlands"
-            value="Nederlands"
-          />
-          <label for="category_select" class="category_select-label"
-            >Category</label
-          >
-          <select
-            v-model="editCategoryTo"
-            class="category_select"
-            name="select_category"
-          >
-            <option value="" disabled>Choose</option>
-            <option>Animals</option>
-            <option>Meals</option>
-            <option>Objects</option>
-            <option>Politeness</option>
-          </select>
+        <div class="editword_close" v-on:click="close()">
+          <img src="../assets/close-24px.svg" alt="" />
         </div>
-        <input
-          v-on:click="editWord(editingWord._id), openEditWordForm()"
-          class="inputs_button"
-          type="submit"
-          name="form_submit"
-          v-bind:value="`Save and Edit`"
-        />
       </div>
-      <div class="editword_close" v-on:click="openEditWordForm()">
-        <img src="../assets/close-24px.svg" alt="" />
-      </div>
-    </div>
+    </transition>
   </section>
 </template>
 
@@ -149,7 +154,7 @@ section {
       transition: 0.2s ease-in;
     }
     svg:hover {
-      fill: $paars;
+      fill: $white;
     }
 
     h1 {
@@ -159,11 +164,31 @@ section {
   .editword_form-wrapper {
     z-index: 5;
 
+    &.bounce-enter-active,
+    &.bounce-leave-active {
+      transition: all 0.2s ease;
+    }
+    &.bounce-enter,
+    &.bounce-leave-to {
+      transform: translatex(-100%);
+
+      @include screen-is(lg) {
+        transform: translateY(100%);
+      }
+    }
+    &.bounce-enter-to {
+      transform: translateX(0%);
+
+      @include screen-is(lg) {
+        transform: translateY(0%);
+      }
+    }
+
     .editword_pre-inputs > * {
       padding: 0.8rem 0.5rem;
     }
     .inputs_button {
-      background-color: $light-blue;
+      background-color: $white;
       color: $paars;
     }
   }
