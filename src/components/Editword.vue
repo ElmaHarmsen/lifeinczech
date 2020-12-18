@@ -19,8 +19,8 @@
       <div class="editword_form-wrapper" v-show="wordFormOpened">
         <div class="editword_form">
           <h1>
-            <small>Edit word</small> <br />
-            {{ editingWord.translation }}
+            Edit word<br />
+            <small>{{ editingWord.translation }}</small>
           </h1>
           <!-- <div class="editword_pre-inputs">
           <h2>{{ editingWord.word }}</h2>

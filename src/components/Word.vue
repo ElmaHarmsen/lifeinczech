@@ -21,6 +21,7 @@
         v-bind:class="{ open: worddetailsopen }"
       >
         <div class="requests">
+          <h1 class="word_details-word">{{ wordData.translation }}</h1>
           <div>
             <svg
               class="delete"
@@ -51,10 +52,6 @@
               v-on:fetch-words-again="$emit('fetch-words-again')"
             />
           </transition>
-          <!-- <div class="word_words-category">
-            <h2>Category</h2>
-            <h2>{{ wordData.category }}</h2>
-          </div> -->
         </div>
         <div class="word_details-close" v-on:click="openDetails()">
           <img src="../assets/close-24px.svg" alt="" />
@@ -167,6 +164,9 @@ section {
       }
     }
   }
+  .word_wrapper:hover {
+    background-color: $dark-opacity;
+  }
   .word_details {
     width: calc(100% - 2rem);
     height: auto;
@@ -187,7 +187,7 @@ section {
       top: 0;
       width: calc(55%);
       left: 22.5%;
-      padding: 0.5rem 0rem;
+      padding: 0rem;
       border-top: none;
       border-bottom: 4px solid $dark;
     }
@@ -197,6 +197,12 @@ section {
 
       @include screen-is(lg) {
         display: flex;
+      }
+
+      .word_details-word {
+        @include screen-is(lg) {
+          display: none;
+        }
       }
 
       svg {

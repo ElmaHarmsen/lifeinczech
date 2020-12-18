@@ -18,8 +18,8 @@
       <div class="addword_form-wrapper" v-show="wordFormOpened">
         <div class="addword_form">
           <h1>
-            <small>Add word</small> <br />
-            {{ input_translation }}
+            Add word<br />
+            <small>{{ input_translation }}</small>
           </h1>
           <div class="addword_inputs">
             <input
@@ -53,9 +53,12 @@
             >
               <option value="" disabled>Choose</option>
               <option>Animals</option>
-              <option>Meals</option>
-              <option>Objects</option>
+              <option>People</option>
+              <option>Greetings</option>
+              <option>Food</option>
+              <option>Things</option>
               <option>Politeness</option>
+              <option>Other</option>
             </select>
             <div class="radio">
               <input
@@ -190,10 +193,6 @@ section {
 
     .addword_pre-inputs > * {
       padding: 0.8rem 0.5rem;
-    }
-    .inputs_button {
-      background-color: $white;
-      color: $paars;
     }
 
     &.bounce-enter-active,

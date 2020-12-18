@@ -17,6 +17,16 @@ const routes = [
     component: () => import("../views/Dictionary.vue")
   },
   {
+    path: "/elma",
+    name: "Elma",
+    component: () => import("../views/ListElma.vue")
+  },
+  {
+    path: "/vitek",
+    name: "Vítek",
+    component: () => import("../views/ListVitek.vue")
+  },
+  {
     path: "/search",
     name: "SearchResult",
     component: () => import("../views/SearchResult.vue")

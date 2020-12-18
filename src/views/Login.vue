@@ -35,11 +35,11 @@
     </div>
     <div class="login_register" v-if="isRegistering">
       <span>Already have an account? </span
-      ><small @click="toggleRegistering">Login here</small>
+      ><span class="link" @click="toggleRegistering">Login here</span>
     </div>
     <div class="login_register" v-else>
       <span>Don't have an account? </span
-      ><small @click="toggleRegistering">Register here</small>
+      ><span class="link" @click="toggleRegistering">Register here</span>
     </div>
   </section>
 </template>

@@ -1,12 +1,14 @@
 //Colors
-$yellow: #f6b22b; //#16345C; //#0D1E36; //#0D8CFF;
-$blue: #4279C2; //#910DFF;
+$yellow: #f6b22b;
+$blue: #4279C2;
 $red: #FF3226;
 $orange: #FF7126;
-$dark: #16345C; //rgba(0, 0, 0, 0.9); //#666666b0;//#a6a6a6ce;//rgba(0, 0, 0, 0.3);
-$background: #1C4375; //#5777A2;//#235390; //#2e303e;
-$white: #E6E6E6;//#272935;
+$dark: #16345C;
+$background: #1C4375;
+$white: #E6E6E6;
 $paars: #822792;
+$dark-opacity: #16345c41;
+$white-opacity: #e6e6e6de;
 
 //Breakpoints
 $breakpoints: (
@@ -35,6 +37,11 @@ small {
   color: $yellow;
   font-family: "Round" !important;
   font-weight: 800;
+  font-size: 35px;
+
+  @include screen-is(lg) {
+    font-size: 45px;
+  }
 }
 a {
   text-decoration: none;
@@ -59,7 +66,7 @@ body {
 
 //Other reusabble stuff
 //Concerning page headers:
-.hotlist_content, .dictionary_content, .searchresult_content, .whyducky_content {
+.hotlist_content, .dictionary_content, .searchresult_words, .whyducky_content {
   margin: 100px 0rem 70px 0rem;
 
   h1 {
@@ -79,12 +86,18 @@ body {
     gap: 2.5rem;
   }
 }
+.link {
+  color: $yellow;
+  font-weight: 800;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .loading {
   width: auto;
   margin: 50px auto;
 
   .spinner {
-    width: 70px;
+    width: 40px;
     margin: 100px 0rem;
     margin-left: 50%;
     transform: translateX(-50%);
@@ -141,6 +154,68 @@ body {
     }
   }
 }
+
+//Page Header at left top
+.page_wrapper {
+  background-color: $background;
+  position: fixed;
+  top: 0rem;
+  padding: 1rem 0rem 0.5rem 0rem;
+  width: calc(100% - 2rem);
+
+  .page_header-div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+
+    img {
+      width: 45px;
+      height: auto;
+
+      @include screen-is(lg) {
+        position: relative;
+        display: block;
+        width: 60px;
+        padding-bottom: 0.5rem;
+      }
+    }
+
+    br {
+      display: none;
+
+      @include screen-is(lg) {
+        display: block;
+      }
+    }
+
+    .page_header-h1 {
+      font-weight: bolder;
+      font-size: 35px !important;
+      color: $yellow;
+
+      @include screen-is(lg) {
+        font-size: 45px !important;
+        padding: 0rem;
+      }
+    }
+
+    @include screen-is(lg) {
+      flex-flow: column nowrap;
+      justify-content: start;
+      align-items: flex-start;
+      width: auto;
+      margin: 0rem 1rem;
+    }
+  }
+
+  @include screen-is(lg) {
+    width: auto;
+    margin: 0rem auto;
+  }
+}
+
 .navigation_menu {
   display: flex;
   flex-flow: row wrap;
@@ -164,13 +239,18 @@ body {
   padding: 0.8rem 0.5rem;
   font-weight: bold;
   font-size: 18px;
-  color: white;
-  border: none;
+  border: 4px solid $white;
   border-radius: 2px;
+  background-color: $white;
+  color: $paars;
+  transition: all 0.2s ease;
 
   @include screen-is(lg) {
     font-size: 21px;
   }
+}
+.inputs_button:hover {
+  background-color: $white-opacity !important;
 }
 .editword_form-wrapper, .addword_form-wrapper, .moveword_form-wrapper {
   width: 100%;
@@ -182,8 +262,8 @@ body {
   background-color: $background;
 
   @include screen-is(lg) {
-    width: calc(55% + 8px);
-    left: 21.9%;
+    width: calc(55% + 0px);
+    left: 22.3%;
     border-left: 4px solid $dark;
     border-right: 4px solid $dark;
   }
@@ -194,8 +274,12 @@ body {
   h1 {
     text-align: center;
     font-weight: bolder;
-    height: 50px;
+    height: 60px;
     color: $white;
+
+    @include screen-is(lg) {
+      height: 90px;
+    }
   }
 
   @include screen-is(lg) {
@@ -257,13 +341,16 @@ body {
   width: calc(100% - 1rem);
   padding: 0.8rem 0.5rem;
   border: none;
-  border-radius: 2px;
   border-bottom: 4px solid $dark;
   font-size: 21px;
+  transition: all 0.2s ease;
 
   @include screen-is(lg) {
     font-size: 25px;
   }
+}
+.inputs_field:focus {
+  border-bottom: 4px solid $white !important;
 }
 .category_select-label {
   padding: 0.8rem 0.5rem;
@@ -288,7 +375,6 @@ body {
   bottom: 0.5rem;
   right: 0.5rem;
   position: absolute;
-  background-color: $blue;
   border-radius: 2px;
   cursor: pointer;
 
@@ -301,25 +387,25 @@ body {
 }
 
 //Concerning the searchbar and the messagepopup
-section {
-  .search_input, .filter_input, .message_display {
-    width: calc(100% - 2rem);    
-    height: 50px;
-    border-bottom: 4px solid $dark;
-    background-color: $background;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 3;
-    padding: 1.5rem 1rem 0rem 1rem;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+.search_input, .filter_input, .message_display {
+  width: calc(100% - 2rem);    
+  height: 50px;
+  border-bottom: 4px solid $dark;
+  background-color: $background;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  padding: 1.5rem 1rem 0rem 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-size: 21px;
 
-    @include screen-is(lg) {
-      width: calc(55% - 2rem);
-      left: 22.5%;
-    }
+  @include screen-is(lg) {
+    width: calc(55% - 2rem);
+    left: 22.5%;
+    font-size: 25px;
   }
 }
 .search_input, .filter_input {
@@ -336,12 +422,6 @@ section {
     background-color: $background;
     border: none;
     color: white;
-  }
-  .search_submit, .filter_submit,
-  .search_close, .filter_close {
-    img {
-      // background-color: $blue;
-    }
   }
   .search_close, .filter_close {
     img {

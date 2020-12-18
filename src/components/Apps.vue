@@ -41,36 +41,41 @@
         <div class="apps_functionalities-wrapper">
           <div>
             <div class="apps_search" v-on:click="toggleSearch()">
-              <!-- <img
-                class="apps_search-icon"
-                src="../assets/search-24px.svg"
-                alt=""
-              /> -->
               <svg
                 class="apps_search-icon"
                 height="50"
                 viewBox="0 0 24 24"
                 width="50"
                 fill="white"
+                v-if="!searchopen"
               >
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path
                   d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                 />
               </svg>
+              <svg
+                class="apps_search-icon"
+                height="50"
+                viewBox="0 0 24 24"
+                width="50"
+                fill="white"
+                v-else
+              >
+                <path d="M0 0h24v24H0V0z" fill="#f6b22b" />
+                <path
+                  d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+                />
+              </svg>
             </div>
             <div class="apps_filter" v-on:click="toggleFilter()">
-              <!-- <img
-                class="apps_filter-icon"
-                src="../assets/filter_alt-24px.svg"
-                alt=""
-              /> -->
               <svg
                 class="apps_filter-icon"
                 height="50"
                 viewBox="0 0 24 24"
                 width="50"
                 fill="white"
+                v-if="!filteropen"
               >
                 <g>
                   <path d="M0,0h24 M24,24H0" fill="none" />
@@ -79,6 +84,19 @@
                   />
                   <path d="M0,0h24v24H0V0z" fill="none" />
                 </g>
+              </svg>
+              <svg
+                class="apps_filter-icon"
+                height="50"
+                viewBox="0 0 24 24"
+                width="50"
+                fill="white"
+                v-else
+              >
+                <path d="M0 0h24v24H0V0z" fill="#f6b22b" />
+                <path
+                  d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+                />
               </svg>
             </div>
             <div class="apps_add">
@@ -131,12 +149,18 @@ export default {
         },
         {
           id: 1,
-          item: "Dictionary",
-          img: "dictionary.svg",
-          path: "/dictionary"
+          item: "elma",
+          img: "e.svg",
+          path: "/elma"
         },
         {
           id: 2,
+          item: "vítek",
+          img: "v.svg",
+          path: "/vitek"
+        },
+        {
+          id: 3,
           item: "Why Ducky?",
           img: "question.svg",
           path: "/whyducky"

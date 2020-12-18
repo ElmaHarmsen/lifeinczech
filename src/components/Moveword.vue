@@ -19,8 +19,8 @@
       <div class="moveword_form-wrapper" v-show="wordFormOpened">
         <div class="moveword_form">
           <h1>
-            <small>Move word</small> <br />
-            {{ movingWord.translation }}
+            Move word<br />
+            <small>{{ movingWord.translation }}</small>
           </h1>
           <!-- <div class="moveword_pre-inputs">
           <h2>{{ movingWord.word }}</h2>
