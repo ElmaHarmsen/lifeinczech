@@ -1,6 +1,6 @@
 //Colors
 $yellow: #f6b22b;
-$blue: #4279C2;
+// $blue: #4279C2;
 $red: #FF3226;
 $orange: #FF7126;
 $dark: #16345C;
@@ -66,7 +66,7 @@ body {
 
 //Other reusabble stuff
 //Concerning page headers:
-.hotlist_content, .dictionary_content, .searchresult_words, .whyducky_content {
+.hotlist_content,.searchresult_words, .whyducky_content {
   margin: 100px 0rem 70px 0rem;
 
   h1 {

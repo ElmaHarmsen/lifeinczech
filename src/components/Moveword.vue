@@ -6,7 +6,7 @@
         height="50"
         viewBox="0 0 24 24"
         width="50"
-        fill="#E6E6E6"
+        fill="#16345C"
       >
         <path d="M0 0h24v24H0V0z" fill="#f6b22b" />
         <path

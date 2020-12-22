@@ -58,7 +58,7 @@
               <option>Food</option>
               <option>Things</option>
               <option>Politeness</option>
-              <option>Other</option>
+              <option>No Category</option>
             </select>
             <div class="radio">
               <input

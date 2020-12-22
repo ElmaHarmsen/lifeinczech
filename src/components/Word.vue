@@ -20,8 +20,8 @@
         v-if="worddetailsopen"
         v-bind:class="{ open: worddetailsopen }"
       >
+        <small class="word_details-word">{{ wordData.translation }}</small>
         <div class="requests">
-          <h1 class="word_details-word">{{ wordData.translation }}</h1>
           <div>
             <svg
               class="delete"
@@ -29,7 +29,7 @@
               height="50"
               viewBox="0 0 24 24"
               width="50"
-              fill="#E6E6E6"
+              fill="#16345C"
             >
               <path d="M0 0h24v24H0V0z" fill="#f6b22b" />
               <path
@@ -52,9 +52,10 @@
               v-on:fetch-words-again="$emit('fetch-words-again')"
             />
           </transition>
-        </div>
-        <div class="word_details-close" v-on:click="openDetails()">
-          <img src="../assets/close-24px.svg" alt="" />
+          <small class="word_details-word-lg">{{ wordData.translation }}</small>
+          <div class="word_details-close" v-on:click="openDetails()">
+            <img src="../assets/close-24px.svg" alt="" />
+          </div>
         </div>
       </div>
     </transition>
@@ -135,9 +136,9 @@ section {
     border: 4px solid $dark;
     transition: all 0.1s ease-in;
 
-    &.close {
-      border: 4px solid $white;
-    }
+    // &.close {
+    //   border: 4px solid $white;
+    // }
 
     @include screen-is(lg) {
       margin: 0rem;
@@ -180,7 +181,7 @@ section {
     transition: all 0.2s ease-in;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: auto 1fr;
 
     @include screen-is(lg) {
       bottom: unset;
@@ -191,18 +192,22 @@ section {
       border-top: none;
       border-bottom: 4px solid $dark;
     }
+    .word_details-word {
+      text-align: center;
+      grid-column: span 2;
+      padding-top: 1rem;
 
+      @include screen-is(lg) {
+        display: none;
+      }
+    }
     .requests {
-      cursor: pointer;
+      grid-column: span 2;
+      grid-row-start: 2;
 
       @include screen-is(lg) {
         display: flex;
-      }
-
-      .word_details-word {
-        @include screen-is(lg) {
-          display: none;
-        }
+        align-items: center;
       }
 
       svg {
@@ -223,22 +228,31 @@ section {
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
+      cursor: pointer;
 
       h1 {
         padding: 0rem 1.5rem;
       }
-    }
-    .word_details-close {
-      align-self: end;
-      justify-self: end;
-      position: relative;
-      bottom: 1rem;
-      right: 1.5rem;
 
       @include screen-is(lg) {
-        align-self: start;
-        bottom: unset;
+        margin: 1rem 0.5rem;
+      }
+    }
+    .word_details-word-lg {
+      display: none;
+
+      @include screen-is(lg) {
+        display: block;
+      }
+    }
+    .word_details-close {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1rem;
+
+      @include screen-is(lg) {
         top: 1rem;
+        right: 0rem;
       }
     }
     &.bounce-enter-active,

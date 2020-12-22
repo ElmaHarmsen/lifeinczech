@@ -149,15 +149,9 @@ export default {
         },
         {
           id: 1,
-          item: "elma",
-          img: "e.svg",
-          path: "/elma"
-        },
-        {
-          id: 2,
-          item: "vítek",
-          img: "v.svg",
-          path: "/vitek"
+          item: "Dictionary",
+          img: "dictionary.svg",
+          path: "/dictionary"
         },
         {
           id: 3,
@@ -329,14 +323,14 @@ section {
       .apps_search-icon,
       .apps_add-icon {
         border-radius: 2px;
-        background-color: $blue;
+        background-color: $dark;
         margin: 0.5rem auto;
       }
       .apps_add {
         width: 50px;
         height: 50px;
         margin: 0.5rem auto;
-        background-color: $blue;
+        background-color: $dark;
         border-radius: 2px;
         transition: 0.2s ease-in;
       }
@@ -369,7 +363,7 @@ section {
 
       .apps_logout {
         border-radius: 2px;
-        background-color: $blue;
+        background-color: $dark;
         margin: 0.5rem auto;
 
         svg {
@@ -416,7 +410,7 @@ section {
     width: 35px;
     height: 35px;
     padding: 0.5rem;
-    background-color: $blue;
+    background-color: $dark;
     border-radius: 2px;
     transition: all 0.2s;
   }
