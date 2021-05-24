@@ -2,11 +2,14 @@
   <div class="page_wrapper">
     <div v-if="!atLogin() && !atWhyDucky()" class="page_header-div">
       <img src="../assets/Ducky-3.png" alt="" />
+    </div>
+    <!-- <div v-if="!atLogin() && !atWhyDucky()" class="page_header-div">
+      <img src="../assets/Ducky-3.png" alt="" />
       <h1 class="page_header-h1">
         {{ currentUser.username }}'s <br />
         Ducky
       </h1>
-    </div>
+    </div> -->
     <div v-if="atLogin()" class="page_header-div">
       <img src="../assets/Ducky-3.png" alt="" />
       <h1 class="page_header-h1">

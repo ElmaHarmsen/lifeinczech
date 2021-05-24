@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Store from "@/store/index";
+// import Store from "@/store/index";
 
 Vue.use(VueRouter);
 
@@ -40,17 +40,17 @@ const router = new VueRouter({
 });
 
 //Routeguard: if the name of the route is not login, it will redirect to the login view
-router.beforeEach(async (to, from, next) => {
-  console.log(to.name);
-  if (to.name === "Login") return next();
-  console.log("Checking session now");
-  let isSessionValid = Store.state.validSession;
-  console.log("Valid before request: ", isSessionValid); // When the session is valid before the request, no request is made
-  if (!Store.state.validSession) await Store.dispatch("firstToFire");
-  isSessionValid = Store.state.validSession;
-  console.log("Valid after request: ", isSessionValid);
-  if (!isSessionValid) return next({ name: "Login" });
-  else return next();
-});
+// router.beforeEach(async (to, from, next) => {
+//   console.log(to.name);
+//   if (to.name === "Login") return next();
+//   console.log("Checking session now");
+//   let isSessionValid = Store.state.validSession;
+//   console.log("Valid before request: ", isSessionValid); // When the session is valid before the request, no request is made
+//   if (!Store.state.validSession) await Store.dispatch("firstToFire");
+//   isSessionValid = Store.state.validSession;
+//   console.log("Valid after request: ", isSessionValid);
+//   if (!isSessionValid) return next({ name: "Login" });
+//   else return next();
+// });
 
 export default router;
